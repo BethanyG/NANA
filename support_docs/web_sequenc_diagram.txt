@@ -1,0 +1,29 @@
+# -*- coding: utf-8 -*-
+"""
+Created on Thu Aug 13 22:29:48 2015
+
+@author: bethanygarcia
+"""
+
+title Recipe scrape, build, analyze sequence
+
+Participant Webapp
+Participant RecipeMaker
+Participant ManjRecipeMaker
+Participant Recipe
+Participant NutrientAnalyzer
+
+Webapp->RecipeMaker: RecipeMaker.parserecipie
+Note right of Webapp: pass recipe URL
+RecipeMaker->ManjRecipeMaker: New Instance
+RecipeMaker->ManjRecipeMaker: parseRecipe
+ManjRecipeMaker->ManjRecipeMaker: parseTitle
+ManjRecipeMaker->Recipe: setTitle
+ManjRecipeMaker->ManjRecipeMaker: parse...
+ManjRecipeMaker->Recipe: set...
+ManjRecipeMaker->RecipeMaker: return recipe
+Webapp->NutrientAnalyzer: analyze
+NutrientAnalyzer->NutrientAnalyzer: do db lookups and matching
+NutrientAnalyzer->NutrientAnalyzer: call recipe setters
+Note right of Webapp: pass recipe
+NutrientAnalyzer->Webapp: return recipe with analysis info

@@ -1,0 +1,14 @@
+.Python
+.spyderworkspace
+bin/
+hello_flask.pyc
+include/
+lib/
+man/
+pip-selfcheck.json
+share/
+*SECRET*
+*secret*
+alchemyapi*
+alchemyapi_python/
+
