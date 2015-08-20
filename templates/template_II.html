@@ -1,0 +1,52 @@
+{% extends 'base.html' %}
+	{% block title %}HBPC Careers: Apply{% endblock %}
+	{% block content %}
+
+	<h1>Like What You See?  Apply Today!</h1>
+	<div class="opening-text" id="careers-description" >
+		<p> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed in ante nisl. Aliquam congue dapibus ipsum vel congue. In finibus est luctus magna gravida, in imperdiet arcu malesuada. Quisque vitae commodo dolor. Nulla viverra dolor non lorem efficitur, ut porttitor mi luctus. Suspendisse potenti. Mauris egestas diam et felis finibus consectetur. Nulla lectus augue, malesuada fermentum dictum et, congue vitae tortor.</p>
+
+		<p>Mauris ligula enim, sollicitudin eget leo sit amet, tincidunt tristique orci. Aenean vitae mauris eu ipsum tincidunt ultrices. Nullam non nunc nec quam blandit imperdiet et id sapien. Integer consequat turpis lectus, eget vestibulum elit vehicula sit amet. Nulla facilisi. Pellentesque elit magna, lobortis in risus nec, tincidunt pulvinar lorem. Sed posuere risus vel condimentum placerat. In quis nibh lorem. Mauris blandit lorem at risus venenatis, eu congue ex lacinia. Quisque nunc sapien, blandit a lorem in, tristique pharetra ex.</p>
+
+		<p>Vivamus eleifend fermentum turpis in placerat. In eleifend, risus quis maximus sodales, diam lacus tempor libero, sit amet commodo massa nulla a nunc. Etiam pretium efficitur vehicula. Interdum et malesuada fames ac ante ipsum primis in faucibus. Quisque id tellus quis arcu porta dignissim a quis lacus. Praesent facilisis sapien cursus, consequat nisl sit amet, gravida velit. Maecenas vehicula facilisis varius. Interdum et malesuada fames ac ante ipsum primis in faucibus. Morbi commodo tortor sit amet interdum hendrerit. Etiam pellentesque pulvinar sem, nec posuere metus mollis quis. In sagittis, mi ac gravida gravida, massa dui ornare sem, ut dapibus nunc ligula in libero. Nunc nec turpis felis. Curabitur eget consectetur velit. Pellentesque nec mauris vel lectus pretium blandit ac sit amet augue. Mauris sodales dapibus ante, sit amet imperdiet leo iaculis accumsan.</p>
+	</div>
+
+	<div id="app-form-outline" class="app-form-style">
+
+		<h2 id="app-title"><span>Let Us Know a Little More About You!</span><br>Please fill out the fields below, and we'll get back to you shortly.</h2>
+		<br>
+		<form action="/application" id="new-applicant-form" method='post'>
+			<div class="section"><span>1</span>Name &amp; Salary Requirements</div>
+				
+				<div class="inner-wrap">		
+					{% for key, value in app_fields.iteritems() %} 
+					<label id="{{ value[1] }}">{{ key }}:  <input type="text" name="{{ value[0] }}"></label>
+					<br>
+					{% endfor %}
+				</div>
+			
+			<div class="section"><span>2</span>Job &amp; Resume</div>
+				
+				<div class="inner-wrap">
+					<label>Postion You're Applying For:</label>
+			                <select name="position" id="apply-position">
+			                    {% for position in positions %}
+			                        <option value="{{ position }}">{{ position }}</option>
+			                    {% endfor %}
+			                </select><br>
+			        <label>Resume In Text</label>
+			        <textarea name="resume" class="app-field-style" placeholder="Paste Resume Text Here"></textarea>
+			    </div>		  
+			
+			<div class="app-button">
+				<input type="submit" value="Submit Application">
+    			<input type="checkbox" id="privacy-checkbox">
+    			<span id="privacy-msg" name="privacy-msg">I agree to the Terms &amp; Policies of HBPC.</span>
+    		</div>
+	
+		</form>
+
+	</div>
+	<script>
+	</script>
+	{% endblock %}

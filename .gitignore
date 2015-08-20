@@ -11,4 +11,5 @@ share/
 *secret*
 alchemyapi*
 alchemyapi_python/
-
+*.pyc
+*.pyd

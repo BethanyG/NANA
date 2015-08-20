@@ -1,0 +1,129 @@
+html { 
+  background: url(images/shutterstock_295589810.jpg) no-repeat center center fixed; 
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  #opacity: 0.6;
+  #filter: alpha(opacity=40); /* For IE8 and earlier */
+}
+.opening-text{
+	width: 50%;
+	position: relative;
+/*	margin:90px 25px auto;
+*/	
+	margin-top: 10%;
+	left: 20%;
+	
+	font-size: 95%;
+	color: #23271C;
+	#D7D7D3
+	#AFC18A
+	#C2D699
+}
+
+h1 {
+	font-family: 'PT Sans Narrow', sans-serif;
+	position: relative;
+	top: 20%;
+	color: #D7D7D3;
+	/*margin:50px 30px auto;*/
+}
+
+p {
+	font-family: 'PT Sans Narrow', sans-serif;
+	font-size: 120%
+	color: #CCFFCC;
+	margin:20px 30px auto;
+
+}
+.app-form-style,
+.analysis{
+	position: relative;
+	left: 20%;
+	/*float: center;*/
+    width:45%;
+    padding:30px;
+    /*margin:20px 10px auto;
+	background: #E0E0D6;
+    #CCA35E;
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.13);
+    border: 3px solid #41341E;
+    #CCA35E;
+    #7A7A6B;*/
+}
+
+.app-form-style .inner-wrap,
+.analysis .inner-wrap{
+    /*position: relative;
+    padding: 10px;*/
+/*    background: #ECD8A6;
+*/    #CCCCB2;
+    border-radius: 6px;
+    margin-bottom: 15px;
+    margin-top: -40px;
+    width: 50%;
+}
+.app-form-style h2,
+.analysis h2{
+    /*background: #e2ae5a;*/
+    #CCCCB2;
+    padding: 20px 30px 15px 30px;
+    margin: -30px -30px 30px -30px;
+    border-radius: 10px 10px 0 0;
+    color: #7A7A6B;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.12);
+    font-family: 'PT Sans Narrow', sans-serif;
+    box-shadow: inset 0px 2px 2px 0px rgba(255, 255, 255, 0.17);
+}
+.app-form-style label{
+    display: block;
+    font: 90% Arial, Helvetica, sans-serif;
+    color: #7A7A6B;
+    margin-bottom: 15px;
+}
+.app-form-style input[type="text"],
+.app-form-style input[type="select"],
+.app-form-style textarea,
+.app-form-style select {
+    display: block;
+    width: 95%;
+    padding: 8px;
+    border-radius: 8px;
+    border: 2px solid #FFFFE0;
+    background: #FFFFE0;
+    font: 90% Arial, Helvetica, sans-serif;
+    color: #7A7A6B;
+}
+.app-button input[type="button"],
+.app-button input[type="submit"]{
+    background: #FFFFE0;
+    padding: 8px 15px 8px 15px;
+    border-radius: 10px;
+    color: #7A7A6B;
+    font-family: 'PT Sans Narrow', sans-serif;
+    box-shadow: inset 0px 2px 2px 0px rgba(255, 255, 255, 0.17);
+    border: 2px solid #7A7A6B;
+    font-size: 100%;
+    width: 50%;
+}
+.app-analysis{
+	font-family: 'PT Sans Narrow', sans-serif;
+	width: 50%;
+	font-size: 100%;
+	color: #7A7A6B;
+	margin:50px 30px auto;
+}
+footer {
+  text-align: right;
+  position: fixed;
+  bottom: 0;
+  right: 0;
+  height: 30px;
+  font-family: 'PT Sans Narrow', sans-serif;
+  font-weight: bold
+  color: #333300;
+  width: 80%;
+  }
+</html>

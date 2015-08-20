@@ -9,6 +9,10 @@ Thank you Bob for all your object-oriented counseling (even if it was Java centr
 Thank you StackOverflow! http://stackoverflow.com/questions/5615647/
 python-using-beautiful-soup-for-html-processing-on-specific-content
 
+http://stackoverflow.com/questions/3271478/check-list-of-words-in-another-string
+http://stackoverflow.com/questions/1436703/difference-between-str-and-repr-in-python
+
+
 Classes for creating Recipes and Ingredients.  
 Classes for returning a filled Recipe object.
 Sublclasses for custom webscrappers targeted for each website.  
@@ -26,8 +30,11 @@ Each parser :
 from __future__ import print_function, division
 from urllib2 import urlopen, urlparse
 from bs4 import BeautifulSoup, NavigableString, Tag, Comment
-import nltk, re, pprint
+import nltk
 import abc
+#import json
+import jsonpickle
+
 
 
 
@@ -41,15 +48,17 @@ class Recipe(object):
         self.cooktime = None
         
         '''eventually, this will contain an ingredient object,
-           populated by the parsers and the nutrient anayalizer class'''
+           populated by both the parsers and the nutrient anayalizer class'''
         self.ingredients = None 
 
         self.directions = None
         self.servings = None
-        
-    def __repr__():
-        #TO DO!!!
-        pass
+    
+    def __repr__(self):
+        return "%s" % (self.__dict__)
+    
+    def __str__(self):
+        return "%s" % (self.__dict__)
 
         
 class Ingredient(object):
@@ -62,9 +71,11 @@ class Ingredient(object):
            value per measured item, nutrient description, and nutrient units'''        
         self.nutrition_values = {}
     
-    def __repr__():
-        #TO DO!!
-        pass
+    def __repr__(self):
+        return "%s" % (self.__dict__)
+        
+    def __str__(self):
+        return "%s" % (self.__dict__)
     
         
 class RecipeMaker(object):
@@ -76,7 +87,7 @@ class RecipeMaker(object):
        decides which child class to call based on the hostname of the url passed in.       
        TO DO:  add case where url isn't recognized, or user hand-enters recipe.'''
     @classmethod        
-    def parse_recipe(self, url):
+    def parse_recipe(cls, url):
         maker_dict = {'www.manjulaskitchen.com':ManjulasMaker,
                       'www.101cookbooks.com':OneCookMaker,
                       'almostturkish.blogspot.com':AlmostTurkMaker}    
@@ -89,10 +100,38 @@ class RecipeMaker(object):
         #passes back to the caller what the called child class passes back
         return current_recipe
     
+    '''not sure this set of @staticmethods belongs here...but can't think of a 
+       better place for them.  They are all related to 'making' some sort of 
+       recipe or ingrediant for processing or display...so...'''
+    @staticmethod
+    def make_recipe_json(self, current_recipe):
+        recipe_json = jsonpickle.encode(current_recipe, keys=True)
+        
+        return recipe_json
+    
+    @staticmethod
+    def reconstitute_recipe_object(self, recipe_json):
+        current_recipe = jsonpickle.decode(recipe_json)
+        
+        return current_recipe
+        
+    @staticmethod
+    def make_ingredent_json(self, Ingredient):
+        ingredient_json = jsonpickle.encode(Ingredient)
+        
+        return ingredient_json
+        
+    @staticmethod
+    def reconstitute_ingredent_object(self, ingredient_json):
+        current_ingredient = jsonpickle.decode(ingredient_json)
+        
+        return current_ingredient
+            
     #declaring an abstract method that must be implemented in all child classes
     @abc.abstractmethod
     def process_url(self):
-        pass
+        '''all child makers need to implement this as their 
+            main method for processing an in comming recipe url'''
     
     #init for this class & all children of this class (children have no init)
     def __init__(self, url):
@@ -102,7 +141,9 @@ class RecipeMaker(object):
 
     
 class OneCookMaker(RecipeMaker):
-        
+    '''Parser for 101cookbooks.com....one of the most dificlut sites to parse.  
+       Great test for vague and non-standar language.'''
+       
     def process_url(self):
         #open the URL, create a BeautfulSoup object, and create an object from the recipe div        
         html = urlopen(self.url) 
@@ -159,6 +200,7 @@ class OneCookMaker(RecipeMaker):
 
               
 class ManjulasMaker(RecipeMaker):
+    '''parser for manjlaskitchen.com.'''
     def process_url(self):
         html = urlopen(self.url)
         bsObj = BeautifulSoup(html, 'html5lib')        
@@ -166,7 +208,7 @@ class ManjulasMaker(RecipeMaker):
         
         additional_supplies = None                 
         
-        self.maker_recipe.title = 'MANJULA_PLACEHOLDER'
+        self.maker_recipe.title = bsObj.find("h1", {"class":"entry-title"}).getText().strip()
         self.maker_recipe.sourceurl = self.url
 
         descripts = [s.getText().strip() for s in divList.findAll('p')]
@@ -191,27 +233,62 @@ class ManjulasMaker(RecipeMaker):
                 continue
             
         if len(ingreds) > 1:
-            self.maker_recipe.ingredients = ingreds[0]
+            self.maker_recipe.ingredients = [Ingredient(item) for item in ingreds[0].split('\n')]
+            #self.maker_recipe.ingredients = ingreds[0]
             additional_supplies = ingreds[1:]
             self.maker_recipe.description += " " + additional_supplies
             
-        else: self.maker_recipe.ingredients = ingreds[0]  
+        else: self.maker_recipe.ingredients = [Ingredient(item) for item in ingreds[0].split('\n')]
         
         return self.maker_recipe
        
 class AlmostTurkMaker(RecipeMaker):
-    def __init__(self, url):
-        pass
-    
-  
-current_recipe = RecipeMaker.parse_recipe("http://www.101cookbooks.com/archives/avocado-asparagus-tartine-recipe.html")
+    '''parser for almostturkish.com.  Closer to almostmademeinsane.com.
+       Still not working correctly.  Sigh.'''
+       
+       
+class GourmetMaker(RecipeMaker):
+    '''parser for gourmet.com.  More or less working...just don't choose 'old'
+       (pre 2007) recipes!  Isn't it lovely when site formats change??'''
+    html = urlopen("http://www.gourmet.com/recipes/2000s/2006/12/pizza-with-fontina-proscuitto-and-arugula.html") 
+    bsObj = BeautifulSoup(html, 'html5lib')
+            
+    recipe = bsObj.find("div", {"class":"recipe"})
+            
+    if bsObj.find("h1", {"class":"header"}).getText():
+        title = bsObj.find("h1", {"class":"header"}).string
+    if bsObj.find("div", {"class":"text"}):
+        title = bsObj.find("div", {"class":"text"}).string
+            
+        
+    photo = bsObj.find("div", {"class":"w"}).img.attrs['src']
+
+    if bsObj.find("div", {"class":"introduction"}):
+        description = bsObj.find("div", {"class":"introduction"}).string
+    if bsObj.find("div", {"class":"text"}):
+        description = [''.join(item.getText().split('<em>')) for item in bsObj.find("div", {"class":"text"}).contents]
+        description = description[0]
+
+    ingreds_list = [''.join(item.getText().split('\n')) for item in bsObj.findAll("div", {"class":"ingredient-set"})]
+    ingredients = [item.strip() for item in ingreds_list]
+    #directions = ''.join(bsObj.find("div", {"class":"preparation"})
+
+
+#current_recipe = RecipeMaker.parse_recipe("http://www.101cookbooks.com/archives/avocado-asparagus-tartine-recipe.html")
 #current_recipe = RecipeMaker.parse_recipe("http://www.manjulaskitchen.com/2014/04/09/carrot-ginger-soup/")
 
-print ('OBJECT RECIEIVED!!!\n' + current_recipe.title + '\n')
+#print ('OBJECT RECIEIVED!!!\n' + current_recipe.title + '\n')
 
-for item in current_recipe.ingredients:
-    print(item.source_line)
+#for item in current_recipe.ingredients:
+#    print(item.source_line)
 
-print ('\n')
-print (current_recipe.directions)
-print (current_recipe.description)
+#print ('\n')
+#print (current_recipe.directions)
+#print (current_recipe.description)
+
+#print (json.dumps((vars(current_recipe)), sort_keys=True, indent=4))
+
+#frozentest = jsonpickle.encode(current_recipe, keys=True)
+#thawedtest = jsonpickle.decode(frozentest)
+#assert current_recipe.title == thawedtest.title
+#print(frozentest)

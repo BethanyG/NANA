@@ -11,7 +11,7 @@ from urllib2 import urlopen
 from bs4 import BeautifulSoup
 import re
 
-html = urlopen("http://www.manjulaskitchen.com/2014/04/09/carrot-ginger-soup/") 
+html = urlopen('http://www.manjulaskitchen.com/2015/08/14/eggless-omelet-vegan/') 
 bsObj = BeautifulSoup(html, 'html5lib')
 
 divList = bsObj.find("div", {"class":"content-wrapper"})
@@ -82,4 +82,6 @@ print additional_supplies
 #recipie_substitutions = directions[2]
 
 
-
+#"http://www.manjulaskitchen.com/2014/04/09/carrot-ginger-soup/"
+#'http://www.manjulaskitchen.com/2015/07/14/paneer-bhurji/'
+#'http://www.manjulaskitchen.com/2015/08/14/eggless-omelet-vegan/'
