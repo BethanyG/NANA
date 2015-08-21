@@ -33,5 +33,11 @@
 		</div>
 	</div>
 	<script>
+	var recipeDetails = {{ recipe_details|safe }}
+	
+	for (var r in recipeDetails) {
+    console.log("THIS RECIPE ITEM IS::", r, recipeDetails[r]);
+	}
+	// console.log(recipeDetails);
 	</script>
 	{% endblock %}

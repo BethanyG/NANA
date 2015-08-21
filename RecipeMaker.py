@@ -104,25 +104,25 @@ class RecipeMaker(object):
        better place for them.  They are all related to 'making' some sort of 
        recipe or ingrediant for processing or display...so...'''
     @staticmethod
-    def make_recipe_json(self, current_recipe):
+    def make_recipe_json(current_recipe):
         recipe_json = jsonpickle.encode(current_recipe, keys=True)
         
         return recipe_json
     
     @staticmethod
-    def reconstitute_recipe_object(self, recipe_json):
+    def reconstitute_recipe_object(recipe_json):
         current_recipe = jsonpickle.decode(recipe_json)
         
         return current_recipe
         
     @staticmethod
-    def make_ingredent_json(self, Ingredient):
+    def make_ingredent_json(Ingredient):
         ingredient_json = jsonpickle.encode(Ingredient)
         
         return ingredient_json
         
     @staticmethod
-    def reconstitute_ingredent_object(self, ingredient_json):
+    def reconstitute_ingredent_object(ingredient_json):
         current_ingredient = jsonpickle.decode(ingredient_json)
         
         return current_ingredient
@@ -276,7 +276,9 @@ class GourmetMaker(RecipeMaker):
 
 #current_recipe = RecipeMaker.parse_recipe("http://www.101cookbooks.com/archives/avocado-asparagus-tartine-recipe.html")
 #current_recipe = RecipeMaker.parse_recipe("http://www.manjulaskitchen.com/2014/04/09/carrot-ginger-soup/")
-
+#recipe_details = RecipeMaker.make_recipe_json(current_recipe)
+#print(recipe_details)
+#print(current_recipe)
 #print ('OBJECT RECIEIVED!!!\n' + current_recipe.title + '\n')
 
 #for item in current_recipe.ingredients:
@@ -292,3 +294,4 @@ class GourmetMaker(RecipeMaker):
 #thawedtest = jsonpickle.decode(frozentest)
 #assert current_recipe.title == thawedtest.title
 #print(frozentest)
+

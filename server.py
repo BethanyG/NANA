@@ -10,6 +10,7 @@ from flask import Flask, render_template, redirect, request, flash, session, url
 from flask_debugtoolbar import DebugToolbarExtension
 from model import connect_to_db, db
 from RecipeMaker import *
+#import RecipeMaker
 
 app = Flask(__name__)
 
