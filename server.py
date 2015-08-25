@@ -3,12 +3,16 @@
 Created on Mon Aug 17 19:44:01 2015
 
 @author: bethanygarcia
+
+Everythng was broken until this post:
+http://iswwwup.com/t/087c7349b801/python-typeerror-basequery-object-
+is-not-callable-flask.html
 """
 
 from jinja2 import StrictUndefined
 from flask import Flask, render_template, redirect, request, flash, session, url_for, jsonify
 from flask_debugtoolbar import DebugToolbarExtension
-from model import connect_to_db, db
+from model import *
 from RecipeMaker import *
 #import RecipeMaker
 
@@ -51,14 +55,48 @@ def new_analysis_requested():
     return render_template("analysis_url.html", recipe=recipe, recipe_details=recipe_details)
 
 
+@app.route("/test", methods=['GET'])
+def test_query():
+    QUERY = ''' 
+        SELECT
+                	food_descriptions.ndb_no, food_descriptions.long_desc, 
+                   weights.amount, weights.measurement_desc, weights.gram_weight, 
+                   similarity(food_descriptions.long_desc, 'asparagus') AS sim_score, 
+                   similarity(weights.measurement_desc, 'spear') AS sim_score_measure
+        FROM
+        		food_descriptions
+        JOIN
+        		weights ON food_descriptions.ndb_no = weights.ndb_no
+        WHERE
+        		food_descriptions.long_desc % 'asparagus' 
+        		AND 
+        			similarity(food_descriptions.long_desc, 'asparagus') > 0.35
+        		AND 
+        			similarity(weights.measurement_desc, 'spear') > 0.035'''
+           
+    test = db.session.query(Food_Descriptions).from_statement(QUERY)
+
+    display = {}
+    for item in test:
+        display[item.ndb_no] = item.long_desc
+    
+    return jsonify (display)
+
 if __name__ == "__main__":
     # We have to set debug=True here, since it has to be True at the point
     # that we invoke the DebugToolbarExtension
     app.debug = True
-
     connect_to_db(app)
-
+    
     # Use the DebugToolbar
     DebugToolbarExtension(app)
 
     app.run()
+    
+    
+    
+    
+
+
+
+
