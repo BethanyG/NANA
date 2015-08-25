@@ -65,6 +65,10 @@ class Ingredient(object):
     def __init__(self, source_line):
         self.source_line = source_line
         self.ndb_no = None
+        self.ndb_alternates = None
+        self.quantity = None
+        self.measure = None
+        self.search_term = None
         
         '''result of the nutrient anaylizer class calling queries against the 
            USDA DB. KEY = nutrient_no, VALUE = list containing
@@ -274,7 +278,7 @@ class GourmetMaker(RecipeMaker):
     #directions = ''.join(bsObj.find("div", {"class":"preparation"})
 
 
-#current_recipe = RecipeMaker.parse_recipe("http://www.101cookbooks.com/archives/avocado-asparagus-tartine-recipe.html")
+current_recipe = RecipeMaker.parse_recipe("http://www.101cookbooks.com/archives/avocado-asparagus-tartine-recipe.html")
 #current_recipe = RecipeMaker.parse_recipe("http://www.manjulaskitchen.com/2014/04/09/carrot-ginger-soup/")
 #recipe_details = RecipeMaker.make_recipe_json(current_recipe)
 #print(recipe_details)
