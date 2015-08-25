@@ -6,6 +6,7 @@ Created on Mon Aug 24 17:22:31 2015
 
 Not even close to possible without the tutorials and tips listed here:
 http://www.postgresonline.com/journal/archives/169-Fuzzy-string-matching-with-Trigram-and-Trigraphs.html
+http://stackoverflow.com/questions/11249635/finding-similar-strings-with-postgresql-quickly
 
 Equally impossible without the tips here and here:
 http://stackoverflow.com/questions/12413705/parsing-natural-language-ingredient-quantities-for-recipes
