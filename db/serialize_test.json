@@ -1,0 +1,77 @@
+{  
+    "py/object":"__main__.Recipe",
+    "sourceurl":"http://www.101cookbooks.com/archives/avocado-asparagus-tartine-recipe.html",
+    "description":"You can actually slice each tartine into four or five bite-sized pieces for a nice appetizer option as well.",
+    "ingredients":[  
+        {  
+            "py/object":"__main__.Ingredient",
+            "ndb_no":null,
+            "source_line":"4 toasted slabs of whole grain bread, rubbed with olive oil and a bit of garlic",
+            "nutrition_values":{  
+
+            }
+        },
+        {  
+            "py/object":"__main__.Ingredient",
+            "ndb_no":null,
+            "source_line":"1/2 tablespoon olive oil",
+            "nutrition_values":{  
+
+            }
+        },
+        {  
+            "py/object":"__main__.Ingredient",
+            "ndb_no":null,
+            "source_line":"1/2 lb of asparagus stalks, trimmed roughly the length of your bread",
+            "nutrition_values":{  
+
+            }
+        },
+        {  
+            "py/object":"__main__.Ingredient",
+            "ndb_no":null,
+            "source_line":"1 clove garlic, thinly sliced",
+            "nutrition_values":{  
+
+            }
+        },
+        {  
+            "py/object":"__main__.Ingredient",
+            "ndb_no":null,
+            "source_line":"1/2 teaspoon caraway seeds",
+            "nutrition_values":{  
+
+            }
+        },
+        {  
+            "py/object":"__main__.Ingredient",
+            "ndb_no":null,
+            "source_line":"1 avocado, pitted and smashed",
+            "nutrition_values":{  
+
+            }
+        },
+        {  
+            "py/object":"__main__.Ingredient",
+            "ndb_no":null,
+            "source_line":"a couple handfuls of arugula, tossed in a bit of olive oil",
+            "nutrition_values":{  
+
+            }
+        },
+        {  
+            "py/object":"__main__.Ingredient",
+            "ndb_no":null,
+            "source_line":"a handful of toasted pepitas, or almonds, or sunflower seeds",
+            "nutrition_values":{  
+
+            }
+        }
+    ],
+    "photo":null,
+    "title":"Avocado Asparagus Tartine",
+    "cooktime":"5 min",
+    "servings":null,
+    "directions":"A few minutes before you want to eat heat the olive oil in a large skillet over medium-high heat.\nWhen hot add the asparagus, and a pinch of salt and cook for about thirty seconds.\nAdd the garlic and caraway, and cook another thirty seconds, or until the spears are a vibrant green.\nRemove from heat, and assembly the tartines.\nGive each piece of bread a generous slather of mashed avocado.\nTop that with a bit of arugula, a few asparagus spears, and a generous sprinkling of pepitas or seeds.",
+    "preptime":"5 min"
+}

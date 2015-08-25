@@ -1,0 +1,35 @@
+OBJECT RECIEIVED!!!
+Avocado Asparagus Tartine
+
+{'sourceurl': 'http://www.101cookbooks.com/archives/avocado-asparagus-tartine-recipe.html', 
+  'description': u'You can actually slice each tartine into four or five bite-sized pieces for a nice appetizer option as well.',
+  'title': u'Avocado Asparagus Tartine', 
+  'photo': None, 
+
+  'ingredients':
+  [<class '__main__.Ingredient'>({'ndb_no': None, 'nutrition_values': {}, 'source_line': u'4 toasted slabs of whole grain bread, rubbed with olive oil and a bit of garlic'}),
+  <class '__main__.Ingredient'>({'ndb_no': None, 'nutrition_values': {}, 'source_line': u'1/2 tablespoon olive oil'}),
+  <class '__main__.Ingredient'>({'ndb_no': None, 'nutrition_values': {}, 'source_line': u'1/2 lb of asparagus stalks, trimmed roughly the length of your bread'}), 
+  <class '__main__.Ingredient'>({'ndb_no': None, 'nutrition_values': {}, 'source_line': u'1 clove garlic, thinly sliced'}),
+  <class '__main__.Ingredient'>({'ndb_no': None, 'nutrition_values': {}, 'source_line': u'1/2 teaspoon caraway seeds'}), 
+  <class '__main__.Ingredient'>({'ndb_no': None, 'nutrition_values': {}, 'source_line': u'1 avocado, pitted and smashed'}),
+  <class '__main__.Ingredient'>({'ndb_no': None, 'nutrition_values': {}, 'source_line': u'a couple handfuls of arugula, tossed in a bit of olive oil'}),
+  <class '__main__.Ingredient'>({'ndb_no': None, 'nutrition_values': {}, 'source_line': u'a handful of toasted pepitas, or almonds, or sunflower seeds'})],
+
+  'cooktime': u'5 min', 
+  'servings': None, 
+
+  'directions':
+  u'A few minutes before you want to eat heat the olive oil in a large skillet over medium-high heat.\n
+  When hot add the asparagus, and a pinch of salt and cook for about thirty seconds.\n
+  Add the garlic and caraway, and cook another thirty seconds, or until the spears are a vibrant green.\n
+  Remove from heat, and assembly the tartines.\n
+  Give each piece of bread a generous slather of mashed avocado.\n
+  Top that with a bit of arugula, a few asparagus spears, and a generous sprinkling of pepitas or seeds.', 
+
+  'preptime': u'5 min'}
+  
+  
+  
+  
+  
