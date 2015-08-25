@@ -7,8 +7,9 @@ Created on Tue Aug 18 21:23:21 2015
 
 import os
 from flask_sqlalchemy import SQLAlchemy
-#from sqlalchemy import MetaData, Table, create_engine, Column, Integer, Numeric, db.String, text
-#from sqlalchemy.ext.declarative import declarative_base
+from sqlalchemy.dialects.postgresql import JSON
+from sqlalchemy.sql import text
+from sqlalchemy.ext.serializer import loads, dumps
 
 #Base = declarative_base()
 #metadata = Base.metadata
@@ -39,6 +40,10 @@ class Food_Descriptions(db.Model):
     pro_factor = db.Column(db.Numeric)
     fat_factor = db.Column(db.Numeric)
     cho_factor = db.Column(db.Numeric)
+    
+    ''' category_id = db.Column(db.String(5), db.ForeignKey('ndb_no'))
+    category = db.relationship('ndb_no',
+    backref=db.backref('ndb_no', lazy='dynamic'))'''
 
 
 class Food_Group_Descriptions(db.Model):
@@ -161,13 +166,11 @@ class Weights(db.Model):
 
 def connect_to_db(app):
     """Connect the dat(db.Model to our Flask app."""
-    app.config['SQLALCHEMY_DAT(db.Model_URI'] = 'postgres://bethanygarcia@localhost/USDA_Nutrition'
+    app.config['SQLALCHEMY_DATABASE_URI'] = 'postgres://bethanygarcia@localhost/USDA_Nutrition'
     #bind here for second user db uri
-    db.init_app(app)
     db.app = app
-    #db.Model.get_binds(app=None)
-    #db.Model.get_tables_for_bind(bind=None)
-    
+    db.init_app(app)
+   
 
 if __name__ == "__main__":
     # As a convenience, if we run this module interactively, it will leave
@@ -177,5 +180,6 @@ if __name__ == "__main__":
     connect_to_db(app)
     print "Connected to DB."
     
+
 #for item in Food_Descriptions.query(Food_Descriptions.ndb_no, Food_Descriptions.short_desc):
 #        print item
