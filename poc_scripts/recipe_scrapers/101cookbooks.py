@@ -7,7 +7,7 @@ Created on Mon Aug 10 00:52:00 2015
 from __future__ import print_function, division
 from urllib2 import urlopen
 from bs4 import BeautifulSoup, NavigableString, Tag, Comment
-#import nltk, re, pprint
+import nltk, re, pprint
 #from nltk import word_tokenize
 #from nltk import TreebankWordTokenizer
 
@@ -44,10 +44,14 @@ for item in recipie_directions:
 
 recipie_directions = " ".join(recipie_directions)
 
-
-
+for line in recipie_ingreds:
+    new_line = nltk.tokenize.word_tokenize(line)
+    quantity = new_line[0]
+    measure = new_line[1]
+    print (quantity + ' :: ' + measure)
+print('\n\n')
 print(recipie_ingreds)
-print(recipie_directions)
+#print(recipie_directions)
 
 
 
