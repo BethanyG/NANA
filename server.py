@@ -41,7 +41,7 @@ def start_here():
                'http://www.101cookbooks.com/archives/thai-zucchini-soup-recipe.html',
                'http://www.101cookbooks.com/archives/mung-yoga-bowl-recipe.html']
 
-    return render_template("template_I_vi.html", recipes=recipes)
+    return render_template("homepage_template.html", recipes=recipes)
 
 
 @app.route("/analysis-url", methods=['GET', 'POST'])
