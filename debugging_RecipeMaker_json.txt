@@ -1,3 +1,5 @@
+Evidently, jsonpickle can't handle all that much recursion.  No Jsonifier can without some tricks.  I'll need to back up a pace or two and fix this, but I can't at the moment.  SO. Frustrating!
+
 
 NO ERROR
 {
