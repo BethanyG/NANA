@@ -50,8 +50,8 @@ def set_ingredients(current_recipe):
                 else: search_term = chunk_list[0]
                 item.search_term = str(search_term)
 
-
-def perform_search(current_recipe):
+    return current_recipe
+#def perform_search(current_recipe):
     
 
 
@@ -73,8 +73,8 @@ def perform_search(current_recipe):
 #print chunk_list_II
 #print current_recipe.ingredients[0].quantity
     
-for ingredient in current_recipe.ingredients:
-    print(ingredient)
+#for ingredient in current_recipe.ingredients:
+#    print(ingredient)
 #    print('QUANTITY::: ' + ingredient.quantity)
 #    print('MEASURE::: ' + ingredient.measure)
 #    print('SEARCH TERM:: ' + ingredient.search_term)
