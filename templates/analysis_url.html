@@ -2,42 +2,103 @@
 {% extends 'base.html' %}
 	{% block title %}Here's the Rundown{% endblock %}
 	{% block content %}
+<div class="row">
+	<div class="col-xs-4 nopadding">
+		<div class="nutritionLabel span4" , id="analysis-results">
+			<em>{{ recipe }}</em>
+	    <table class="table" id="details1">
+	        <thead>
+	            <tr>
+	                <th class="recipe-details" id="recipe-title">Title Here</th>
+	            </tr>
+	        </thead>
 
-	<div id="analysis-results" class="analysis">
-				<br>
-				<br>
-				<br>
-				<br>
-				<br>
-				<br>
-				<br>
-				<br>
-				<br>
-				<br>
-				<br>
-				<br>
-		<h2 id="analysis-title"><span>Analysis Complete!</span><br>Here's NANA's Best Guess:</h2>
-		<br>
-		<div id="analysis-inner-wrap" class-"inner-wrap">
+	        <tbody>
+	            <tr>
+	                <td class-"recipe-details" id="recipe-description">
+	                <em>Pellentesque consequat porttitor nunc, in consectetur justo ullamcorper sed.  Maecenas egestas erat ac ante pulvinar lobortis.</em></td>
+	            </tr>
+	        </tbody>
+	    </table>
 
-				RECIPE:: {{ recipe }}
-				<br>
-		        THIS IS WHERE IT WOULD GO IF I COULD MAKE IT WORK!
-				<br>
-				<p>
-				Pellentesque consequat porttitor nunc, in consectetur justo ullamcorper sed. Maecenas egestas erat ac ante pulvinar lobortis. Sed ac metus eu leo vehicula mattis. Vivamus tempus mi dolor, a malesuada dui pellentesque et. Pellentesque et libero tempor, dictum leo faucibus, vulputate odio. Mauris imperdiet nibh maximus, interdum libero sed, tristique mi. Sed elementum nunc mauris, a maximus diam dapibus eu. Pellentesque ac mollis quam.</p>
-				<br>
-				<br>
-				<br>
-				<br>
+		<table class="table">
+		        <thead>
+		            <tr>
+		                <th>Ingredients</th>
+		            </tr>
+		        </thead>
+
+		        <tbody>
+		            <tr>
+		                <td>Sed ac metus eu leo vehicula mattis.</td>
+		            </tr>
+
+		            <tr>
+		                <td>Sed ac metus eu leo vehicula mattis.</td>
+		            </tr>
+
+		            <tr>
+		                <td>Sed ac metus eu leo vehicula mattis.</td>
+		            </tr>
+		            <tr>
+		                <td>Sed ac metus eu leo vehicula mattis.</td>
+		            </tr>
+		            <tr>
+		                <td>Sed ac metus eu leo vehicula mattis.</td>
+		            </tr>
+		            <tr>
+		                <td>Sed ac metus eu leo vehicula mattis.</td>
+		            </tr>
+		            <tr>
+		                <td>Sed ac metus eu leo vehicula mattis.</td>
+		            </tr>
+		            <tr>
+		                <td>Sed ac metus eu leo vehicula mattis.</td>
+		            </tr>
+		            <tr>
+		                <td>Sed ac metus eu leo vehicula mattis.</td>
+		            </tr>
+		            <tr>
+		                <td>Sed ac metus eu leo vehicula mattis.</td>
+		            </tr>
+
+		        </tbody>
+		    </table>
+		<table class="table">
+		        <thead>
+		            <tr>
+		                <th>Directions</th>
+		            </tr>
+		        </thead>
+
+		        <tbody>
+		            <tr>
+		                <td>
+		                Maecenas egestas erat ac ante pulvinar lobortis. Sed ac metus eu leo vehicula mattis. Vivamus tempus mi dolor, a malesuada dui pellentesque et. Pellentesque et libero tempor.  Pellentesque consequat porttitor nunc, in consectetur justo ullamcorper sed. Maecenas egestas erat ac ante pulvinar lobortis.  Vivamus tempus mi dolor, a malesuada dui pellentesque et. 
+		                </td>
+		            </tr>
+		            <tr>
+		            	<td>
+		            	<b>Serves </b>4-6
+		            	</td>
+		            </tr>
+		        </tbody>
+		    </table>
 		</div>
 	</div>
+	
+	<div class="col-xs-4 nopadding">
+		<div class="nutritionLabel span4">Pellentesque consequat porttitor nunc, in consectetur justo ullamcorper sed. Maecenas egestas erat ac ante pulvinar lobortis. Sed ac metus eu leo vehicula mattis. Vivamus tempus mi dolor, a malesuada dui pellentesque et. Pellentesque et libero tempor,
+		</div>
+	</div>
+	<div class="col-xs-4 nopadding">
+		<div class="nutritionLabel span4">Pellentesque consequat porttitor nunc, in consectetur justo ullamcorper sed. Maecenas egestas erat ac ante pulvinar lobortis. Sed ac metus eu leo vehicula mattis. Vivamus tempus mi dolor, a malesuada dui pellentesque et. Pellentesque et libero tempor,
+		</div>
+	</div>
+</div>
 	<script>
 	var recipeDetails = {{ recipe_details|safe }}
-	
-	for (var r in recipeDetails) {
-    console.log("THIS RECIPE ITEM IS::", r, recipeDetails[r]);
-	}
-	// console.log(recipeDetails);
+	document.getElementById("recipe-title").innerHTML = recipeDetails.title;
+	document.getElementById("recipe-description").innerHTML = '<em>' + recipeDetails.description + '</em>';
 	</script>
 	{% endblock %}
