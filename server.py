@@ -29,9 +29,9 @@ app.jinja_env.undefined = StrictUndefined
 @app.route('/', methods=['GET', 'POST'])
 def start_here():
 
-    recipes = ['http://www.manjulaskitchen.com/2014/04/09/carrot-ginger-soup/',
-               'http://www.manjulaskitchen.com/2015/07/14/paneer-bhurji/',
-               'http://www.manjulaskitchen.com/2015/08/14/eggless-omelet-vegan/',
+    recipes = ['http://www.manjulaskitchen.com/2014/04/09/carrot-ginger-soup',
+               'http://www.manjulaskitchen.com/2015/07/14/paneer-bhurji',
+               'http://www.manjulaskitchen.com/2015/08/14/eggless-omelet-vegan',
                'http://www.101cookbooks.com/archives/cocagne-bean-artichoke-salad-recipe.html',
                'http://www.101cookbooks.com/archives/caramelized-fennel-on-herbed-polenta-recipe.html',
                'http://www.101cookbooks.com/archives/summer-berry-crisp-recipe.html',
@@ -45,9 +45,11 @@ def start_here():
 
 
 @app.route("/analysis-url", methods=['GET', 'POST'])
+#Bug:  When POST is used, RecipeMaker.parse_recipe is called twice in a row, and I can't
+#figure out why!!!
 def new_analysis_requested():
     
-    recipe = request.form.get('recipe-urls') 
+    recipe = request.args.get('recipe-urls')
     
     current_recipe = RecipeMaker.parse_recipe(recipe)
     recipe_details = RecipeMaker.make_recipe_json(current_recipe)
