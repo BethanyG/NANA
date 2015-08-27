@@ -27,33 +27,87 @@ from pattern.en import pluralize, singularize
 #from pattern.search import search, taxonomy
 #from pattern.search import match
 from RecipeMaker import *
+from server import app
 from model import *
+    
+connect_to_db(app)
 
-current_recipe = RecipeMaker.parse_recipe("http://www.101cookbooks.com/archives/avocado-asparagus-tartine-recipe.html")
+current_recipe = RecipeMaker.parse_recipe("http://www.manjulaskitchen.com/2015/07/14/paneer-bhurji")
 
 def set_ingredients(current_recipe):
     
     for item in current_recipe.ingredients:
             #set 'dumb' quantity by assuming the first item is quanity
             item.quantity = nltk.tokenize.word_tokenize(item.source_line)[0]
-            #make parse tree out of ingredient line            
-            sentence = parsetree(item.source_line, chunks=True, lemmata=True)
-            
-            for s in sentence:
-                #filter all the NP (noun phrases) into a chunk list
-                chunk_list = [singularize(chunk.string) for chunk in s.chunks if chunk.type =='NP']
-                #set the best guess on measurement                
-                item.measure = chunk_list[0]            
-                #set best guess on db search term
-                if len(chunk_list) > 1:
-                    search_term = chunk_list[1]
-                else: search_term = chunk_list[0]
-                item.search_term = str(search_term)
-
-    return current_recipe
-#def perform_search(current_recipe):
+            print item.quantity
+            #set 'dumb measurement unit by assuming the second item is units            
+            item.measure = nltk.tokenize.word_tokenize(item.source_line)[1]
+            print item.measure
+            #set 'dumb search term by assuming he third item is the ingredient            
+            item.search_term = nltk.tokenize.word_tokenize(item.source_line)[2]
+            print item.search_term 
     
+    term = item.search_term
+    measure = item.measure
+ 
+    QUERY = "SELECT\
+                food_descriptions.ndb_no, food_descriptions.long_desc, \
+                weights.amount, weights.measurement_desc, weights.gram_weight,\
+                similarity(food_descriptions.long_desc, '%%%s%%') AS sim_score,\
+                similarity(weights.measurement_desc, '%%%s%%') AS sim_score_measure\
+            FROM food_descriptions\
+            JOIN\
+                weights ON food_descriptions.ndb_no = weights.ndb_no\
+            WHERE\
+                food_descriptions.long_desc %% '%%%s%%' \
+            	AND \
+                similarity(food_descriptions.long_desc, %%%s%%') > 0.35 \
+            	AND \
+                similarity(weights.measurement_desc, '%%%s%%') > 0.035" % (term, measure, term, term, measure)
 
+    
+    test = db.session.query(Food_Descriptions).from_statement(QUERY)
+    
+    for item in test:
+        print item
+ 
+    return current_recipe
+ 
+ 
+ 
+ 
+'''
+***************Someday, I will get this working.  Today is not that day***************  
+
+#now make parse tree out of ingredient line            
+sentence = parsetree(item.source_line, chunks=True, lemmata=True)
+
+for s in sentence:
+    #filter all the NP (noun phrases) into a chunk list
+    chunk_list = [singularize(chunk.string) for chunk in s.chunks if chunk.type =='NP']
+    print(chunk_list)                
+    #set the best guess on measurement                
+    #item.measure = chunk_list[0]            
+    #set best guess on db search term
+    if len(chunk_list) > 1:
+        search_term = chunk_list[1]
+    else: search_term = chunk_list[0]
+    item.search_term = str(search_term)
+'''
+
+#return current_recipe
+#def perform_search(current_recipe):
+
+set_ingredients(current_recipe)
+
+for item in current_recipe.ingredients:
+    print (item.__dict__)    
+
+
+#for item in current_recipe.ingredients:    
+#    print ("QUANTITY::  " +  item.quantity)
+#    print ("MEASURE:: " +  item.measure)
+#    print ("SEARCH TERM::" + item.search_term)
 
 
 
