@@ -170,8 +170,8 @@ def connect_to_db(app):
     #bind here for second user db uri
     db.app = app
     db.init_app(app)
-   
 
+   
 if __name__ == "__main__":
     # As a convenience, if we run this module interactively, it will leave
     # you in a state of being able to work with the dat(db.Model directly.
