@@ -5,7 +5,6 @@
 <div class="row">
 	<div class="col-xs-4 nopadding">
 		<div class="nutritionLabel span4" , id="analysis-results">
-			<em>{{ recipe }}</em>
 	    <table class="table" id="details1">
 	        <thead>
 	            <tr>
@@ -14,14 +13,19 @@
 	        </thead>
 
 	        <tbody>
+	        	<tr>
+	            	<td @link><a href="{{ recipe }}"> {{ recipe }}</a></td>
+	            </tr>
 	            <tr>
 	                <td class-"recipe-details" id="recipe-description">
-	                <em>Pellentesque consequat porttitor nunc, in consectetur justo ullamcorper sed.  Maecenas egestas erat ac ante pulvinar lobortis.</em></td>
+	                <em>Pellentesque consequat porttitor nunc, in consectetur justo ullamcorper sed.  Maecenas egestas erat ac ante pulvinar lobortis.
+					</em>
+	                </td>
 	            </tr>
 	        </tbody>
 	    </table>
 
-		<table class="table">
+		<table class="table" id="recipe-ingredients">
 		        <thead>
 		            <tr>
 		                <th>Ingredients</th>
@@ -30,7 +34,7 @@
 
 		        <tbody>
 		            <tr>
-		                <td>Sed ac metus eu leo vehicula mattis.</td>
+		                <td id="ingred1">Sed ac metus eu leo vehicula mattis.</td>
 		            </tr>
 
 		            <tr>
@@ -73,13 +77,13 @@
 
 		        <tbody>
 		            <tr>
-		                <td>
+		                <td class="recipe-details" id="recipe-directions">
 		                Maecenas egestas erat ac ante pulvinar lobortis. Sed ac metus eu leo vehicula mattis. Vivamus tempus mi dolor, a malesuada dui pellentesque et. Pellentesque et libero tempor.  Pellentesque consequat porttitor nunc, in consectetur justo ullamcorper sed. Maecenas egestas erat ac ante pulvinar lobortis.  Vivamus tempus mi dolor, a malesuada dui pellentesque et. 
 		                </td>
 		            </tr>
 		            <tr>
-		            	<td>
-		            	<b>Serves </b>4-6
+		            	<td class="recipe-details" id="recipe-servings">
+		            	<b>Serves </b>
 		            	</td>
 		            </tr>
 		        </tbody>
@@ -100,5 +104,17 @@
 	var recipeDetails = {{ recipe_details|safe }}
 	document.getElementById("recipe-title").innerHTML = recipeDetails.title;
 	document.getElementById("recipe-description").innerHTML = '<em>' + recipeDetails.description + '</em>';
+	document.getElementById("recipe-directions").innerHTML = recipeDetails.directions;
+	document.getElementById("recipe-servings").innerHTML = '<b>' + recipeDetails.servings + '</b>';
+	//document.getElementById("ingred1").innerHTML = recipeDetails.ingredients[0].source_line;
+   	
+   var table = '<thead><tr><th>Ingredients</th></tr></thead><tbody>'
+
+    recipeDetails.ingredients.forEach(function(Ingredient) {
+        table += '<tr><td>' + Ingredient.source_line + '</td></tr>';
+    });
+
+    document.getElementById("recipe-ingredients").innerHTML = table;
+
 	</script>
 	{% endblock %}
