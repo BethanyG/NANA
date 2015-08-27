@@ -32,7 +32,8 @@ from urllib2 import urlopen, urlparse
 from bs4 import BeautifulSoup, NavigableString, Tag, Comment
 import nltk
 import abc
-#import json
+import json
+import pickle
 import jsonpickle
 
 
@@ -95,13 +96,13 @@ class RecipeMaker(object):
         maker_dict = {'www.manjulaskitchen.com':ManjulasMaker,
                       'www.101cookbooks.com':OneCookMaker,
                       'almostturkish.blogspot.com':AlmostTurkMaker}    
-        target_maker = urlparse.urlsplit(url)[1]       
+        target_maker = urlparse.urlsplit(url)[1]
         current_maker = maker_dict[target_maker]
         
-        #create chiled and call child's process_url method        
+        #create child and call child's process_url method        
         current_recipe = current_maker(url).process_url()
         
-        #passes back to the caller what the called child class passes back
+        #passes back to the caller what the called child class passes back        
         return current_recipe
     
     '''not sure this set of @staticmethods belongs here...but can't think of a 
@@ -278,8 +279,18 @@ class GourmetMaker(RecipeMaker):
     #directions = ''.join(bsObj.find("div", {"class":"preparation"})
 
 
-current_recipe = RecipeMaker.parse_recipe("http://www.101cookbooks.com/archives/avocado-asparagus-tartine-recipe.html")
-#current_recipe = RecipeMaker.parse_recipe("http://www.manjulaskitchen.com/2014/04/09/carrot-ginger-soup/")
+#current_recipe = RecipeMaker.parse_recipe("http://www.101cookbooks.com/archives/caramelized-fennel-on-herbed-polenta-recipe.html")
+
+#for ingredient in current_recipe.ingredients:
+#    ingredient = ingredient.__dict__   
+
+#new_recipe = current_recipe.__dict__
+
+
+
+#print (type(new_recipe))
+#print (new_recipe)   
+#print(current_recipe)
 #recipe_details = RecipeMaker.make_recipe_json(current_recipe)
 #print(recipe_details)
 #print(current_recipe)
