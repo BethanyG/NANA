@@ -32,14 +32,9 @@ def start_here():
     recipes = ['http://www.manjulaskitchen.com/2014/04/09/carrot-ginger-soup',
                'http://www.manjulaskitchen.com/2015/07/14/paneer-bhurji',
                'http://www.manjulaskitchen.com/2015/08/14/eggless-omelet-vegan',
-               'http://www.101cookbooks.com/archives/cocagne-bean-artichoke-salad-recipe.html',
-               'http://www.101cookbooks.com/archives/caramelized-fennel-on-herbed-polenta-recipe.html',
-               'http://www.101cookbooks.com/archives/summer-berry-crisp-recipe.html',
+               'http://www.101cookbooks.com/archives/cocagne-bean-artichoke-salad-recipe.html',             
                'http://www.101cookbooks.com/archives/avocado-asparagus-tartine-recipe.html',
-               'http://www.101cookbooks.com/archives/goldencrusted-brussels-sprouts-recipe.html',
-               'http://www.101cookbooks.com/archives/a-good-shredded-salad-recipe.html',
-               'http://www.101cookbooks.com/archives/thai-zucchini-soup-recipe.html',
-               'http://www.101cookbooks.com/archives/mung-yoga-bowl-recipe.html']
+               'http://www.101cookbooks.com/archives/thai-zucchini-soup-recipe.html']
 
     return render_template("homepage_template.html", recipes=recipes)
 
@@ -95,10 +90,10 @@ if __name__ == "__main__":
 
     app.run()
     
-    
-    
-    
-
-
+#'http://www.101cookbooks.com/archives/mung-yoga-bowl-recipe.html' - doesn't work
+#'http://www.101cookbooks.com/archives/a-good-shredded-salad-recipe.html', - doesn't work    
+#'http://www.101cookbooks.com/archives/goldencrusted-brussels-sprouts-recipe.html',    
+#'http://www.101cookbooks.com/archives/summer-berry-crisp-recipe.html',
+#'http://www.101cookbooks.com/archives/caramelized-fennel-on-herbed-polenta-recipe.html', - doesn't work
 
 
