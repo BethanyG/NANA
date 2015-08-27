@@ -1,10 +1,10 @@
-html { 
+#.bg-image { 
   background: url(images/shutterstock_295589810.jpg) no-repeat center center fixed; 
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
   background-size: cover;
-  #opacity: 0.6;
+  #opacity: 0.8;
   #filter: alpha(opacity=40); /* For IE8 and earlier */
 }
 .opening-text{
@@ -17,7 +17,8 @@ html {
 	
 	font-size: 95%;
 	color: #23271C;
-	#D7D7D3
+	#opacity: 1.5;
+  #D7D7D3
 	#AFC18A
 	#C2D699
 }
@@ -25,8 +26,9 @@ html {
 h1 {
 	font-family: 'PT Sans Narrow', sans-serif;
 	position: relative;
-	top: 20%;
+	top: 30%;
 	color: #D7D7D3;
+  opacity: 1.5;
 	/*margin:50px 30px auto;*/
 }
 
@@ -126,4 +128,3 @@ footer {
   color: #333300;
   width: 80%;
   }
-</html>
