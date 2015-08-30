@@ -13,3 +13,6 @@ alchemyapi*
 alchemyapi_python/
 *.pyc
 *.pyd
+*API*
+*api*
+
