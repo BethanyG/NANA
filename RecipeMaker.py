@@ -5,17 +5,19 @@ Created on Thu Aug 13 16:28:15 2015
 @author: bethanygarcia
 
 Thank you Bob for all your object-oriented counseling (even if it was Java centric)!
+Thank you Katie for SQLAlchmey wrangling!
 
 Thank you StackOverflow! http://stackoverflow.com/questions/5615647/
 python-using-beautiful-soup-for-html-processing-on-specific-content
 
 http://stackoverflow.com/questions/3271478/check-list-of-words-in-another-string
 http://stackoverflow.com/questions/1436703/difference-between-str-and-repr-in-python
+http://stackoverflow.com/questions/11637293/iterate-over-object-attributes-in-python
 
 
 Classes for creating Recipes and Ingredients.
- --Recipes have a method to JSONify themselves
- --Ingredients havea method to JSONify themselves
+    1) Recipes have a method to JSONify themselves
+    2) Ingredients have a method to JSONify themselves
 
 Classes for returning a filled Recipe object.
 Sublclasses for custom webscrappers targeted for each website.  
@@ -36,8 +38,6 @@ from bs4 import BeautifulSoup, NavigableString, Tag, Comment
 import nltk
 import abc
 import json
-import pickle
-import inspect
 
 
 
@@ -182,6 +182,7 @@ class OneCookMaker(RecipeMaker):
         recipe_ingreds = filter(None, recipe_ingreds)
         recipe_ingreds = recipe_ingreds.split('\n')
         
+        
         '''for every line in recipe_ingreds, make Ingredient object & assign the 
            line to Ingredient.source_line.  Assign the resulting list of objects 
            to Recipe.ingredients'''        
@@ -286,57 +287,4 @@ class GourmetMaker(RecipeMaker):
 
 
 #current_recipe = RecipeMaker.parse_recipe("http://www.101cookbooks.com/archives/caramelized-fennel-on-herbed-polenta-recipe.html")
-#ingredients_list = current_recipe.ingredients
-#current_recipe.ingredients = None
-#recipe_json = json.dumps({property : value for property, value in vars(current_recipe).iteritems() if property != "ingredients"})
-
-
-#for item in current_recipe.ingredients:
-#    ingredient_json = json.dumps({property : value for property, value in vars(item).iteritems()})
-#    print (ingredient_json)
-
 #print(Recipe.make_json(current_recipe))
-
-#print (recipe_json.rstrip("}"))
-
-
-#for item in new_recipe:
-#    print(type(item))
-
-#print (new_recipe)
-
-
-
-
-#recipe_details = RecipeMaker.make_recipe_json(current_recipe)
-
-#for ingredient in current_recipe.ingredients:
-#    ingredient = json.dumps(ingredient.__dict__)   
-
-#new_recipe = json.dumps(current_recipe)
-
-#recipe_test = json.dumps(new_recipe)
-
-
-#print (type(new_recipe))
-#print (new_recipe)   
-#print(current_recipe)
-#recipe_details = RecipeMaker.make_recipe_json(current_recipe)
-#print(recipe_details)
-#print(current_recipe)
-#print ('OBJECT RECIEIVED!!!\n' + current_recipe.title + '\n')
-
-#for item in current_recipe.ingredients:
-#    print(item.source_line)
-
-#print ('\n')
-#print (current_recipe.directions)
-#print (current_recipe.description)
-
-#print (json.dumps((vars(current_recipe)), sort_keys=True, indent=4))
-
-#frozentest = jsonpickle.encode(current_recipe, keys=True)
-#thawedtest = jsonpickle.decode(frozentest)
-#assert current_recipe.title == thawedtest.title
-#print(frozentest)
-
