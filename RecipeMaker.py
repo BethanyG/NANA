@@ -89,11 +89,11 @@ class Recipe(object):
 class Ingredient(object):
     def __init__(self, source_line):
         self.source_line = source_line
-        self.ndb_no = None
-        self.ndb_alternates = None
+        self.ndb_no = None              #fill in from query 1
+        self.ndb_alternates = {}        #needed:  ndb_no (key) : [sring for human in ui, weights.measurement_desc]
         self.quantity = None
-        self.measure = None
-        self.search_term = None
+        self.measure = None             #once query 1 in analyzer is run, make sure it's weights.measurement is reflected here
+        self.search_term = None         #if search term changes significantly as a reult of query, update this
         
         '''result of the nutrient anaylizer class calling queries against the 
            USDA DB. KEY = nutrient_no, VALUE = list containing
