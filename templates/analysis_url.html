@@ -92,7 +92,7 @@
 	</div>
 	
 	<div class="col-xs-4 nopadding">
-		<div class="nutritionLabel span4">Pellentesque consequat porttitor nunc, in consectetur justo ullamcorper sed. Maecenas egestas erat ac ante pulvinar lobortis. Sed ac metus eu leo vehicula mattis. Vivamus tempus mi dolor, a malesuada dui pellentesque et. Pellentesque et libero tempor,
+		<div class="nutritionLabel span4" id="analysis1">Pellentesque consequat porttitor nunc, in consectetur justo ullamcorper sed. Maecenas egestas erat ac ante pulvinar lobortis. Sed ac metus eu leo vehicula mattis. Vivamus tempus mi dolor, a malesuada dui pellentesque et. Pellentesque et libero tempor,
 		</div>
 	</div>
 	<div class="col-xs-4 nopadding">
@@ -101,30 +101,33 @@
 	</div>
 </div>
 	<script>
-	var render = function(data) {
-	    
-	    var recipeDetails = data;
-	    console.log(data);
-		document.getElementById("recipe-title").innerHTML = recipeDetails.title;
-		document.getElementById("recipe-description").innerHTML = '<em>' + recipeDetails.description + '</em>';
-		document.getElementById("recipe-directions").innerHTML = recipeDetails.directions;
-		document.getElementById("recipe-servings").innerHTML = '<b>' + recipeDetails.servings + '</b>';
-		//document.getElementById("ingred1").innerHTML = recipeDetails.ingredients[0].source_line;
-	   	
-	   var table = '<thead><tr><th>Ingredients</th></tr></thead><tbody>'
-
-	    recipeDetails.ingredients.forEach(function(Ingredient) {
-	        table += '<tr><td>' + Ingredient.source_line + '</td></tr>';
-	    });
-
-	    document.getElementById("recipe-ingredients").innerHTML = table;
+	var recipeDetails = {{ recipe_details|safe }}
 
 
+	document.getElementById("recipe-title").innerHTML = recipeDetails.title;
+	document.getElementById("recipe-description").innerHTML = '<em>' + recipeDetails.description + '</em>';
+	document.getElementById("recipe-directions").innerHTML = recipeDetails.directions;
+	document.getElementById("recipe-servings").innerHTML = '<b>' + recipeDetails.servings + '</b>';
+	//document.getElementById("ingred1").innerHTML = recipeDetails.ingredients[0].source_line;
+   	
+   var table = '<thead><tr><th>Ingredients</th></tr></thead><tbody>'
 
-    	$("#analysis1").nutritionLabel({
+    recipeDetails.ingredients.forEach(function(Ingredient) {
+        table += '<tr><td>' + Ingredient.source_line + '</td></tr>';
+    });
+
+    document.getElementById("recipe-ingredients").innerHTML = table;
+
+    var ingredList = ""
+
+    recipeDetails.ingredients.forEach(function(Ingredient) {
+        ingredList += Ingredient.search_term + ',';
+    });
+
+    $("#analysis1").nutritionLabel({
     		'showServingUnitQuantity' : false,
-			'itemName' : data.title, //'Bleu Cheese Dressing',
-			'ingredientList' : 'Bleu Cheese Dressing',
+			'itemName' : recipeDetails.title,
+			'ingredientList' : ingredList,
 			'showPolyFat' : false,
 			'showMonoFat' : false,
 			'valueCalories' : 450,
@@ -146,23 +149,7 @@
 
     	for (var y=0;y<4;y++){
     		$("#addMinerals").append('<tr class="line"><td class="nm">Vitamin A</td><td class="vl"><span>0</span> IU</td><td class="pr"><span>0</span>%</td></tr>');
-    		}
+    			};
 
-	};
-
-	$.ajax({
-		type: 'GET',
-		url: '/api/recipes/1',
-		success: function(response) {
-			render(response.data);
-		},
-	});
-
-	//$('#recipeDetails')
-
-
-    $(document).ready(function() {
-    	// console.log( "ready!" );
-	});
 	</script>
 	{% endblock %}
