@@ -32,46 +32,57 @@ from model import *
     
 connect_to_db(app)
 
-current_recipe = RecipeMaker.parse_recipe("http://www.manjulaskitchen.com/2015/07/14/paneer-bhurji")
+current_recipe = RecipeMaker.parse_recipe("http://www.manjulaskitchen.com/2014/04/09/carrot-ginger-soup")
 
 def set_ingredients(current_recipe):
     
     for item in current_recipe.ingredients:
             #set 'dumb' quantity by assuming the first item is quanity
             item.quantity = nltk.tokenize.word_tokenize(item.source_line)[0]
-            print item.quantity
+            #print item.quantity
             #set 'dumb measurement unit by assuming the second item is units            
             item.measure = nltk.tokenize.word_tokenize(item.source_line)[1]
-            print item.measure
+            #print item.measure
             #set 'dumb search term by assuming he third item is the ingredient            
             item.search_term = nltk.tokenize.word_tokenize(item.source_line)[2]
-            print item.search_term 
+            #print item.search_term 
     
-    term = item.search_term
-    measure = item.measure
- 
-    QUERY = "SELECT\
-                food_descriptions.ndb_no, food_descriptions.long_desc, \
-                weights.amount, weights.measurement_desc, weights.gram_weight,\
-                similarity(food_descriptions.long_desc, '%%%s%%') AS sim_score,\
-                similarity(weights.measurement_desc, '%%%s%%') AS sim_score_measure\
-            FROM food_descriptions\
-            JOIN\
-                weights ON food_descriptions.ndb_no = weights.ndb_no\
-            WHERE\
-                food_descriptions.long_desc %% '%%%s%%' \
-            	AND \
-                similarity(food_descriptions.long_desc, %%%s%%') > 0.35 \
-            	AND \
-                similarity(weights.measurement_desc, '%%%s%%') > 0.035" % (term, measure, term, term, measure)
+   
+    
+    QUERY = '''SELECT
+                	food_descriptions.ndb_no, food_descriptions.long_desc, 
+                   weights.amount, weights.measurement_desc, weights.gram_weight, 
+                   similarity(food_descriptions.long_desc, '{ingredient}') AS sim_score, 
+                   similarity(weights.measurement_desc, '{measurement}') AS sim_score_measure
+        FROM
+        		food_descriptions
+        JOIN
+        		weights ON food_descriptions.ndb_no = weights.ndb_no
+        WHERE
+        		food_descriptions.long_desc % '{ingredient}' 
+        		AND 
+        			similarity(food_descriptions.long_desc, '{ingredient}') > 0.35
+        		AND 
+        			similarity(weights.measurement_desc, '{measurement}') > 0.035;'''
+    
+    
+    term = "carrots"
+    #print term
+    measure = "cups"
+    #print measure
+    TEST_Q = QUERY.format(ingredient=term, measurement=measure)    
+    print TEST_Q 
+    test = db.engine.execute(text(TEST_Q))
+    
+    for row in test:
+        print row.long_desc
+    #print QUERY
+    #test2 = db.engine.execute(text(TEST.format(ingredient="asparagus", measurement="spear"))) 
+    #test = db.session.query(Food_Descriptions).from_statement(QUERY)
+    
+    
 
-    
-    test = db.session.query(Food_Descriptions).from_statement(QUERY)
-    
-    for item in test:
-        print item
- 
-    return current_recipe
+    #return current_recipe
  
  
  
@@ -100,8 +111,8 @@ for s in sentence:
 
 set_ingredients(current_recipe)
 
-for item in current_recipe.ingredients:
-    print (item.__dict__)    
+#for item in current_recipe.ingredients:
+#    print (item.__dict__)    
 
 
 #for item in current_recipe.ingredients:    
