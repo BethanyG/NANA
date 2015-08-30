@@ -57,6 +57,14 @@ def new_analysis_requested():
     return render_template("analysis_url.html", recipe=recipe, recipe_details=recipe_details)
 
 
+@app.route('/api/recipes/<int:recipe_id>', methods=['GET'])
+#alan@wakatime.com
+def api_recipes_id(recipe_id):
+    current_recipe = RecipeMaker.parse_recipe(url)
+    recipe_details = Recipe.make_json(current_recipe)
+  
+    return recipe_details
+
 @app.route("/test", methods=['GET'])
 def test_query():
     QUERY = ''' 
