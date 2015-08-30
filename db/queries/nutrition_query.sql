@@ -23,4 +23,5 @@ JOIN
 		user_nutrients as unut
 		ON ndat.nutrient_no = unut.nutrient_no and unut.user_id = 0
 WHERE
-		ndat.ndb_no = '02014' and w.measurement_desc = 'tbsp, whole';
+		ndat.ndb_no = '02014' and w.measurement_desc = 'tbsp, whole'
+ORDER BY ndef.nutrient_desc ASC;
