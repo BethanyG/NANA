@@ -89,6 +89,7 @@ class Recipe(object):
 class Ingredient(object):
     def __init__(self, source_line):
         self.source_line = source_line
+        self.db_item_match = None       #WARNING!  This is getting assigned as a TUPLE from the DB     
         self.ndb_no = None              #fill in from query 1
         self.ndb_alternates = {}        #needed:  ndb_no (key) : [sring for human in ui, weights.measurement_desc]
         self.quantity = None
