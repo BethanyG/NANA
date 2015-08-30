@@ -61,9 +61,11 @@ def new_analysis_requested():
 #alan@wakatime.com
 def api_recipes_id(recipe_id):
     current_recipe = RecipeMaker.parse_recipe(url)
-    recipe_details = Recipe.make_json(current_recipe)
-  
-    return recipe_details
+    recipe_details = json.loads(Recipe.make_json(current_recipe))
+    app.logger.debug(recipe_details)
+    
+    return jsonify(data=recipe_details)
+    #return recipe_details
 
 @app.route("/test", methods=['GET'])
 def test_query():

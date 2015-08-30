@@ -101,20 +101,68 @@
 	</div>
 </div>
 	<script>
-	var recipeDetails = {{ recipe_details|safe }}
-	document.getElementById("recipe-title").innerHTML = recipeDetails.title;
-	document.getElementById("recipe-description").innerHTML = '<em>' + recipeDetails.description + '</em>';
-	document.getElementById("recipe-directions").innerHTML = recipeDetails.directions;
-	document.getElementById("recipe-servings").innerHTML = '<b>' + recipeDetails.servings + '</b>';
-	//document.getElementById("ingred1").innerHTML = recipeDetails.ingredients[0].source_line;
-   	
-   var table = '<thead><tr><th>Ingredients</th></tr></thead><tbody>'
+	var render = function(data) {
+	    
+	    var recipeDetails = data;
+	    console.log(data);
+		document.getElementById("recipe-title").innerHTML = recipeDetails.title;
+		document.getElementById("recipe-description").innerHTML = '<em>' + recipeDetails.description + '</em>';
+		document.getElementById("recipe-directions").innerHTML = recipeDetails.directions;
+		document.getElementById("recipe-servings").innerHTML = '<b>' + recipeDetails.servings + '</b>';
+		//document.getElementById("ingred1").innerHTML = recipeDetails.ingredients[0].source_line;
+	   	
+	   var table = '<thead><tr><th>Ingredients</th></tr></thead><tbody>'
 
-    recipeDetails.ingredients.forEach(function(Ingredient) {
-        table += '<tr><td>' + Ingredient.source_line + '</td></tr>';
-    });
+	    recipeDetails.ingredients.forEach(function(Ingredient) {
+	        table += '<tr><td>' + Ingredient.source_line + '</td></tr>';
+	    });
 
-    document.getElementById("recipe-ingredients").innerHTML = table;
+	    document.getElementById("recipe-ingredients").innerHTML = table;
 
+
+
+    	$("#analysis1").nutritionLabel({
+    		'showServingUnitQuantity' : false,
+			'itemName' : data.title, //'Bleu Cheese Dressing',
+			'ingredientList' : 'Bleu Cheese Dressing',
+			'showPolyFat' : false,
+			'showMonoFat' : false,
+			'valueCalories' : 450,
+			'valueFatCalories' : 430,
+			'valueTotalFat' : 48,
+			'valueSatFat' : 6,
+			'valueTransFat' : 0,
+			'valueCholesterol' : 30,
+			'valueSodium' : 780,
+			'valueTotalCarb' : 3,
+			'valueFibers' : 0,
+			'valueSugars' : 3,
+			'valueProteins' : 3,
+			'valueVitaminA' : 0,
+			'valueVitaminC' : 0,
+			'valueCalcium' : 0,
+			'valueIron' : 0
+    	});
+
+    	for (var y=0;y<4;y++){
+    		$("#addMinerals").append('<tr class="line"><td class="nm">Vitamin A</td><td class="vl"><span>0</span> IU</td><td class="pr"><span>0</span>%</td></tr>');
+    		}
+
+	};
+
+	$.ajax({
+		type: 'GET',
+		url: '/api/recipes/1',
+		success: function(response) {
+			render(response.data);
+		},
+	});
+
+	//$('#recipeDetails')
+
+
+    $(document).ready(function() {
+    	// console.log( "ready!" );
+	});
 	</script>
 	{% endblock %}
