@@ -13,7 +13,10 @@ http://stackoverflow.com/questions/3271478/check-list-of-words-in-another-string
 http://stackoverflow.com/questions/1436703/difference-between-str-and-repr-in-python
 
 
-Classes for creating Recipes and Ingredients.  
+Classes for creating Recipes and Ingredients.
+ --Recipes have a method to JSONify themselves
+ --Ingredients havea method to JSONify themselves
+
 Classes for returning a filled Recipe object.
 Sublclasses for custom webscrappers targeted for each website.  
 
@@ -34,7 +37,7 @@ import nltk
 import abc
 import json
 import pickle
-import jsonpickle
+import inspect
 
 
 
@@ -55,8 +58,29 @@ class Recipe(object):
         self.directions = None
         self.servings = None
     
+    
+    def make_json(self):
+        '''doing this the sloppy, manual way to json because jsonpickle kept failing 
+           with too many recursive calls. TO DO:  Clean up the ugly!  
+           There *has* to be a more elegant way to get this thing jsonified.  
+           Really.'''
+        
+        recipe_dict = {property : value for property, value in vars(self).iteritems() if property != "ingredients"}        
+        ingredient_list = []
+        
+        for item in self.ingredients:
+            ingredient_list.append(Ingredient.make_json(item))
+            
+        recipe_json = json.dumps(recipe_dict).rstrip("}") + ',"ingredients" : [ '
+        ingredient_json = ",".join(ingredient_list)        
+        new_recipe_json = recipe_json + ingredient_json.lstrip("'").rstrip("'") + "]}"
+        
+        return new_recipe_json
+ 
+ 
     def __repr__(self):
         return "%s" % (self.__dict__)
+
     
     def __str__(self):
         return "%s" % (self.__dict__)
@@ -76,6 +100,15 @@ class Ingredient(object):
            value per measured item, nutrient description, and nutrient units'''        
         self.nutrition_values = {}
     
+    
+    def make_json(self):
+        '''make json out of the Ingredient object passed in'''
+        
+        ingredient_json =  json.dumps({property : value for property, value in vars(self).iteritems()})          
+        
+        return ingredient_json
+   
+   
     def __repr__(self):
         return "%s" % (self.__dict__)
         
@@ -105,33 +138,6 @@ class RecipeMaker(object):
         #passes back to the caller what the called child class passes back        
         return current_recipe
     
-    '''not sure this set of @staticmethods belongs here...but can't think of a 
-       better place for them.  They are all related to 'making' some sort of 
-       recipe or ingrediant for processing or display...so...'''
-    @staticmethod
-    def make_recipe_json(current_recipe):
-        recipe_json = jsonpickle.encode(current_recipe, keys=True)
-        
-        return recipe_json
-    
-    @staticmethod
-    def reconstitute_recipe_object(recipe_json):
-        current_recipe = jsonpickle.decode(recipe_json)
-        
-        return current_recipe
-        
-    @staticmethod
-    def make_ingredent_json(Ingredient):
-        ingredient_json = jsonpickle.encode(Ingredient)
-        
-        return ingredient_json
-        
-    @staticmethod
-    def reconstitute_ingredent_object(ingredient_json):
-        current_ingredient = jsonpickle.decode(ingredient_json)
-        
-        return current_ingredient
-            
     #declaring an abstract method that must be implemented in all child classes
     @abc.abstractmethod
     def process_url(self):
@@ -280,12 +286,36 @@ class GourmetMaker(RecipeMaker):
 
 
 #current_recipe = RecipeMaker.parse_recipe("http://www.101cookbooks.com/archives/caramelized-fennel-on-herbed-polenta-recipe.html")
+#ingredients_list = current_recipe.ingredients
+#current_recipe.ingredients = None
+#recipe_json = json.dumps({property : value for property, value in vars(current_recipe).iteritems() if property != "ingredients"})
+
+
+#for item in current_recipe.ingredients:
+#    ingredient_json = json.dumps({property : value for property, value in vars(item).iteritems()})
+#    print (ingredient_json)
+
+#print(Recipe.make_json(current_recipe))
+
+#print (recipe_json.rstrip("}"))
+
+
+#for item in new_recipe:
+#    print(type(item))
+
+#print (new_recipe)
+
+
+
+
+#recipe_details = RecipeMaker.make_recipe_json(current_recipe)
 
 #for ingredient in current_recipe.ingredients:
-#    ingredient = ingredient.__dict__   
+#    ingredient = json.dumps(ingredient.__dict__)   
 
-#new_recipe = current_recipe.__dict__
+#new_recipe = json.dumps(current_recipe)
 
+#recipe_test = json.dumps(new_recipe)
 
 
 #print (type(new_recipe))
