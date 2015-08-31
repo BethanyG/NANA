@@ -20,7 +20,7 @@ WHERE
 
 
 SELECT
-		food_descriptions.ndb_no, food_descriptions.long_desc, weights.amount, weights.measurement_desc, weights.gram_weight, similarity(food_descriptions.long_desc, 'avocado') AS sim_score, similarity(weights.measurement_desc, '1') AS sim_score_measure
+		food_descriptions.ndb_no, food_descriptions.long_desc, weights.amount, weights.measurement_desc, weights.gram_weight, similarity(food_descriptions.long_desc, 'avocado') AS sim_score, similarity(weights.measurement_desc, 'cup') AS sim_score_measure
 FROM
 		food_descriptions
 JOIN
@@ -30,4 +30,5 @@ WHERE
 		AND 
 			similarity(food_descriptions.long_desc, 'avocado') > 0.35
 		AND 
-			similarity(weights.measurement_desc, '1') > 0.035;
+			similarity(weights.measurement_desc, 'cup') > 0.035
+		ORDER BY similarity(food_descriptions.long_desc, 'avocado') > 0.35 DESC;
