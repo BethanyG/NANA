@@ -14,7 +14,7 @@ from flask import Flask, render_template, redirect, request, flash, session, url
 from flask_debugtoolbar import DebugToolbarExtension
 from model import *
 from RecipeMaker import *
-#import RecipeMaker
+from IngredientAnalyzer import *
 
 app = Flask(__name__)
 
@@ -51,8 +51,18 @@ def new_analysis_requested():
     
     recipe = request.args.get('recipe-urls')
     
-    current_recipe = RecipeMaker.parse_recipe(recipe)
+    current_recipe = IngredientAnalyzer.set_ingredient_tokens(RecipeMaker.parse_recipe(recipe))
+    
+    for ingredient in current_recipe.ingredients:
+        ingredient = IngredientAnalyzer.query_for_ingredient(ingredient)
+
+    for ingredient in current_recipe.ingredients:
+        ingredient = IngredientAnalyzer.query_for_ingredient_nutrition(ingredient)
+    
+    test = IngredientAnalyzer.analysis_summary(current_recipe.ingredients)
     recipe_details = Recipe.make_json(current_recipe)
+    #print recipe_details
+    print test    
     
     return render_template("analysis_url.html", recipe=recipe, recipe_details=recipe_details)
 
