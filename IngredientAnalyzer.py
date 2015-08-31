@@ -48,9 +48,9 @@ class IngredientAnalyzer(object):
                                         '1/2' : 0.5,'1' : 1.0,
                                         '2' : 2.0,'3' : 3.0,
                                         '4' : 4.0,'5' : 5.0,
-                                        '6' : 6.0,'7' : 7.0,
-                                        '8' : 8.0,'9' : 9.0,
-                                        'a' : 1.0,'few' : 3.0}
+                                        '6' : 6.0,'7' : 7.0, 'lots' : 2.0,
+                                        '8' : 8.0,'9' : 9.0, '5-6' : 5.5,
+                                        'a' : 1.0,'few' : 3.0, 'scant' : 1.0}
                 
                 #set 'dumb' quantity by assuming the first item is quanity
                 prelim_quantity = nltk.tokenize.word_tokenize(item.source_line)[0]
