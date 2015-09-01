@@ -13,11 +13,16 @@ http://stackoverflow.com/questions/12413705/parsing-natural-language-ingredient-
 http://stackoverflow.com/questions/6115677/english-grammar-for-parsing-in-nltk
 http://www.clips.ua.ac.be/pattern
 http://www.clips.ua.ac.be/pages/pattern-en#tree
+http://shisaa.jp/postset/postgresql-full-text-search-part-1.html
 
 Also did extensive reading and testing with nltk.  But the stanford parser was too slow:
 http://www.nltk.org/book/
 http://www.nltk.org/api/nltk.parse.html
 http://nbviewer.ipython.org/github/gmonce/nltk_parsing/blob/master/1.%20NLTK%20Syntax%20Trees.ipynb
+
+EAFP! 
+http://stackoverflow.com/questions/17015230/are-nested-try-except-blocks-in-python-a-good-programming-practice
+https://docs.python.org/3/glossary.html#term-eafp
 
 """
 
@@ -50,14 +55,22 @@ class IngredientAnalyzer(object):
                                         '4' : 4.0,'5' : 5.0,
                                         '6' : 6.0,'7' : 7.0, 'lots' : 2.0,
                                         '8' : 8.0,'9' : 9.0, '5-6' : 5.5,
-                                        'a' : 1.0,'few' : 3.0, 'scant' : 1.0}
+                                        'a' : 1.0,'few' : 3.0, 'scant' : 1.0, 
+                                        'pinch' : 0.125, '4-' : 4.0, 'to' : 0.0}
                 
                 #set 'dumb' quantity by assuming the first item is quanity
                 prelim_quantity = nltk.tokenize.word_tokenize(item.source_line)[0]
-                print prelim_quantity.strip(" ")                
-                if quantity_conversion[prelim_quantity.strip(" ")] :
-                    prelim_quantity = quantity_conversion[prelim_quantity.strip(" ")]
-                else :
+                
+                #
+                try:
+                    prelim_quantity = float(prelim_quantity)
+                except ValueError:
+                    pass  # pass to conversion dictionary lookup
+                try:
+                    prelim_quantity = quantity_conversion[prelim_quantity]
+                except KeyError:
+                    print KeyError("No conversion value found.")
+                else:
                     prelim_quantity = 0
                     
                 item.quantity = prelim_quantity
@@ -68,7 +81,7 @@ class IngredientAnalyzer(object):
                 #set 'dumb search term by assuming he third item is the ingredient            
                 item.search_term = nltk.tokenize.word_tokenize(item.source_line)[2]
                 #print item.search_term 
-        
+        print current_recipe
         return current_recipe
     
     
@@ -77,20 +90,20 @@ class IngredientAnalyzer(object):
         
         
         QUERY = '''SELECT
-                      food_descriptions.ndb_no, food_descriptions.long_desc, 
-                      weights.amount, weights.measurement_desc, weights.gram_weight, 
-                      similarity(food_descriptions.long_desc, '{ingredient}') AS sim_score, 
-                      similarity(weights.measurement_desc, '{measurement}') AS sim_score_measure
+                        food_descriptions.ndb_no, food_descriptions.long_desc, 
+                        weights.amount, weights.measurement_desc, weights.gram_weight, 
+                        similarity(food_descriptions.long_desc, '{ingredient}') AS sim_score, 
+                        similarity(weights.measurement_desc, '{measurement}') AS sim_score_measure
                    FROM
-            		food_descriptions
+                        food_descriptions
                    JOIN
-            		weights ON food_descriptions.ndb_no = weights.ndb_no
+                        weights ON food_descriptions.ndb_no = weights.ndb_no
                    WHERE
-            		food_descriptions.long_desc % '{ingredient}' 
-                      AND 
-            			similarity(food_descriptions.long_desc, '{ingredient}') > 0.35
-                      AND 
-            			similarity(weights.measurement_desc, '{measurement}') > 0.035;'''
+                        food_descriptions.long_desc % '{ingredient}' 
+                        AND 
+                        similarity(food_descriptions.long_desc, '{ingredient}') > 0.35
+                        AND 
+                        similarity(weights.measurement_desc, '{measurement}') > 0.035;'''
         
         
         if Ingredient.search_term == None:
@@ -181,7 +194,7 @@ class IngredientAnalyzer(object):
                          u'Energy' : 'valueCalories',
                          u'Sugars, total' : 'valueSugars',
                          u'Fiber, total dietary' : 'valueFibers',
-                         u'Calcium, Ca' : 'vlaueCalcium',
+                         u'Calcium, Ca' : 'valueCalcium',
                          u'Iron, Fe' : 'valueIron',
                          u'Magnesium, Mg' : 'valueMagnesium',
                          u'Phosphorus, P' : 'valuePhosphorus',
@@ -202,8 +215,6 @@ class IngredientAnalyzer(object):
                          }
         
         new_analysis_summary = {n_lable_trans[key] : value[0] for (key, value) in analysis_summary.iteritems()}
-        
-        new_analysis_summary =  json.dumps(new_analysis_summary)
         
         return new_analysis_summary
 
