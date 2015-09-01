@@ -1,5 +1,4 @@
-
-.bg-image { 
+##.bg-image { 
   background: url(images/shutterstock_295589810.jpg) no-repeat center; 
   -webkit-background-size: cover;
   -moz-background-size: cover;
@@ -8,6 +7,7 @@
   #opacity: 0.8;
   #filter: alpha(opacity=40); /* For IE8 and earlier */
 }
+
 .opening-text {
 	width: 50%;
 	position: relative;
