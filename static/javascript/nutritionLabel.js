@@ -93,9 +93,9 @@
 		//the height in px of the ingredients div
 		scrollHeightPixel : 95,
 		//this is to set how many decimal places will be shown on the nutrition values (calories, fat, protein, vitamin a, iron, etc)
-		decimalPlacesForNutrition : 3,
+		decimalPlacesForNutrition : 1,
 		//this is to set how many decimal places will be shown for the "% daily values*"
-		decimalPlacesForDailyValues : 3,
+		decimalPlacesForDailyValues : 0,
 		//this is to set how many decimal places will be shown for the serving unit quantity textbox
 		decimalPlacesForQuantityTextbox : 1,
 
@@ -175,6 +175,7 @@
 		dailyvalueVitaminK : 80,
 		dailyvalueFolate : 400,
 		dailyvalueZinc : 15,
+		dailyvalueCalcium : 1000,
 
 		//these values can be change to hide some nutrition values
 		showCalories : true,
@@ -225,11 +226,11 @@
 		showCustomFooter : false,
 
 		//to show the disclaimer text or not
-		showDisclaimer : false,
+		showDisclaimer : true,
 		//the height in px of the disclaimer div
 		scrollDisclaimerHeightComparison : 100,
 		scrollDisclaimer : 95,
-		valueDisclaimer : 'Please note that these nutrition values are estimated based on our standard serving portions.  As food servings may have a slight variance each time you visit, please expect these values to be with in 10% +/- of your actual meal.  If you have any questions about our nutrition calculator, please contact Nutritionix.',		ingredientLabel : 'INGREDIENTS:',
+		valueDisclaimer : 'Please note that these nutrition values are estimated based on our standard serving portions.  As food servings may have a slight variance each time you visit, please expect these values to be with in 10% +/- of your actual meal.',		ingredientLabel : 'INGREDIENTS:',
 		valueCustomFooter : '',
 
 		//the are to set some values as 'not applicable'. this means that the nutrition label will appear but the value will be a 'gray dash'
@@ -302,7 +303,7 @@
 
 		//customizable units for the values
 		unitCalories : '',
-		unitFatCalories : '',
+		unitFatCalories : 'g',
 		unitTotalFat : 'g',
 		unitSatFat : 'g',
 		unitTransFat : 'g',
@@ -408,7 +409,7 @@
 			'calorieIntake','dailyValueTotalFat','dailyValueSatFat','dailyValueCholesterol','dailyValueSodium','dailyValueCarb',
 			'dailyValueFiber','valueServingSize','valueServingWeightGrams','valueServingPerContainer','valueCalories',
 			'valueFatCalories','valueTotalFat','valueSatFat','valueTransFat','valuePolyFat','valueMonoFat','valueCholesterol',
-			'valueSodium','valuePotassium', 'valuePhosphorus', 'valuePotassium','valueMagnesium','valuePhosphorus','valueVitaminE',
+			'valueSodium','valuePotassium', 'valuePhosphorus', 'valueCalcium', 'valuePotassium','valueMagnesium','valuePhosphorus','valueVitaminE',
 			'valueThiamin','valueRiboflavin','valueNiacin','valuePantothenicAcid','valueVitaminB6','valueVitaminB12','valueVitaminK',
 			'valueVitaminD','valueFolate','valueTotalCarb','valueFibers','valueSugars','valueProteins','valueVitaminA','valueVitaminC',
 			'valueCalcium','valueIron', 'valueZinc', 'valueCol1CalorieDiet','valueCol2CalorieDiet','valueCol1DietaryTotalFat',
