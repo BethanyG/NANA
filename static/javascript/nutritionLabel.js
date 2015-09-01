@@ -174,6 +174,7 @@
 		dailyvalueVitaminB12 : 6,
 		dailyvalueVitaminK : 80,
 		dailyvalueFolate : 400,
+		dailyvalueZinc : 15,
 
 		//these values can be change to hide some nutrition values
 		showCalories : true,
@@ -206,6 +207,7 @@
 		showFolate : true,
 		showCalcium : true,
 		showIron : true,
+		showZinc : true,
 
 		//to show the 'amount per serving' text
 		showAmountPerServing : true,
@@ -261,6 +263,7 @@
 		naFolate : false,
 		naCalcium : false,
 		naIron : false,
+		naZinc : false,
 
 		//these are the default values for the nutrition info
 		valueServingWeightGrams : 0,
@@ -295,6 +298,7 @@
 		valueFolate : 0,
 		vlaueCalcium : 0,
 		valueIron : 0,
+		valueZinc : 0,
 
 		//customizable units for the values
 		unitCalories : '',
@@ -327,6 +331,7 @@
 		unitVitaminK : 'mcg',
 		unitFolate : 'mcg',
 		unitIron : 'mg',
+		unitZinc : 'mg',
 
 		//these are the values for the optional calorie diet
 		valueCol1CalorieDiet : 2000,
@@ -380,6 +385,7 @@
 		textVitaminK : 'Vitamin K',
 		textFolate : 'Folate',
 		textIron : 'Iron',
+		textZinc : 'Zinc',
 		ingredientList : 'None',
 		textPercentDailyPart1 : 'Percent Daily Values are based on a',
 		textPercentDailyPart2 : 'calorie diet'
@@ -405,7 +411,7 @@
 			'valueSodium','valuePotassium', 'valuePhosphorus', 'valuePotassium','valueMagnesium','valuePhosphorus','valueVitaminE',
 			'valueThiamin','valueRiboflavin','valueNiacin','valuePantothenicAcid','valueVitaminB6','valueVitaminB12','valueVitaminK',
 			'valueVitaminD','valueFolate','valueTotalCarb','valueFibers','valueSugars','valueProteins','valueVitaminA','valueVitaminC',
-			'valueCalcium','valueIron','valueCol1CalorieDiet','valueCol2CalorieDiet','valueCol1DietaryTotalFat',
+			'valueCalcium','valueIron', 'valueZinc', 'valueCol1CalorieDiet','valueCol2CalorieDiet','valueCol1DietaryTotalFat',
 			'valueCol2DietaryTotalFat','valueCol1DietarySatFat','valueCol2DietarySatFat','valueCol1DietaryCholesterol',
 			'valueCol2DietaryCholesterol','valueCol1DietarySodium','valueCol2DietarySodium','valueCol1DietaryTotalCarb',
 			'valueCol2DietaryTotalCarb','valueCol1Dietary','valueCol2Dietary', 'valueServingUnitQuantity',
@@ -1670,6 +1676,23 @@
 					nutritionLabel += '</div>\n';
 
 					nutritionLabel += tab2 + $this.settings.textIron + '\n';
+				nutritionLabel += tab1 + '</div>\n';
+			}
+
+
+			if ($this.settings.showZinc){
+				nutritionLabel += tab1 + '<div class="line zinc">\n';
+					nutritionLabel += tab2 + '<div class="dv">';
+						nutritionLabel += $this.settings.naZinc ?
+							naValue :
+							(
+							$this.settings.allowFDARounding ?
+								roundVitaminsCalciumIron($this.settings.valueZinc) :
+								parseFloat( $this.settings.valueZinc.toFixed($this.settings.decimalPlacesForNutrition) )
+							) + $this.settings.unitZinc;
+					nutritionLabel += '</div>\n';
+
+					nutritionLabel += tab2 + $this.settings.textZinc + '\n';
 				nutritionLabel += tab1 + '</div>\n';
 			}
 
