@@ -163,7 +163,7 @@ class IngredientAnalyzer(object):
  
     @staticmethod
     def analysis_summary(ingredients):
-        analysis_summary = {}
+        analysis_summary =   {}
         for item in ingredients:        
             for entry,value in item.nutrition_values.iteritems():
                 #print value[0]
@@ -172,9 +172,40 @@ class IngredientAnalyzer(object):
                 #analysis_summary[entry][1] = value[1]
             #for entry, value in item.nutrition_values.iteritems():
             #    analysis_summary[entry][0] = analysis_summary[entry][0] + value[0]  
+                
         
+            
+        n_lable_trans = {u'Protein' : 'valueProteins',
+                         u'Total lipid (fat)' : 'valueTotalFat',
+                         u'Carbohydrate, by difference' : 'valueTotalCarb',
+                         u'Energy' : 'valueCalories',
+                         u'Sugars, total' : 'valueSugars',
+                         u'Fiber, total dietary' : 'valueFibers',
+                         u'Calcium, Ca' : 'vlaueCalcium',
+                         u'Iron, Fe' : 'valueIron',
+                         u'Magnesium, Mg' : 'valueMagnesium',
+                         u'Phosphorus, P' : 'valuePhosphorus',
+                         u'Potassium, K' : 'valuePotassium',
+                         u'Sodium, Na' : 'valueSodium',
+                         u'Zinc, Zn' : 'valueZinc',
+                         u'Vitamin A, IU' : 'valueVitaminA',
+                         u'Vitamin E (alpha-tocopherol)' : 'valueVitaminE',
+                         u'Vitamin D' : 'valueVitaminD',
+                         u'Thiamin' : 'valueThiamin',
+                         u'Riboflavin' : 'valueRiboflavin',
+                         u'Niacin' : 'valueNiacin',
+                         u'Pantothenic acid' : 'valuePantothenicAcid',
+                         u'Vitamin B-6' : 'valueVitaminB6',
+                         u'Vitamin B-12' : 'valueVitaminB12',
+                         u'Vitamin K (phylloquinone)' : 'valueVitaminK',
+                         u'Folate, DFE' : 'valueFolate'
+                         }
         
-        return analysis_summary
+        new_analysis_summary = {n_lable_trans[key] : value[0] for (key, value) in analysis_summary.iteritems()}
+        
+        new_analysis_summary =  json.dumps(new_analysis_summary)
+        
+        return new_analysis_summary
 
 
 #current_recipe = RecipeMaker.parse_recipe("http://www.manjulaskitchen.com/2014/04/09/carrot-ginger-soup")
