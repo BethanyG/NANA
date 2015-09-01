@@ -124,31 +124,19 @@
         ingredList += Ingredient.search_term + ',';
     });
 
-    $("#analysis1").nutritionLabel({
-    		'showServingUnitQuantity' : false,
-			'itemName' : recipeDetails.title,
-			'ingredientList' : ingredList,
-			'showPolyFat' : false,
-			'showMonoFat' : false,
-			'valueCalories' : 450,
-			'valueFatCalories' : 430,
-			'valueTotalFat' : 48,
-			'valueSatFat' : 6,
-			'valueTransFat' : 0,
-			'valueCholesterol' : 30,
-			'valueSodium' : 780,
-			'valuePotassium' : 120,
-			'valueMagnesium' : 340,
-			'valuePhosphorus' : 35,
-			'valueTotalCarb' : 3,
-			'valueFibers' : 0,
-			'valueSugars' : 3,
-			'valueProteins' : 3,
-			'valueVitaminA' : 0,
-			'valueVitaminC' : 0,
-			'valueCalcium' : 0,
-			'valueIron' : 0
-    	});
+    var analysisSummary = recipeDetails.analysis_summary
+    var nutriLabel = {'showServingUnitQuantity' : false,
+					  'itemName' : recipeDetails.title,
+					  'ingredientList' : ingredList,
+					  'valueServingUnitQuantity' : recipeDetails.servings
+    				  }
+
+    var labelItems={};
+	
+	$.extend(labelItems, analysisSummary, nutriLabel);
+    
+    $("#analysis1").nutritionLabel(labelItems);
+
 
 	</script>
 	{% endblock %}
