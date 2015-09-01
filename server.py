@@ -59,10 +59,10 @@ def new_analysis_requested():
     for ingredient in current_recipe.ingredients:
         ingredient = IngredientAnalyzer.query_for_ingredient_nutrition(ingredient)
     
-    test = IngredientAnalyzer.analysis_summary(current_recipe.ingredients)
+    current_recipe.analysis_summary = IngredientAnalyzer.analysis_summary(current_recipe.ingredients)
     recipe_details = Recipe.make_json(current_recipe)
     #print recipe_details
-    print test    
+    #print current_recipe    
     
     return render_template("analysis_url.html", recipe=recipe, recipe_details=recipe_details)
 
@@ -75,7 +75,7 @@ def api_recipes_id(recipe_id):
     app.logger.debug(recipe_details)
     
     return jsonify(data=recipe_details)
-    #return recipe_details
+    #print recipe_details
 
 @app.route("/test", methods=['GET'])
 def test_query():

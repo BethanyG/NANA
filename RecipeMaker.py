@@ -57,6 +57,7 @@ class Recipe(object):
 
         self.directions = None
         self.servings = None
+        self.analysis_summary = {}
     
     
     def make_json(self):
