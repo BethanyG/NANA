@@ -2,7 +2,7 @@
 
 Tracking nutritional intake is hard under the best circumstances, and is complicated by added restrictions (such as a diabetes or kidney disease).
 
-**NANA** (**N**ot **A**nother **N**utrition **A**pp) enables users to get a quick nutritional analysis on a recipe as a starting point for more involved tracking of their intake.  Because the process starts with a URL (no typing in ingredients!), it lowers the activation energy for investigating and recording meal details.  It allows users to quickly flag ingredients/volumes that might be in their "red zone" -- or note items that will take more investigation.  This enables them to quickly start where they are adjusting serving size or changing key components (like salt).  Why do it all by hand if **NANA** can help?
+**NANA** (**N**ot **A**nother **N**utrition **A**pp) enables users to get a quick nutritional analysis on a recipe as a starting point for more involved tracking of their intake.  Because the process starts with a URL (no typing in ingredients!), it lowers the activation energy for investigating and recording meal details.  It allows users to flag ingredients/volumes that might be in their "red zone" -- or note items that will take more investigation.  Users quickly start where they are, adjusting serving size or changing key components (like salt).  Why do it all by hand if **NANA** can help?
 
 ### Implemented Features:
 
@@ -18,10 +18,11 @@ Tracking nutritional intake is hard under the best circumstances, and is complic
 
 ##Technologies
 ### Frontend / Framework
+    JavaScript, jQuery, uderscore.js
     Bootstrap
     CSS/HTML
     Nutritionix jQuery Label plug-in (www.nutritionix.com)
-    JavaScript, jQuery, uderscore.js
+    
     
     Flask, JinJa2, SQLAlchemy
 
