@@ -51,7 +51,7 @@ Tracking nutritional intake is hard under the best circumstances, and is complic
     RecipeMaker Class, implemented as an absract base class:
 	    parse_recipe classmethod
 		      parses an incomming URL, and routs the resulting sitename to the correct 'maker'.  
-
+	
 	    process_url abstract method
 		      sets a requirement that all child 'maker' classes implement this method for making a recipe object.
 
@@ -70,16 +70,16 @@ Tracking nutritional intake is hard under the best circumstances, and is complic
     Returns Recipe objects, Ingredients, and Nutrition Summaries based on request.
     All methods are currently static.
   
-  	set_ingredient_tokens
-  		Preprocesses and tokenizes incoming recipie ingredients and converts unit of measure strings to numeric values
-  	
-  	query_for_ingredient
-  		Queries DB for ingredient name matches
-  	
-  	query_for_ingredient_nutrition
-  		1) queries DB for ingredient nutritional analaysis
-  		2) summarizes individual ingredients into totals by recipe
-  		3) sets a summary nutritional analysis in the Recpe object
+	  	set_ingredient_tokens
+	  		Preprocesses and tokenizes incoming recipie ingredients and converts unit of measure strings to numeric values
+	  	
+	  	query_for_ingredient
+	  		Queries DB for ingredient name matches
+	  	
+	  	query_for_ingredient_nutrition
+	  		1) queries DB for ingredient nutritional analaysis
+	  		2) summarizes individual ingredients into totals by recipe
+	  		3) sets a summary nutritional analysis in the Recpe object
 
 
 ###Postgresql DB with pg_trgm and fuzzystrmatch extenstions
@@ -97,10 +97,13 @@ U.S. Department of Agriculture, Agricultural Research Service. 2014.
 
 Nutritionx jQuery Label plug-in - with customizations(www.nutritionix.com)
 
-######*Thank you Bob for all your object-oriented counseling (even if it was Java centric)!*
-######*Thank you Katie for SQLAlchmey wrangling!  I will never see ORMs the same.*
-######*Thank you Denise and Lavinia for through debugging, problemsolving and cheerleading*
-######*Thank you StackOverflow.  None of this would work without the awsome help I've gotten through the site.*
+*Thank you Bob for all your object-oriented counseling (even if it was Java centric)!*
+
+*Thank you Katie for SQLAlchmey wrangling!  I will never see ORMs the same.*
+
+*Thank you Denise and Lavinia for through debugging, problemsolving and cheerleading*
+
+*Thank you StackOverflow.  None of this would work without the awsome help I've gotten through the site.*
 
 EAFP! 
 http://stackoverflow.com/questions/17015230/are-nested-try-except-blocks-in-python-a-good-programming-practice
