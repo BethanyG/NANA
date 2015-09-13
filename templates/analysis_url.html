@@ -3,7 +3,10 @@
 	{% block title %}Here's the Rundown{% endblock %}
 	{% block content %}
 <div class="row">
-	<div class="col-xs-4 nopadding">
+	<div class="col-xs-2">
+	</div>
+	</div>
+	<div class="col-xs-4" style="margin-left: 15%">
 		<div class="nutritionLabel span4" , id="analysis-results">
 	    <table class="table" id="details1">
 	        <thead>
@@ -18,7 +21,8 @@
 	            </tr>
 	            <tr>
 	                <td class-"recipe-details" id="recipe-description">
-	                <em>Pellentesque consequat porttitor nunc, in consectetur justo ullamcorper sed.  Maecenas egestas erat ac ante pulvinar lobortis.
+	                <em>This is placeholder text for the parsed Recipe discription and ingredients sections of the page.  If you are seeing this text, something ran afoul in the scraping or parsing and needs to be investigated.<br>
+	                Pellentesque consequat porttitor nunc, in consectetur justo ullamcorper sed.  Maecenas egestas erat ac ante pulvinar lobortis.
 					</em>
 	                </td>
 	            </tr>
@@ -78,6 +82,7 @@
 		        <tbody>
 		            <tr>
 		                <td class="recipe-details" id="recipe-directions">
+		                This is placeholder text for the parsed Recipe directions section of the page.  If you are seeing this text, something ran afoul in the scraping or parsing and needs to be investigated.<br><br>
 		                Maecenas egestas erat ac ante pulvinar lobortis. Sed ac metus eu leo vehicula mattis. Vivamus tempus mi dolor, a malesuada dui pellentesque et. Pellentesque et libero tempor.  Pellentesque consequat porttitor nunc, in consectetur justo ullamcorper sed. Maecenas egestas erat ac ante pulvinar lobortis.  Vivamus tempus mi dolor, a malesuada dui pellentesque et. 
 		                </td>
 		            </tr>
@@ -92,38 +97,41 @@
 	</div>
 	
 	<div class="col-xs-4 nopadding">
-		<div class="nutritionLabel span4" id="analysis1">Pellentesque consequat porttitor nunc, in consectetur justo ullamcorper sed. Maecenas egestas erat ac ante pulvinar lobortis. Sed ac metus eu leo vehicula mattis. Vivamus tempus mi dolor, a malesuada dui pellentesque et. Pellentesque et libero tempor,
-		</div>
-	</div>
-	<div class="col-xs-4 nopadding">
-		<div class="nutritionLabel span4">Pellentesque consequat porttitor nunc, in consectetur justo ullamcorper sed. Maecenas egestas erat ac ante pulvinar lobortis. Sed ac metus eu leo vehicula mattis. Vivamus tempus mi dolor, a malesuada dui pellentesque et. Pellentesque et libero tempor,
+		<div class="nutritionLabel span4" id="analysis1">This is placeholder text for the NutritionLabel template.  If you are seeing this text, the Nutritionix jQuery plug-in has failed to load, and needs to be fixed. <br><br>Pellentesque consequat porttitor nunc, in consectetur justo ullamcorper sed. Maecenas egestas erat ac ante pulvinar lobortis. Sed ac metus eu leo vehicula mattis. Vivamus tempus mi dolor, a malesuada dui pellentesque et. Pellentesque et libero tempor,
 		</div>
 	</div>
 </div>
 	<script>
+
+	//pass jsonified Recipie object to this page via JinJa & assign to variable for JS processing
 	var recipeDetails = {{ recipe_details|safe }}
 
-
+	//unpack text of recipe and insert into the analysis-results div
 	document.getElementById("recipe-title").innerHTML = recipeDetails.title;
 	document.getElementById("recipe-description").innerHTML = '<em>' + recipeDetails.description + '</em>';
 	document.getElementById("recipe-directions").innerHTML = recipeDetails.directions;
 	document.getElementById("recipe-servings").innerHTML = '<b>' + recipeDetails.servings + '</b>';
-	//document.getElementById("ingred1").innerHTML = recipeDetails.ingredients[0].source_line;
-   	
-   var table = '<thead><tr><th>Ingredients</th></tr></thead><tbody>'
+    
+	//assign variable for the HTML for the Recipe ingredients table
+    var table = '<thead><tr><th>Ingredients</th></tr></thead><tbody>'
 
+    //unpack the Recipe ingredients list and add to the ingredients table var
     recipeDetails.ingredients.forEach(function(Ingredient) {
         table += '<tr><td>' + Ingredient.source_line + '</td></tr>';
     });
 
+    //insert the completed ingredients table
     document.getElementById("recipe-ingredients").innerHTML = table;
 
+    //assign variable for the NutritionLable "Ingredients" section
     var ingredList = ""
 
+    //unpack the 'search_terms' from the Recipe JSON and assign to ingredList for NutritionLable
     recipeDetails.ingredients.forEach(function(Ingredient) {
         ingredList += Ingredient.search_term + ',';
     });
 
+    //assign variables for the analysis summary and nutritionLable values
     var analysisSummary = recipeDetails.analysis_summary
     var nutriLabel = {'showServingUnitQuantity' : false,
 					  'itemName' : recipeDetails.title,
@@ -133,6 +141,7 @@
 
     var labelItems={};
 	
+	//combine each JSON list into one list for the jQuery plug-in
 	$.extend(labelItems, analysisSummary, nutriLabel);
     
     $("#analysis1").nutritionLabel(labelItems);
