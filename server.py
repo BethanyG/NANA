@@ -28,7 +28,7 @@ app.jinja_env.undefined = StrictUndefined
 
 @app.route('/', methods=['GET', 'POST'])
 def start_here():
-
+    #retaining these for testing purposes...but modified the page to take a typed-in URL
     recipes = ['http://www.101cookbooks.com/archives/mung-yoga-bowl-recipe.html',
                'http://www.manjulaskitchen.com/2014/04/09/carrot-ginger-soup',
                'http://www.manjulaskitchen.com/2015/07/14/paneer-bhurji',
@@ -49,7 +49,7 @@ def start_here():
 #figure out why!!!
 def new_analysis_requested():
     
-    recipe = request.args.get('recipe-urls')
+    recipe = request.args.get('recipe-url')
     
     current_recipe = IngredientAnalyzer.set_ingredient_tokens(RecipeMaker.parse_recipe(recipe))
     
@@ -78,6 +78,7 @@ def api_recipes_id(recipe_id):
     #print recipe_details
 
 @app.route("/test", methods=['GET'])
+#test query to check if SQLAlchemy is hooked up properly
 def test_query():
     QUERY = ''' 
         SELECT
@@ -107,18 +108,11 @@ def test_query():
 if __name__ == "__main__":
     # We have to set debug=True here, since it has to be True at the point
     # that we invoke the DebugToolbarExtension
-    app.debug = True
+    #app.debug = True
     connect_to_db(app)
     
     # Use the DebugToolbar
-    DebugToolbarExtension(app)
+    DebugToolbarExtension(app)    
 
-    app.run()
-    
-#'http://www.101cookbooks.com/archives/mung-yoga-bowl-recipe.html' - doesn't work
-#'http://www.101cookbooks.com/archives/a-good-shredded-salad-recipe.html', - doesn't work    
-#'http://www.101cookbooks.com/archives/goldencrusted-brussels-sprouts-recipe.html',    
-#'http://www.101cookbooks.com/archives/summer-berry-crisp-recipe.html',
-#'http://www.101cookbooks.com/archives/caramelized-fennel-on-herbed-polenta-recipe.html', - doesn't work
-
+    app.run(debug=True, host="0.0.0.0", port=5000)
 
