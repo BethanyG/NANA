@@ -1,4 +1,4 @@
-##.bg-image { 
+###.bg-image { 
   background: url(images/shutterstock_295589810.jpg) no-repeat center; 
   -webkit-background-size: cover;
   -moz-background-size: cover;
@@ -8,20 +8,38 @@
   #filter: alpha(opacity=40); /* For IE8 and earlier */
 }
 
+.navbar {
+	font-family: 'PT Sans Narrow', sans-serif;
+	font-size: 150%;
+	font-color: #D7D7D3;
+}
+
+.navbar-brand{
+	font-family: 'PT Sans Narrow', sans-serif;
+	font-size: 175%;
+	color: #888B85;
+	opacity: 1.25;
+}
+
+.navbar-right{
+	postiion: fixed;
+	right: 0;
+}
+
 .opening-text {
-	width: 50%;
+	font-family: 'PT Sans Narrow', sans-serif;
+	width: 70%;
 	position: relative;
-/*	margin:90px 25px auto;
-*/	
 	margin-top: 10%;
-	left: 20%;
-	
-	font-size: 95%;
-	color: #23271C;
-	#opacity: 1.5;
-  #D7D7D3
+	margin-left: 10%;
+	font-size: 90%;
+	color: #888B85;
+	opacity: 1.5;
+  	#D7D7D3
 	#AFC18A
 	#C2D699
+	##23271C
+	#393D33 .recipe-url-selection
 }
 
 h1 {
@@ -29,15 +47,42 @@ h1 {
 	position: relative;
 	top: 30%;
 	color: #D7D7D3;
-  opacity: 1.5;
+  	opacity: 1.5;
 	/*margin:50px 30px auto;*/
 }
 
-p {
+h3{
 	font-family: 'PT Sans Narrow', sans-serif;
-	font-size: 120%
-	color: #CCFFCC;
-	margin:20px 30px auto;
+	position: relative;
+	color: #888B85;
+	opacity: 1.25;
+}
+
+.recipe-url{
+	font-family: 'PT Sans Narrow', sans-serif;
+	position: relative;
+	width: 80%;
+	color: #888B85;
+	opacity: 1.25;	
+
+}
+
+.app-button input[type="submit"]{
+    background: #FFFFFF;
+    padding: 4px 8px 4px 8px;
+    border-radius: 5px;
+    color: #888B85;
+    font-family: 'PT Sans Narrow', sans-serif;
+    /*box-shadow: inset 0px 2px 2px 0px rgba(255, 255, 255, 0.17);*/
+    border: 2px solid #888B85;
+    font-size: 150%;
+    width: 20%;
+}
+
+.nutritionLabel{
+	font-family: 'PT Sans Narrow', sans-serif;
+	font-size : 100%;
+}
 
 }
 .app-analysis{
