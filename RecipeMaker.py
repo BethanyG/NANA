@@ -250,6 +250,8 @@ class ManjulasMaker(RecipeMaker):
             self.maker_recipe.ingredients = [Ingredient(item) for item in ingreds[0].split('\n')]
             #self.maker_recipe.ingredients = ingreds[0]
             additional_supplies = ingreds[1:]
+            
+            #This is tossing an error on some recipies.  Need to find out why and fix
             self.maker_recipe.description += " " + additional_supplies
             
         else: self.maker_recipe.ingredients = [Ingredient(item) for item in ingreds[0].split('\n')]
@@ -258,7 +260,7 @@ class ManjulasMaker(RecipeMaker):
        
 class AlmostTurkMaker(RecipeMaker):
     '''parser for almostturkish.com.  Closer to almostmademeinsane.com.
-       Still not working correctly.  Sigh.'''
+       Still not working correctly.  Sigh.  Removing from demo.  Need to revisit.'''
        
        
 class GourmetMaker(RecipeMaker):
