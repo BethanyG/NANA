@@ -35,7 +35,10 @@ WHERE
 
 
 SELECT
-		food_descriptions.ndb_no, food_descriptions.long_desc, weights.amount, weights.measurement_desc, weights.gram_weight, similarity(food_descriptions.long_desc, 'avocado') AS sim_score, similarity(weights.measurement_desc, 'cup') AS sim_score_measure
+		food_descriptions.ndb_no, food_descriptions.long_desc, weights.amount, 
+		weights.measurement_desc, weights.gram_weight, 
+		similarity(food_descriptions.long_desc, 'avocado') AS sim_score, 
+		similarity(weights.measurement_desc, 'cup') AS sim_score_measure
 FROM
 		food_descriptions
 JOIN
@@ -49,16 +52,19 @@ WHERE
 
 
 SELECT
-		food_descriptions.ndb_no, food_descriptions.long_desc, weights.amount, weights.measurement_desc, weights.gram_weight, similarity(food_descriptions.long_desc, 'avocado') AS sim_score, similarity(weights.measurement_desc, '1 avocado') AS sim_score_measure
+		food_descriptions.ndb_no, food_descriptions.long_desc, weights.amount, 
+		weights.measurement_desc, weights.gram_weight, 
+		similarity(food_descriptions.long_desc, 'celery stalks') AS sim_score, 
+		similarity(weights.measurement_desc, 'stalk') AS sim_score_measure
 FROM
 		food_descriptions
 JOIN
 		weights ON food_descriptions.ndb_no = weights.ndb_no
 WHERE
-		long_desc @@ to_tsquery('english', 'avocado')
+		long_desc @@ plainto_tsquery('english', 'celery')
 	AND 
-		similarity(weights.measurement_desc, '1 avocado') > 0.035
-	ORDER BY similarity(food_descriptions.long_desc, 'avocado') > 0.35 DESC;
+		similarity(weights.measurement_desc, 'stalk') > 0.035
+	ORDER BY similarity(food_descriptions.long_desc, 'celery stalks') > 0.35 DESC;
 
 
 
