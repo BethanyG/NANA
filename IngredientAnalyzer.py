@@ -28,9 +28,6 @@ https://docs.python.org/3/glossary.html#term-eafp
 
 from pattern.en import parsetree
 from pattern.en import pluralize, singularize
-#from pattern.search import search
-#from pattern.search import search, taxonomy
-#from pattern.search import match
 import json
 from RecipeMaker import *
 from server import app
@@ -42,6 +39,64 @@ connect_to_db(app)
 
 class IngredientAnalyzer(object):
     
+    @staticmethod
+    def set_ingredient_tokens(current_recipe):
+        for item in current_recipe.ingredients:
+            quantity_conversion = {'quarter' : 0.25,'eighth' : 0.125,
+                                    'half' : 0.5,'1/4' : 0.25,
+                                    '1/8' : 0.125,'1/3' : 0.333,
+                                    '2/3' : 0.667,'3/4' : 0.75,
+                                    '1/2' : 0.5,'1' : 1.0,
+                                    '2' : 2.0,'3' : 3.0,
+                                    '4' : 4.0,'5' : 5.0,
+                                    '6' : 6.0,'7' : 7.0, 'lots' : 3.0,
+                                    '8' : 8.0,'9' : 9.0, '5-6' : 5.5,
+                                    'a' : 1.0,'few' : 2.0, 'scant' : 1.0, 
+                                    'pinch' : 0.125, 'pinches' : 0.25, 
+                                    '4-' : 4.0, 'to' : 0.0, 'tablespoon' : 1.0, 
+                                    'teaspoon' : 1.0, 'couple' : 2.0}
+                    
+            #set 'dumb' quantity by assuming the first item is quanity
+            prelim_quantity = nltk.tokenize.word_tokenize(item.source_line)[0]
+            print prelim_quantity
+            
+            #EAFP!
+            try:
+                prelim_quantity = float(prelim_quantity)
+            except ValueError:
+                print "Can't convert :: " + prelim_quantity
+                pass  # pass to conversion dictionary lookup
+                try:
+                    prelim_quantity = quantity_conversion[prelim_quantity]
+                except KeyError:
+                    print KeyError("No conversion value found : " +  prelim_quantity)
+                    prelim_quantity = 0
+                else:
+                    item.quantity = prelim_quantity
+            
+            item.quantity = prelim_quantity
+        
+            filterList = ['tsp', 'tsps', 'tbsps', 'tbsp', 'tablespoon', \
+                          'tablespoons', 'teaspoon', 'teaspoons', 'cup', \
+                          'cups', 'bowl', 'pint', 'quart', 'mg', 'g', 'gram',\
+                          'grams', 'ml', 'oz', 'ounce', 'ounces' ] 
+            
+            item.measure = ' '.join([word for word in item.source_line.split(" ") if word in filterList])
+            new_source_line = ' '.join([word for word in item.source_line.split(" ") if word not in filterList])                               
+            sentence = parsetree(new_source_line, chunks=True, lemmata=True)
+         
+            for s in sentence:
+                #filter all the NP (noun phrases) into a chunk list
+                chunk_list = [singularize(chunk.string) for chunk in s.chunks if chunk.type =='NP']
+                search_term = chunk_list[0]
+                search_term = "".join([i for i in search_term if i != '/'])
+                search_term = ''.join([i for i in search_term if not i.isdigit()])                
+                
+                item.search_term = search_term
+    
+        print current_recipe
+        return current_recipe
+    '''  
     @staticmethod
     def set_ingredient_tokens(current_recipe):
         
@@ -83,15 +138,15 @@ class IngredientAnalyzer(object):
                 #print item.search_term 
         print current_recipe
         return current_recipe
-    
+        '''    
     
     @staticmethod
     def query_for_ingredient(Ingredient):
         
         
         QUERY = '''SELECT
-                        food_descriptions.ndb_no, food_descriptions.long_desc, 
-                        weights.amount, weights.measurement_desc, weights.gram_weight, 
+                        food_descriptions.ndb_no, food_descriptions.long_desc, weights.amount, 
+                        weights.measurement_desc, weights.gram_weight, 
                         similarity(food_descriptions.long_desc, '{ingredient}') AS sim_score, 
                         similarity(weights.measurement_desc, '{measurement}') AS sim_score_measure
                    FROM
@@ -99,12 +154,11 @@ class IngredientAnalyzer(object):
                    JOIN
                         weights ON food_descriptions.ndb_no = weights.ndb_no
                    WHERE
-                        food_descriptions.long_desc % '{ingredient}' 
-                        AND 
-                        similarity(food_descriptions.long_desc, '{ingredient}') > 0.35
-                        AND 
-                        similarity(weights.measurement_desc, '{measurement}') > 0.035;'''
-        
+                        long_desc @@ plainto_tsquery('english', '{ingredient}')
+                   AND 
+                        similarity(weights.measurement_desc, '{measurement}') > 0.035
+                   ORDER BY 
+                        similarity(food_descriptions.long_desc, '{ingredient}') > 0.35 DESC;'''
         
         if Ingredient.search_term == None:
             return Ingredient
