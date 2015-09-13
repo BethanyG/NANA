@@ -83,7 +83,7 @@
 		allowFDARounding : false,
 
 		//when set to true, this will hide the values if they are not applicable
-		hideNotAppicableValues : false,
+		hideNotAppicableValues : true,
 
 		//the brand name of the item for this label (eg. just salad)
 		brandName : 'Brand where this item belongs to',
@@ -194,8 +194,8 @@
 		showFibers : true,
 		showSugars : true,
 		showProteins : true,
-		showVitaminA : true,
-		showVitaminC : true,
+		showVitaminA : false,
+		showVitaminC : false,
 		showVitaminE : true,
 		showVitaminD : true,
 		showThiamin : true,
@@ -213,7 +213,7 @@
 		//to show the 'amount per serving' text
 		showAmountPerServing : true,
 		//to show the 'servings per container' data and replace the default 'Serving Size' value (without unit and servings per container text and value)
-		showServingsPerContainer : false,
+		showServingsPerContainer : true,
 		//to show the item name. there are special cases where the item name is replaced with 'servings per container' value
 		showItemName : true,
 		//show the brand where this item belongs to
@@ -355,7 +355,7 @@
 		textDailyValues : 'Daily Value',
 		textServingSize : 'Serving Size:',
 		textServingsPerContainer : 'Servings Per Container',
-		textAmountPerServing : 'Amount Per Serving',
+		textAmountPerServing : 'Amount Per Recipe',
 		textCalories : 'Calories',
 		textFatCalories : 'Calories from Fat',
 		textTotalFat : 'Total Fat',
