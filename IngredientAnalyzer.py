@@ -96,49 +96,7 @@ class IngredientAnalyzer(object):
     
         print current_recipe
         return current_recipe
-    '''  
-    @staticmethod
-    def set_ingredient_tokens(current_recipe):
-        
-        for item in current_recipe.ingredients:
-                quantity_conversion = {'quarter' : 0.25,'eighth' : 0.125,
-                                        'half' : 0.5,'1/4' : 0.25,
-                                        '1/8' : 0.125,'1/3' : 0.333,
-                                        '2/3' : 0.667,'3/4' : 0.75,
-                                        '1/2' : 0.5,'1' : 1.0,
-                                        '2' : 2.0,'3' : 3.0,
-                                        '4' : 4.0,'5' : 5.0,
-                                        '6' : 6.0,'7' : 7.0, 'lots' : 2.0,
-                                        '8' : 8.0,'9' : 9.0, '5-6' : 5.5,
-                                        'a' : 1.0,'few' : 3.0, 'scant' : 1.0, 
-                                        'pinch' : 0.125, '4-' : 4.0, 'to' : 0.0}
-                
-                #set 'dumb' quantity by assuming the first item is quanity
-                prelim_quantity = nltk.tokenize.word_tokenize(item.source_line)[0]
-                
-                #
-                try:
-                    prelim_quantity = float(prelim_quantity)
-                except ValueError:
-                    pass  # pass to conversion dictionary lookup
-                try:
-                    prelim_quantity = quantity_conversion[prelim_quantity]
-                except KeyError:
-                    print KeyError("No conversion value found.")
-                else:
-                    prelim_quantity = 0
-                    
-                item.quantity = prelim_quantity
-                #print item.quantity
-                #set 'dumb measurement unit by assuming the second item is units            
-                item.measure = nltk.tokenize.word_tokenize(item.source_line)[1]
-                #print item.measure
-                #set 'dumb search term by assuming he third item is the ingredient            
-                item.search_term = nltk.tokenize.word_tokenize(item.source_line)[2]
-                #print item.search_term 
-        print current_recipe
-        return current_recipe
-        '''    
+   
     
     @staticmethod
     def query_for_ingredient(Ingredient):
@@ -147,18 +105,18 @@ class IngredientAnalyzer(object):
         QUERY = '''SELECT
                         food_descriptions.ndb_no, food_descriptions.long_desc, weights.amount, 
                         weights.measurement_desc, weights.gram_weight, 
-                        similarity(food_descriptions.long_desc, '{ingredient}') AS sim_score, 
-                        similarity(weights.measurement_desc, '{measurement}') AS sim_score_measure
+                        similarity(food_descriptions.long_desc, %s) AS sim_score, 
+                        similarity(weights.measurement_desc, %s) AS sim_score_measure
                    FROM
                         food_descriptions
                    JOIN
                         weights ON food_descriptions.ndb_no = weights.ndb_no
                    WHERE
-                        long_desc @@ plainto_tsquery('english', '{ingredient}')
+                        long_desc @@ plainto_tsquery('english', %s)
                    AND 
-                        similarity(weights.measurement_desc, '{measurement}') > 0.035
+                        similarity(weights.measurement_desc, %s) > 0.035
                    ORDER BY 
-                        similarity(food_descriptions.long_desc, '{ingredient}') > 0.35 DESC;'''
+                        similarity(food_descriptions.long_desc, %s) > 0.35 DESC;'''
         
         if Ingredient.search_term == None:
             return Ingredient
@@ -167,9 +125,9 @@ class IngredientAnalyzer(object):
             term, measure = Ingredient.search_term, Ingredient.measure
             #print term
             #print measure
-            INGRED_QUERY = QUERY.format(ingredient=term, measurement=measure)    
+            #INGRED_QUERY = QUERY.format(ingredient=term, measurement=measure)    
             #print INGRED_QUERY 
-            ingred_query_result = db.engine.execute(text(INGRED_QUERY))
+            ingred_query_result = db.engine.execute(QUERY, (term, measure, term, measure, term))
             
             first_row = ingred_query_result.fetchone()     #fetches the first row and processes it differently
             
@@ -210,7 +168,7 @@ class IngredientAnalyzer(object):
                        user_nutrients
                        ON nutrient_data.nutrient_no = user_nutrients.nutrient_no and user_nutrients.user_id = 0
                    WHERE
-                       nutrient_data.ndb_no = '{ndb_no}' and weights.measurement_desc = '{measure}'
+                       nutrient_data.ndb_no = %s and weights.measurement_desc = %s
                        ORDER BY nutrient_definitions.nutrient_desc ASC;'''
             
         
@@ -220,8 +178,9 @@ class IngredientAnalyzer(object):
         else:
             ndb_no, measure = Ingredient.ndb_no, Ingredient.measure
             
-            NUT_QUERY = QUERY.format(ndb_no=ndb_no, measure=measure) 
-            nutrition_query_result = db.engine.execute(text(NUT_QUERY)) 
+            #params = (ndb_no, measure)
+            #NUT_QUERY = QUERY.format(ndb_no=ndb_no, measure=measure) 
+            nutrition_query_result = db.engine.execute(QUERY, (ndb_no, measure)) 
             
             for row in nutrition_query_result:
                 Ingredient.nutrition_values[row.nutrient_desc] = [float(row.value_per_portion), row.units]
@@ -271,64 +230,3 @@ class IngredientAnalyzer(object):
         new_analysis_summary = {n_lable_trans[key] : value[0] for (key, value) in analysis_summary.iteritems()}
         
         return new_analysis_summary
-
-
-#current_recipe = RecipeMaker.parse_recipe("http://www.manjulaskitchen.com/2014/04/09/carrot-ginger-soup")
-#IngredientAnalyzer.set_ingredient_tokens(current_recipe)
-
-#for ingredient in current_recipe.ingredients:
-#        ingredient = IngredientAnalyzer.query_for_ingredient(ingredient)
-
-#for ingredient in current_recipe.ingredients:
-#        ingredient = IngredientAnalyzer.query_for_ingredient_nutrition(ingredient)
-
-
-
-#for ingredient in current_recipe.ingredients:  
-#    ingredient = query_for_ingredient(ingredient)
-
-#for ingredient in current_recipe.ingredients:
-#    ingredient = query_for_ingredient_nutrition(ingredient)
-
-
-#print(current_recipe.ingredients[1])
-
-#print(current_recipe.ingredients)
-
-
-#print(current_recipe.ingredients[1].nutrition_values)
-
-#for item in current_recipe.ingredients:
-#    print (item.__dict__)    
-
-
-#for item in current_recipe.ingredients:    
-#    print ("QUANTITY::  " +  item.quantity)
-#    print ("MEASURE:: " +  item.measure)
-#    print ("SEARCH TERM::" + item.search_term)
-
-
-
-
-
-#chunk_list = []
-#for s in sentence:
-#    for chunk in s.chunks:
-#        if chunk.type =='NP':
-#            chunk_list.append(chunk.string)
-#        print '\n'        
-        #print [w.string for w in chunk if chunk.type == 'NP']
-
-
-
-
-#print chunk_list_II
-#print current_recipe.ingredients[0].quantity
-    
-#for ingredient in current_recipe.ingredients:
-#    print(ingredient)
-#    print('QUANTITY::: ' + ingredient.quantity)
-#    print('MEASURE::: ' + ingredient.measure)
-#    print('SEARCH TERM:: ' + ingredient.search_term)
-#    print('\n')
-
