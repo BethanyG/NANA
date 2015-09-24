@@ -123,12 +123,7 @@ class IngredientAnalyzer(object):
         
         else:    
             term, measure = Ingredient.search_term, Ingredient.measure
-            #print term
-            #print measure
-            #INGRED_QUERY = QUERY.format(ingredient=term, measurement=measure)    
-            #print INGRED_QUERY 
             ingred_query_result = db.engine.execute(QUERY, (term, measure, term, measure, term))
-            
             first_row = ingred_query_result.fetchone()     #fetches the first row and processes it differently
             
             if first_row != None:    
@@ -177,9 +172,6 @@ class IngredientAnalyzer(object):
         
         else:
             ndb_no, measure = Ingredient.ndb_no, Ingredient.measure
-            
-            #params = (ndb_no, measure)
-            #NUT_QUERY = QUERY.format(ndb_no=ndb_no, measure=measure) 
             nutrition_query_result = db.engine.execute(QUERY, (ndb_no, measure)) 
             
             for row in nutrition_query_result:
@@ -192,13 +184,8 @@ class IngredientAnalyzer(object):
         analysis_summary =   {}
         for item in ingredients:        
             for entry,value in item.nutrition_values.iteritems():
-                #print value[0]
                 analysis_summary.setdefault(entry, [0])
                 analysis_summary[entry][0] = analysis_summary[entry][0] + value[0] * item.quantity
-                #analysis_summary[entry][1] = value[1]
-            #for entry, value in item.nutrition_values.iteritems():
-            #    analysis_summary[entry][0] = analysis_summary[entry][0] + value[0]  
-                
         
             
         n_lable_trans = {u'Protein' : 'valueProteins',
