@@ -91,16 +91,16 @@ class Ingredient(object):
     def __init__(self, source_line):
         self.source_line = source_line
         self.db_item_match = None       #WARNING!  This is getting assigned as a TUPLE from the DB     
-        self.ndb_no = None              #fill in from query 1
-        self.ndb_alternates = {}        #needed:  ndb_no (key) : [sring for human in ui, weights.measurement_desc]
+        self.ndb_no = None              #value filled in from query 1
+        self.ndb_alternates = {}        #{ndb_no (key) : [sring for human in ui, weights.measurement_desc]}
         self.quantity = None
-        self.measure = None             #once query 1 in analyzer is run, make sure it's weights.measurement is reflected here
-        self.search_term = None         #if search term changes significantly as a reult of query, update this
+        self.measure = None             #once query 1 in analyzer is run, it's weights.measurement is placed here
+        self.search_term = None         #if search term changes significantly as a reult of query, this will be updated
         
         '''result of the nutrient anaylizer class calling queries against the 
            USDA DB. KEY = nutrient_no, VALUE = list containing
            value per measured item, nutrient description, and nutrient units'''        
-        self.nutrition_values = {}
+        self.nutrition_values = {} 
     
     
     def make_json(self):
@@ -208,7 +208,7 @@ class OneCookMaker(RecipeMaker):
         #Use sentance detector further clean directions, then set Recipe.directions
         self.maker_recipe.directions = ('\n'.join(sent_detector.tokenize(recipe_directions)))
  
-         #at last we are done!
+        #at last we are done!
         return self.maker_recipe   
 
 
@@ -248,10 +248,9 @@ class ManjulasMaker(RecipeMaker):
             
         if len(ingreds) > 1:
             self.maker_recipe.ingredients = [Ingredient(item) for item in ingreds[0].split('\n')]
-            #self.maker_recipe.ingredients = ingreds[0]
             additional_supplies = ingreds[1:]
             
-            #This is tossing an error on some recipies.  Need to find out why and fix
+            #BUG:  this is tossing an error on some recipies.  Need to find out why and fix
             self.maker_recipe.description += " " + additional_supplies
             
         else: self.maker_recipe.ingredients = [Ingredient(item) for item in ingreds[0].split('\n')]
@@ -260,34 +259,42 @@ class ManjulasMaker(RecipeMaker):
        
 class AlmostTurkMaker(RecipeMaker):
     '''parser for almostturkish.com.  Closer to almostmademeinsane.com.
-       Still not working correctly.  Sigh.  Removing from demo.  Need to revisit.'''
+       Still not working correctly, so removed from demo.  Need to revisit & find
+       strategy that works.'''
        
+    def process_url(self):
+       html = urlopen(self.url)
+       bsObj = BeautifulSoup(html, 'html5lib') 
+       
+       pass
+
        
 class GourmetMaker(RecipeMaker):
     '''parser for gourmet.com.  More or less working...just don't choose 'old'
-       (pre 2007) recipes!  Isn't it lovely when site formats change??'''
-    html = urlopen("http://www.gourmet.com/recipes/2000s/2006/12/pizza-with-fontina-proscuitto-and-arugula.html") 
-    bsObj = BeautifulSoup(html, 'html5lib')
-            
-    recipe = bsObj.find("div", {"class":"recipe"})
-            
-    if bsObj.find("h1", {"class":"header"}).getText():
-        title = bsObj.find("h1", {"class":"header"}).string
-    if bsObj.find("div", {"class":"text"}):
-        title = bsObj.find("div", {"class":"text"}).string
-            
-        
-    photo = bsObj.find("div", {"class":"w"}).img.attrs['src']
-
-    if bsObj.find("div", {"class":"introduction"}):
-        description = bsObj.find("div", {"class":"introduction"}).string
-    if bsObj.find("div", {"class":"text"}):
-        description = [''.join(item.getText().split('<em>')) for item in bsObj.find("div", {"class":"text"}).contents]
-        description = description[0]
-
-    ingreds_list = [''.join(item.getText().split('\n')) for item in bsObj.findAll("div", {"class":"ingredient-set"})]
-    ingredients = [item.strip() for item in ingreds_list]
-    #directions = ''.join(bsObj.find("div", {"class":"preparation"})
+       (pre 2007) recipes!  Isn't it lovely when site formats change??  Not
+       currently added to list of supported urls -- still needs testing.'''
+    
+    def process_url(self):
+        html = urlopen(self.url)
+        bsObj = BeautifulSoup(html, 'html5lib')      
+        recipe = bsObj.find("div", {"class":"recipe"})
+                
+        if bsObj.find("h1", {"class":"header"}).getText():
+            self.maker_recipe.title = bsObj.find("h1", {"class":"header"}).string
+        if bsObj.find("div", {"class":"text"}):
+            self.maker_recipe.title = bsObj.find("div", {"class":"text"}).string
+                      
+        self.photo = bsObj.find("div", {"class":"w"}).img.attrs['src']
+    
+        if bsObj.find("div", {"class":"introduction"}):
+            self.maker_recipe.description = bsObj.find("div", {"class":"introduction"}).string
+        if bsObj.find("div", {"class":"text"}):
+            description = [''.join(item.getText().split('<em>')) for item in bsObj.find("div", {"class":"text"}).contents]
+            self.maker_recipe.description = description[0]
+    
+        ingreds_list = [''.join(item.getText().split('\n')) for item in bsObj.findAll("div", {"class":"ingredient-set"})]
+        self.maker_recipe.ingredients = [item.strip() for item in ingreds_list]
+        #directions = ''.join(bsObj.find("div", {"class":"preparation"})
 
 
 #current_recipe = RecipeMaker.parse_recipe("http://www.101cookbooks.com/archives/caramelized-fennel-on-herbed-polenta-recipe.html")
