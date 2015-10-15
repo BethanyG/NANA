@@ -16,7 +16,7 @@ Pro_Factor,
 Fat_Factor,
 CHO_Factor
 )
-FROM 'db/sr27asc/FOOD_DES.txt'
+FROM 'db/USDA_data_files/sr27asc/FOOD_DES.txt'
 WITH DELIMITER '^'
 CSV QUOTE AS '~'
 ;
@@ -27,7 +27,7 @@ COPY food_group_descriptions
 FdGrp_Cd,
 FdGrp_Desc
 )
-FROM 'db/sr27asc/FD_GROUP.txt'
+FROM 'db/USDA_data_files/sr27asc/FD_GROUP.txt'
 WITH DELIMITER '^'
 CSV QUOTE AS '~'
 ;
@@ -38,7 +38,7 @@ COPY langual_factors
 NDB_No,
 Factor_Code
 )
-FROM 'db/sr27asc/LANGUAL.txt'
+FROM 'db/USDA_data_files/sr27asc/LANGUAL.txt'
 WITH DELIMITER '^'
 CSV QUOTE AS '~'
 ;
@@ -49,7 +49,7 @@ COPY langual_factor_descriptions
 Factor_Code,
 Description
 )
-FROM 'db/sr27asc/LANGDESC.txt'
+FROM 'db/USDA_data_files/sr27asc/LANGDESC.txt'
 WITH DELIMITER '^'
 CSV QUOTE AS '~'
 ;
@@ -76,7 +76,7 @@ Stats_Comment,
 Add_Mod_Date,
 Confid_Code
 )
-FROM 'db/sr27asc/NUT_DATA.txt'
+FROM 'db/USDA_data_files/sr27asc/NUT_DATA.txt'
 WITH DELIMITER '^'
 CSV QUOTE AS '~'
 ;
@@ -91,7 +91,7 @@ Nutrient_Desc,
 Num_Decimals,
 SR_Order
 )
-FROM 'db/sr27asc/NUTR_DEF.txt'
+FROM 'db/USDA_data_files/sr27asc/NUTR_DEF.txt'
 WITH DELIMITER '^'
 CSV QUOTE AS '~'
 ;
@@ -101,7 +101,7 @@ COPY source_codes
 Source_Code,
 Source_Code_Desc
 )
-FROM 'db/sr27asc/SRC_CD.txt'
+FROM 'db/USDA_data_files/sr27asc/SRC_CD.txt'
 WITH DELIMITER '^'
 CSV QUOTE AS '~'
 ;
@@ -111,7 +111,7 @@ COPY data_derivation_codes
 Derivation_Code,
 Derivation_Description
 )
-FROM 'db/sr27asc/DERIV_CD.txt'
+FROM 'db/USDA_data_files/sr27asc/DERIV_CD.txt'
 WITH DELIMITER '^'
 CSV QUOTE AS '~'
 ;
@@ -126,7 +126,7 @@ Gram_Weight,
 Num_Data_Pts,
 Std_Deviation
 )
-FROM 'db/sr27asc/WEIGHT.txt'
+FROM 'db/USDA_data_files/sr27asc/WEIGHT.txt'
 WITH DELIMITER '^'
 CSV QUOTE AS '~'
 ;
@@ -139,7 +139,7 @@ Footnote_Type,
 Nutrient_No,
 Footnote_Txt
 )
-FROM 'db/sr27asc/FOOTNOTE.txt'
+FROM 'db/USDA_data_files/sr27asc/FOOTNOTE.txt'
 WITH DELIMITER '^'
 CSV QUOTE AS '~'
 ;
@@ -150,7 +150,7 @@ NDB_No,
 Nutrient_No,
 Data_Source_ID
 )
-FROM 'db/sr27asc/DATSRCLN.txt'
+FROM 'db/USDA_data_files/sr27asc/DATSRCLN.txt'
 WITH DELIMITER '^'
 CSV QUOTE AS '~'
 ;
@@ -167,7 +167,13 @@ Issue_State,
 Start_Page,
 End_Page
 )
-FROM 'db/sr27asc/DATA_SRC.txt'
+FROM 'db/USDA_data_files/sr27asc/DATA_SRC.txt'
 WITH DELIMITER '^'
 CSV QUOTE AS '~'
+;
+
+--idx_food_desc_trgm_gin_long_desc 
+CREATE INDEX food_desc_trgm 
+ON food_descriptions
+USING GIN (long_desc gin_trgm_ops)
 ;

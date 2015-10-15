@@ -121,3 +121,16 @@ Issue_State VARCHAR(5),
 Start_Page VARCHAR(5),
 End_Page VARCHAR(5)
 );
+
+CREATE TABLE user_nutrients
+(
+user_id NUMERIC NOT NULL,
+Nutrient_No VARCHAR(3),
+Nutrient_Desc VARCHAR(60) NOT NULL,
+PRIMARY KEY (user_id, Nutrient_No)
+);
+
+CREATE EXTENSION fuzzystrmatch
+CREATE EXTENSION pg_trgm
+
+
