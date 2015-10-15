@@ -132,5 +132,5 @@ PRIMARY KEY (user_id, Nutrient_No)
 
 CREATE EXTENSION fuzzystrmatch
 CREATE EXTENSION pg_trgm
-
+;
 
