@@ -130,7 +130,5 @@ Nutrient_Desc VARCHAR(60) NOT NULL,
 PRIMARY KEY (user_id, Nutrient_No)
 );
 
-CREATE EXTENSION fuzzystrmatch
-CREATE EXTENSION pg_trgm
-;
-
+CREATE EXTENSION fuzzystrmatch;
+CREATE EXTENSION pg_trgm;
