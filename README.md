@@ -96,3 +96,5 @@ U.S. Department of Agriculture, Agricultural Research Service. 2014.
 [Nutrient Data Laboratory Home Page](http://www.ars.usda.gov/nutrientdata)
 
 Nutritionx jQuery Label plug-in - with customizations(www.nutritionix.com)
+
+Thank you Bob, Katie, Denise, and Hackbright.
