@@ -4,32 +4,6 @@ Created on Thu Aug 13 16:28:15 2015
 
 @author: bethanygarcia
 
-Thank you Bob for all your object-oriented counseling (even if it was Java centric)!
-Thank you Katie for SQLAlchmey wrangling!
-
-Thank you StackOverflow! http://stackoverflow.com/questions/5615647/
-python-using-beautiful-soup-for-html-processing-on-specific-content
-
-http://stackoverflow.com/questions/3271478/check-list-of-words-in-another-string
-http://stackoverflow.com/questions/1436703/difference-between-str-and-repr-in-python
-http://stackoverflow.com/questions/11637293/iterate-over-object-attributes-in-python
-
-
-Classes for creating Recipes and Ingredients.
-    1) Recipes have a method to JSONify themselves
-    2) Ingredients have a method to JSONify themselves
-
-Classes for returning a filled Recipe object.
-Sublclasses for custom webscrappers targeted for each website.  
-
-Each parser :
-    1) instantiates a Recipe object, 
-    2) parses the recipe into parts, 
-    3) instantiates and partially populates an array of Ingredient objects, 
-    4) returns a completed Recipe object containing: 
-        * a list of Ingredient objects, one per ingredient line in recipe
-        * data attributes for title, source url, photo, description, preptime, 
-          cooktime, servings, and directions (where each is available)
 """
 
 from __future__ import print_function, division
@@ -40,9 +14,9 @@ import abc
 import json
 
 
-
-
 class Recipe(object):
+    '''Represents an entire recipe after it's seperated and parsed from the 
+       source URL.  Returns a Recipe object or json document.'''
     def __init__(self):
         self.sourceurl = None
         self.photo = None        
@@ -51,7 +25,7 @@ class Recipe(object):
         self.preptime =  None
         self.cooktime = None
         
-        '''eventually, this will contain an ingredient object,
+        '''This will become a list of ingredient objects,
            populated by both the parsers and the nutrient anayalizer class'''
         self.ingredients = None 
 
@@ -61,10 +35,9 @@ class Recipe(object):
     
     
     def make_json(self):
-        '''doing this the sloppy, manual way to json because jsonpickle kept failing 
-           with too many recursive calls. TO DO:  Clean up the ugly!  
-           There *has* to be a more elegant way to get this thing jsonified.  
-           Really.'''
+        '''Jsonifys a Recipe object.  Calls make_json on each ingredent
+        in the ingredient list, and concatenates the results with the non-ingredient
+        json.  Returns a single json documtent representing the entire Recipe.'''
         
         recipe_dict = {property : value for property, value in vars(self).iteritems() if property != "ingredients"}        
         ingredient_list = []
@@ -122,22 +95,22 @@ class RecipeMaker(object):
     
     #metaclass assignment to ABCMeta(abstract class)
     __metaclass__ = abc.ABCMeta    
-    
-    '''factory method that doesn't require an instance
-       decides which child class to call based on the hostname of the url passed in.       
-       TO DO:  add case where url isn't recognized, or user hand-enters recipe.'''
-    @classmethod        
+
+    '''decides which child class to call based on the hostname of the url passed in.       
+       TO DO:  add case where url isn't recognized, or user hand-enters recipe.'''    
+        
+    @classmethod            
     def parse_recipe(cls, url):
         maker_dict = {'www.manjulaskitchen.com':ManjulasMaker,
                       'www.101cookbooks.com':OneCookMaker,
-                      'almostturkish.blogspot.com':AlmostTurkMaker}    
+                      'www.gourmet.com':GourmetMaker}    
         target_maker = urlparse.urlsplit(url)[1]
         current_maker = maker_dict[target_maker]
         
         #create child and call child's process_url method        
         current_recipe = current_maker(url).process_url()
         
-        #passes back to the caller what the called child class passes back        
+        #passes back to the caller what the child class passes back        
         return current_recipe
     
     #declaring an abstract method that must be implemented in all child classes
@@ -258,9 +231,7 @@ class ManjulasMaker(RecipeMaker):
         return self.maker_recipe
        
 class AlmostTurkMaker(RecipeMaker):
-    '''parser for almostturkish.com.  Closer to almostmademeinsane.com.
-       Still not working correctly, so removed from demo.  Need to revisit & find
-       strategy that works.'''
+    '''Placeholder stub.  Still a work in progress.'''
        
     def process_url(self):
        html = urlopen(self.url)
@@ -270,15 +241,16 @@ class AlmostTurkMaker(RecipeMaker):
 
        
 class GourmetMaker(RecipeMaker):
-    '''parser for gourmet.com.  More or less working...just don't choose 'old'
-       (pre 2007) recipes!  Isn't it lovely when site formats change??  Not
-       currently added to list of supported urls -- still needs testing.'''
+    '''WARNING: Not yet completely tested.  Needs to accoumodate the pre-2008
+       format change.  Currently can't choose 'old'(pre 2008) recipes!'''
     
     def process_url(self):
         html = urlopen(self.url)
         bsObj = BeautifulSoup(html, 'html5lib')      
         recipe = bsObj.find("div", {"class":"recipe"})
-                
+        
+        self.maker_recipe.sourceurl = self.url
+        
         if bsObj.find("h1", {"class":"header"}).getText():
             self.maker_recipe.title = bsObj.find("h1", {"class":"header"}).string
         if bsObj.find("div", {"class":"text"}):
@@ -292,9 +264,18 @@ class GourmetMaker(RecipeMaker):
             description = [''.join(item.getText().split('<em>')) for item in bsObj.find("div", {"class":"text"}).contents]
             self.maker_recipe.description = description[0]
     
-        ingreds_list = [''.join(item.getText().split('\n')) for item in bsObj.findAll("div", {"class":"ingredient-set"})]
+        ingreds_list = [item.getText().strip('\n') for item in bsObj.findAll("ul", {"class":"ingredients"})]
+        #ingreds_list = [''.join(item.getText().split('\n')) for item in bsObj.findAll("div", {"class":"ingredient-set"})]        
+        
+        test_list = [item.findAll("li") for item in bsObj.findAll("ul", {"class":"ingredients"})]
+        print (test_list)
+        
         self.maker_recipe.ingredients = [item.strip() for item in ingreds_list]
-        #directions = ''.join(bsObj.find("div", {"class":"preparation"})
+        self.maker_recipe.directions = ''.join(bsObj.find("div", {"class":"preparation"}).getText().split('\n'))
+        self.maker_recipe.servings = bsObj.find("div", {"class":"time-and-yield"}).getText().strip()
+        self.maker_recipe.cooktime = ' '.join(bsObj.find("ul", {"class":"time"}).getText().split())
+        
+        return self.maker_recipe
 
 
 #current_recipe = RecipeMaker.parse_recipe("http://www.101cookbooks.com/archives/caramelized-fennel-on-herbed-polenta-recipe.html")
