@@ -96,17 +96,3 @@ U.S. Department of Agriculture, Agricultural Research Service. 2014.
 [Nutrient Data Laboratory Home Page](http://www.ars.usda.gov/nutrientdata)
 
 Nutritionx jQuery Label plug-in - with customizations(www.nutritionix.com)
-
-*Thank you Bob for all your object-oriented counseling (even if it was Java centric)!*
-
-*Thank you Katie for SQLAlchmey wrangling!  I will never see ORMs the same.*
-
-*Thank you Denise and Lavinia for through debugging, problemsolving and cheerleading*
-
-*Thank you StackOverflow.  None of this would work without the awsome help I've gotten through the site.*
-
-EAFP! 
-http://stackoverflow.com/questions/17015230/are-nested-try-except-blocks-in-python-a-good-programming-practice
-https://docs.python.org/3/glossary.html#term-eafp
-
-
