@@ -4,26 +4,6 @@ Created on Mon Aug 24 17:22:31 2015
 
 @author: bethanygarcia
 
-Not even close to possible without the tutorials and tips listed here:
-http://www.postgresonline.com/journal/archives/169-Fuzzy-string-matching-with-Trigram-and-Trigraphs.html
-http://stackoverflow.com/questions/11249635/finding-similar-strings-with-postgresql-quickly
-
-Equally impossible without the tips here and here:
-http://stackoverflow.com/questions/12413705/parsing-natural-language-ingredient-quantities-for-recipes
-http://stackoverflow.com/questions/6115677/english-grammar-for-parsing-in-nltk
-http://www.clips.ua.ac.be/pattern
-http://www.clips.ua.ac.be/pages/pattern-en#tree
-http://shisaa.jp/postset/postgresql-full-text-search-part-1.html
-
-Also did extensive reading and testing with nltk.  But the stanford parser was too slow:
-http://www.nltk.org/book/
-http://www.nltk.org/api/nltk.parse.html
-http://nbviewer.ipython.org/github/gmonce/nltk_parsing/blob/master/1.%20NLTK%20Syntax%20Trees.ipynb
-
-EAFP! 
-http://stackoverflow.com/questions/17015230/are-nested-try-except-blocks-in-python-a-good-programming-practice
-https://docs.python.org/3/glossary.html#term-eafp
-
 """
 
 from pattern.en import parsetree
@@ -58,7 +38,6 @@ class IngredientAnalyzer(object):
                     
             #set 'dumb' quantity by assuming the first item is quanity
             prelim_quantity = nltk.tokenize.word_tokenize(item.source_line)[0]
-            print prelim_quantity
             
             #EAFP!
             try:
@@ -70,6 +49,7 @@ class IngredientAnalyzer(object):
                     prelim_quantity = quantity_conversion[prelim_quantity]
                 except KeyError:
                     print KeyError("No conversion value found : " +  prelim_quantity)
+                    #need to flag here for note in UI                    
                     prelim_quantity = 0
                 else:
                     item.quantity = prelim_quantity
@@ -94,7 +74,6 @@ class IngredientAnalyzer(object):
                 
                 item.search_term = search_term
     
-        print current_recipe
         return current_recipe
    
     

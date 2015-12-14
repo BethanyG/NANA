@@ -230,6 +230,7 @@ class ManjulasMaker(RecipeMaker):
         
         return self.maker_recipe
        
+
 class AlmostTurkMaker(RecipeMaker):
     '''Placeholder stub.  Still a work in progress.'''
        
@@ -276,7 +277,3 @@ class GourmetMaker(RecipeMaker):
         self.maker_recipe.cooktime = ' '.join(bsObj.find("ul", {"class":"time"}).getText().split())
         
         return self.maker_recipe
-
-
-#current_recipe = RecipeMaker.parse_recipe("http://www.101cookbooks.com/archives/caramelized-fennel-on-herbed-polenta-recipe.html")
-#print(Recipe.make_json(current_recipe))
