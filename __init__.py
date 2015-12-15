@@ -3,5 +3,7 @@
 Created on Wed Aug 19 22:52:40 2015
 
 @author: bethanygarcia
+
+Blank init needed for Flask framework.
 """
 
