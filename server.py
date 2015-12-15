@@ -48,21 +48,18 @@ def start_here():
 
 def new_analysis_requested():
     
-    recipe = request.args.get('recipe-url')
+    recipe_url = request.args.get('recipe-url')
     
-    current_recipe = IngredientAnalyzer.set_ingredient_tokens(RecipeMaker.parse_recipe(recipe))
+    #Call RecipeMaker to use Beautiful Soup to scrape & clean recipe from Website    
+    current_recipe = RecipeMaker.parse_recipe(recipe_url)
     
-    for ingredient in current_recipe.ingredients:
-        ingredient = IngredientAnalyzer.query_for_ingredient(ingredient)
+    #Call IngredientAnalyzer to identify & look up ingredients in USDADB    
+    current_recipe = IngredientAnalyzer.analyze_recipe(current_recipe)
 
-    for ingredient in current_recipe.ingredients:
-        ingredient = IngredientAnalyzer.query_for_ingredient_nutrition(ingredient)
-    
-    current_recipe.analysis_summary = IngredientAnalyzer.analysis_summary(current_recipe.ingredients)
-    
+    #Call Recipe to Jsonify itself    
     recipe_details = Recipe.make_json(current_recipe)
-    return render_template("analysis_url.html", recipe=recipe, recipe_details=recipe_details)
 
+    return render_template("analysis_url.html", recipe_url=recipe_url, recipe_details=recipe_details)
 
 
 if __name__ == "__main__":

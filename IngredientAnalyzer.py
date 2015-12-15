@@ -17,7 +17,21 @@ connect_to_db(app)
 
 #current_recipe = RecipeMaker.parse_recipe("http://www.manjulaskitchen.com/2014/04/09/carrot-ginger-soup")
 
+
 class IngredientAnalyzer(object):
+    
+    @staticmethod
+    def analyze_recipe(current_recipe):
+        IngredientAnalyzer.set_ingredient_tokens(current_recipe)
+        
+        for ingredient in current_recipe.ingredients:
+            IngredientAnalyzer.query_for_ingredient(ingredient)
+            IngredientAnalyzer.query_for_ingredient_nutrition(ingredient)
+
+        
+        current_recipe.analysis_summary = IngredientAnalyzer.analysis_summary(current_recipe.ingredients)
+        
+        return current_recipe
     
     @staticmethod
     def set_ingredient_tokens(current_recipe):
@@ -76,7 +90,6 @@ class IngredientAnalyzer(object):
     
         return current_recipe
    
-    
     @staticmethod
     def query_for_ingredient(Ingredient):
         
@@ -120,7 +133,7 @@ class IngredientAnalyzer(object):
     
         return Ingredient
     
-    @staticmethod
+    @staticmethod    
     def query_for_ingredient_nutrition(Ingredient):
             
         QUERY = '''SELECT 
@@ -158,7 +171,8 @@ class IngredientAnalyzer(object):
         
         return Ingredient
  
-    @staticmethod
+   
+    @staticmethod    
     def analysis_summary(ingredients):
         analysis_summary =   {}
         for item in ingredients:        
