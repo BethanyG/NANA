@@ -59,8 +59,8 @@ def new_analysis_requested():
         ingredient = IngredientAnalyzer.query_for_ingredient_nutrition(ingredient)
     
     current_recipe.analysis_summary = IngredientAnalyzer.analysis_summary(current_recipe.ingredients)
+    
     recipe_details = Recipe.make_json(current_recipe)
-
     return render_template("analysis_url.html", recipe=recipe, recipe_details=recipe_details)
 
 
