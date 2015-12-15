@@ -18,17 +18,16 @@ from IngredientAnalyzer import *
 
 app = Flask(__name__)
 
-# Required to use Flask sessions and the debug toolbar
+# Required for Flask sessions & the debug toolbar
 app.secret_key = "ABC"
 
-# Normally, if you use an undefined variable in Jinja2, it fails silently.
-# This is horrible. Fix this so that, instead, it raises an error.
+# Raises an error if an undefined variable is used in Jinja2, instead of failing silently.
 app.jinja_env.undefined = StrictUndefined
 
 
 @app.route('/', methods=['GET', 'POST'])
 def start_here():
-    #retaining these for testing purposes...but modified the page to take a typed-in URL
+    #retaining these for testing purposes.  Page has been modified to take typed-in URL
     recipes = ['http://www.101cookbooks.com/archives/mung-yoga-bowl-recipe.html',
                'http://www.manjulaskitchen.com/2014/04/09/carrot-ginger-soup',
                'http://www.manjulaskitchen.com/2015/07/14/paneer-bhurji',
@@ -45,8 +44,8 @@ def start_here():
 
 
 @app.route("/analysis-url", methods=['GET'])
-#Bug:  When POST is used, RecipeMaker.parse_recipe is called twice in a row, and I can't
-#figure out why!!!
+#FIX THIS:  When POST is used, RecipeMaker.parse_recipe is called twice in a row.
+
 def new_analysis_requested():
     
     recipe = request.args.get('recipe-url')
@@ -61,54 +60,15 @@ def new_analysis_requested():
     
     current_recipe.analysis_summary = IngredientAnalyzer.analysis_summary(current_recipe.ingredients)
     recipe_details = Recipe.make_json(current_recipe)
-    #print recipe_details
-    #print current_recipe    
-    
+
     return render_template("analysis_url.html", recipe=recipe, recipe_details=recipe_details)
 
 
-@app.route('/api/recipes/<int:recipe_id>', methods=['GET'])
-#alan@wakatime.com
-def api_recipes_id(recipe_id):
-    current_recipe = RecipeMaker.parse_recipe(url)
-    recipe_details = json.loads(Recipe.make_json(current_recipe))
-    app.logger.debug(recipe_details)
-    
-    return jsonify(data=recipe_details)
-    #print recipe_details
-
-@app.route("/test", methods=['GET'])
-#test query to check if SQLAlchemy is hooked up properly
-def test_query():
-    QUERY = ''' 
-        SELECT
-                	food_descriptions.ndb_no, food_descriptions.long_desc, 
-                   weights.amount, weights.measurement_desc, weights.gram_weight, 
-                   similarity(food_descriptions.long_desc, 'asparagus') AS sim_score, 
-                   similarity(weights.measurement_desc, 'spear') AS sim_score_measure
-        FROM
-        		food_descriptions
-        JOIN
-        		weights ON food_descriptions.ndb_no = weights.ndb_no
-        WHERE
-        		food_descriptions.long_desc % 'asparagus' 
-        		AND 
-        			similarity(food_descriptions.long_desc, 'asparagus') > 0.35
-        		AND 
-        			similarity(weights.measurement_desc, 'spear') > 0.035'''
-           
-    test = db.session.query(Food_Descriptions).from_statement(QUERY)
-
-    display = {}
-    for item in test:
-        display[item.ndb_no] = item.long_desc
-    
-    return jsonify (display)
 
 if __name__ == "__main__":
-    # We have to set debug=True here, since it has to be True at the point
-    # that we invoke the DebugToolbarExtension
+    # debug has to be True at the point that we invoke the DebugToolbarExtension
     #app.debug = True
+    
     connect_to_db(app)
     
     # Use the DebugToolbar
