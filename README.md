@@ -15,7 +15,8 @@
 - Support for Additional Websites
 - Ingredient Substitution and dynamic re-analysis
 
-##Technologies
+## Technologies
+
 ### Frontend / Framework
     JavaScript, jQuery, underscore.js
     Bootstrap
