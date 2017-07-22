@@ -67,7 +67,7 @@
 	          cooktime, servings, and directions (where each is available)
 
 
-###IngredientAnalyizer.py
+### IngredientAnalyizer.py
     Returns Recipe objects, Ingredients, and Nutrition Summaries based on request.
     All methods are currently static.
   
@@ -83,14 +83,14 @@
 	  		3) sets a summary nutritional analysis in the Recpe object
 
 
-###Postgresql DB with pg_trgm and fuzzystrmatch extenstions
+### Postgresql DB with pg_trgm and fuzzystrmatch extenstions
   	* SQL-Created Tables and Postgresql COPY for data population
   	* CSV data files from USDA National Nutrient Database for Standard Reference R 27
   	* trgm index on Food_descriptions long_desc column to aid food term matching
   	* tsvector index based on long_desc column added to Food_descriptions 
 
 
-##References & Aknowledgements
+## References & Aknowledgements
 
 **USDA National Nutrient Database for Standard Reference, Release 27** 
 U.S. Department of Agriculture, Agricultural Research Service. 2014.
