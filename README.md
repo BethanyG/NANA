@@ -17,7 +17,7 @@
 
 ##Technologies
 ### Frontend / Framework
-    JavaScript, jQuery, uderscore.js
+    JavaScript, jQuery, underscore.js
     Bootstrap
     CSS/HTML
     Nutritionix jQuery Label plug-in (www.nutritionix.com)
