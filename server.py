@@ -55,7 +55,7 @@ def new_analysis_requested():
     
     #Call IngredientAnalyzer to identify & look up ingredients in USDADB    
     current_recipe = IngredientAnalyzer.analyze_recipe(current_recipe)
-    
+
     #Call Recipe to Jsonify itself    
     recipe_details = Recipe.make_json(current_recipe)
 
