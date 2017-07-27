@@ -1,5 +1,5 @@
 --Drop the pre-existing index for faster processing
-DROP INDEX  IF EXISTS food_desc_trgm;
+DROP INDEX IF EXISTS food_desc_trgm;
 
 --Food Descriptions
 COPY food_descriptions
@@ -19,7 +19,7 @@ Pro_Factor,
 Fat_Factor,
 CHO_Factor
 )
-FROM '/Users/bethanygarcia/NANA/db/USDA_data_files/sr27asc/FOOD_DES.txt'
+FROM 'db/USDA_data_files/sr27asc/FOOD_DES.txt'
 WITH DELIMITER '^'
 CSV QUOTE AS '~'
 ;
@@ -30,7 +30,7 @@ COPY food_group_descriptions
 FdGrp_Cd,
 FdGrp_Desc
 )
-FROM '/Users/bethanygarcia/NANA/db/USDA_data_files/sr27asc/FD_GROUP.txt'
+FROM 'db/USDA_data_files/sr27asc/FD_GROUP.txt'
 WITH DELIMITER '^'
 CSV QUOTE AS '~'
 ;
@@ -41,7 +41,7 @@ COPY langual_factors
 NDB_No,
 Factor_Code
 )
-FROM '/Users/bethanygarcia/NANA/db/USDA_data_files/sr27asc/LANGUAL.txt'
+FROM 'db/USDA_data_files/sr27asc/LANGUAL.txt'
 WITH DELIMITER '^'
 CSV QUOTE AS '~'
 ;
@@ -52,7 +52,7 @@ COPY langual_factor_descriptions
 Factor_Code,
 Description
 )
-FROM '/Users/bethanygarcia/NANA/db/USDA_data_files/sr27asc/LANGDESC.txt'
+FROM 'db/USDA_data_files/sr27asc/LANGDESC.txt'
 WITH DELIMITER '^'
 CSV QUOTE AS '~'
 ;
@@ -79,7 +79,7 @@ Stats_Comment,
 Add_Mod_Date,
 Confid_Code
 )
-FROM '/Users/bethanygarcia/NANA/db/USDA_data_files/sr27asc/NUT_DATA.txt'
+FROM 'db/USDA_data_files/sr27asc/NUT_DATA.txt'
 WITH DELIMITER '^'
 CSV QUOTE AS '~'
 ;
@@ -94,7 +94,7 @@ Nutrient_Desc,
 Num_Decimals,
 SR_Order
 )
-FROM '/Users/bethanygarcia/NANA/db/USDA_data_files/sr27asc/NUTR_DEF.txt'
+FROM 'db/USDA_data_files/sr27asc/NUTR_DEF.txt'
 WITH DELIMITER '^'
 CSV QUOTE AS '~'
 ;
@@ -104,7 +104,7 @@ COPY source_codes
 Source_Code,
 Source_Code_Desc
 )
-FROM '/Users/bethanygarcia/NANA/db/USDA_data_files/sr27asc/SRC_CD.txt'
+FROM 'db/USDA_data_files/sr27asc/SRC_CD.txt'
 WITH DELIMITER '^'
 CSV QUOTE AS '~'
 ;
@@ -114,7 +114,7 @@ COPY data_derivation_codes
 Derivation_Code,
 Derivation_Description
 )
-FROM '/Users/bethanygarcia/NANA/db/USDA_data_files/sr27asc/DERIV_CD.txt'
+FROM 'db/USDA_data_files/sr27asc/DERIV_CD.txt'
 WITH DELIMITER '^'
 CSV QUOTE AS '~'
 ;
@@ -129,7 +129,7 @@ Gram_Weight,
 Num_Data_Pts,
 Std_Deviation
 )
-FROM '/Users/bethanygarcia/NANA/db/USDA_data_files/sr27asc/WEIGHT.txt'
+FROM 'db/USDA_data_files/sr27asc/WEIGHT.txt'
 WITH DELIMITER '^'
 CSV QUOTE AS '~'
 ;
@@ -142,7 +142,7 @@ Footnote_Type,
 Nutrient_No,
 Footnote_Txt
 )
-FROM '/Users/bethanygarcia/NANA/db/USDA_data_files/sr27asc/FOOTNOTE.txt'
+FROM 'db/USDA_data_files/sr27asc/FOOTNOTE.txt'
 WITH DELIMITER '^'
 CSV QUOTE AS '~'
 ;
@@ -153,7 +153,7 @@ NDB_No,
 Nutrient_No,
 Data_Source_ID
 )
-FROM '/Users/bethanygarcia/NANA/db/USDA_data_files/sr27asc/DATSRCLN.txt'
+FROM 'db/USDA_data_files/sr27asc/DATSRCLN.txt'
 WITH DELIMITER '^'
 CSV QUOTE AS '~'
 ;
@@ -170,7 +170,7 @@ Issue_State,
 Start_Page,
 End_Page
 )
-FROM '/Users/bethanygarcia/NANA/db/USDA_data_files/sr27asc/DATA_SRC.txt'
+FROM 'db/USDA_data_files/sr27asc/DATA_SRC.txt'
 WITH DELIMITER '^'
 CSV QUOTE AS '~'
 ;
