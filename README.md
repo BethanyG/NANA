@@ -22,8 +22,8 @@
     Bootstrap
     CSS/HTML
     Nutritionix jQuery Label plug-in (www.nutritionix.com)
-    
-    
+
+
     Flask, JinJa2, SQLAlchemy
 
 #### Backend
@@ -31,68 +31,11 @@
 	Beautiful Soup, nltk & associated packages, Pattern
 
 	Postgresql, pg_trgm, fuzzystrmatch
-	
-## Structure
-### server.py
-    Core of the flask app routing.
-
-### model.py
-     Database representation for SQLAlchemy
-
-
-### RecipeMaker.py
-    Returns a current_recipe object
-
-    Classes for creating Recipes and Ingredients:
-        make_json
-    	    Recipes have a method to JSONify themselves
-    	    Ingredients have a method to JSONify themselves
-
-
-    RecipeMaker Class, implemented as an absract base class:
-	    parse_recipe classmethod
-		      parses an incomming URL, and routs the resulting sitename to the correct 'maker'.  
-	
-	    process_url abstract method
-		      sets a requirement that all child 'maker' classes implement this method for making a recipe object.
-
-    Maker Child Classes - each 'maker' is a custom webscrapper targeted for a cooking website
-      process_url
-	    1) instantiates a Recipe object, 
-	    2) parses the source HTML page into recipe parts using Beautiful Soup and nltk, 
-	    3) instantiates and partially populates an array of Ingredient objects, 
-	    4) returns to the parent class a Recipe object containing: 
-	        * a list of Ingredient objects, one per ingredient for the recipe
-	        * data attributes for title, source url, photo, description, preptime, 
-	          cooktime, servings, and directions (where each is available)
-
-
-### IngredientAnalyizer.py
-    Returns Recipe objects, Ingredients, and Nutrition Summaries based on request.
-    All methods are currently static.
-  
-	  	set_ingredient_tokens
-	  		Preprocesses and tokenizes incoming recipie ingredients and converts unit of measure strings to numeric values
-	  	
-	  	query_for_ingredient
-	  		Queries DB for ingredient name matches
-	  	
-	  	query_for_ingredient_nutrition
-	  		1) queries DB for ingredient nutritional analaysis
-	  		2) summarizes individual ingredients into totals by recipe
-	  		3) sets a summary nutritional analysis in the Recpe object
-
-
-### Postgresql DB with pg_trgm and fuzzystrmatch extenstions
-  	* SQL-Created Tables and Postgresql COPY for data population
-  	* CSV data files from USDA National Nutrient Database for Standard Reference R 27
-  	* trgm index on Food_descriptions long_desc column to aid food term matching
-  	* tsvector index based on long_desc column added to Food_descriptions 
 
 
 ## References & Aknowledgements
 
-**USDA National Nutrient Database for Standard Reference, Release 27** 
+**USDA National Nutrient Database for Standard Reference, Release 27**
 U.S. Department of Agriculture, Agricultural Research Service. 2014.
 [Nutrient Data Laboratory Home Page](http://www.ars.usda.gov/nutrientdata)
 
