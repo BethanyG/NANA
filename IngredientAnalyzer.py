@@ -57,12 +57,12 @@ class IngredientAnalyzer(object):
             try:
                 prelim_quantity = float(prelim_quantity)
             except ValueError:
-                print "Can't convert :: " + prelim_quantity
+                print("Can't convert :: " + prelim_quantity)
                 pass  # pass to conversion dictionary lookup
                 try:
                     prelim_quantity = quantity_conversion[prelim_quantity]
                 except KeyError:
-                    print KeyError("No conversion value found : " +  prelim_quantity)
+                    print (KeyError("No conversion value found : " +  prelim_quantity))
                     #need to flag here for note in UI                    
                     prelim_quantity = 0
                 else:

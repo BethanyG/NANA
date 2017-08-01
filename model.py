@@ -178,7 +178,7 @@ if __name__ == "__main__":
 
     from server import app
     connect_to_db(app)
-    print "Connected to DB."
+    print ("Connected to DB.")
     
 
 #for item in Food_Descriptions.query(Food_Descriptions.ndb_no, Food_Descriptions.short_desc):
