@@ -44,8 +44,6 @@ patsy==0.3.0
 Pattern==2.6
 pbr==0.10.8
 pep8==1.6.2
-#pexpect==3.3
-#Pillow==2.8.1
 psutil==2.2.1
 psycopg2==2.6.1
 py==1.4.26
