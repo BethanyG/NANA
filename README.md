@@ -41,4 +41,4 @@ U.S. Department of Agriculture, Agricultural Research Service. 2014.
 
 Nutritionx jQuery Label plug-in - with customizations(www.nutritionix.com)
 
-Thank you Bob, Katie, Denise, and Hackbright.
+Thank you Bob, Daniel, Denise, Katie, and Hackbright.
