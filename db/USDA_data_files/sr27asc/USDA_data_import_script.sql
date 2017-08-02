@@ -1,3 +1,6 @@
+--Drop the pre-existing index for faster processing
+DROP INDEX IF EXISTS food_desc_trgm;
+
 --Food Descriptions
 COPY food_descriptions
 (
@@ -172,8 +175,8 @@ WITH DELIMITER '^'
 CSV QUOTE AS '~'
 ;
 
---idx_food_desc_trgm_gin_long_desc 
-CREATE INDEX food_desc_trgm 
+--idx_food_desc_trgm_gin_long_desc
+CREATE INDEX IF NOT EXISTS food_desc_trgm
 ON food_descriptions
 USING GIN (long_desc gin_trgm_ops)
 ;

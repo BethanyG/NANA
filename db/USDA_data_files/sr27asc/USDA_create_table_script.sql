@@ -37,7 +37,7 @@ Description VARCHAR(140) NOT NULL
 
 CREATE TABLE nutrient_data
 (
-Food_Nutrient SERIAL PRIMARY KEY, 	
+Food_Nutrient SERIAL PRIMARY KEY,
 NDB_No VARCHAR(5),
 Nutrient_No VARCHAR(3),
 Nutrient_Val NUMERIC NOT NULL,
