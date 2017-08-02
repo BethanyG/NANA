@@ -5,9 +5,9 @@ Created on Mon Aug 24 17:22:31 2015
 @author: bethanygarcia
 
 """
-
-from pattern.en import parsetree
-from pattern.en import pluralize, singularize
+import pattern3
+#from pattern.en import parsetree
+#from pattern.en import pluralize, singularize
 import json
 from RecipeMaker import *
 from server import app

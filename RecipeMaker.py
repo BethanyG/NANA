@@ -5,8 +5,6 @@ Created on Thu Aug 13 16:28:15 2015
 @author: bethanygarcia
 
 """
-
-from __future__ import print_function, division
 from urllib.request import urlopen
 from urllib.parse import urlparse
 from bs4 import BeautifulSoup, NavigableString, Tag, Comment
