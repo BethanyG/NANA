@@ -1,6 +1,9 @@
 .Python
 .spyderworkspace
 .Rhistory
+*.bak
+.pyc
+.DS_Store
 bin/
 hello_flask.pyc
 include/
