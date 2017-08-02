@@ -5,10 +5,8 @@ Created on Mon Aug 24 17:22:31 2015
 @author: bethanygarcia
 
 """
-import pattern3
-#from pattern.en import parsetree
-#from pattern.en import pluralize, singularize
-import json
+from pattern3.text.en import parsetree
+from pattern3.text.en import singularize
 from RecipeMaker import *
 from server import app
 from model import *
@@ -57,12 +55,12 @@ class IngredientAnalyzer(object):
             try:
                 prelim_quantity = float(prelim_quantity)
             except ValueError:
-                print("Can't convert :: " + prelim_quantity)
+                print(("Can't convert :: " + prelim_quantity))
                 pass  # pass to conversion dictionary lookup
                 try:
                     prelim_quantity = quantity_conversion[prelim_quantity]
                 except KeyError:
-                    print (KeyError("No conversion value found : " +  prelim_quantity))
+                    print((KeyError("No conversion value found : " +  prelim_quantity)))
                     #need to flag here for note in UI                    
                     prelim_quantity = 0
                 else:
@@ -176,37 +174,37 @@ class IngredientAnalyzer(object):
     def analysis_summary(ingredients):
         analysis_summary =   {}
         for item in ingredients:        
-            for entry,value in item.nutrition_values.iteritems():
+            for entry,value in item.nutrition_values.items():
                 analysis_summary.setdefault(entry, [0])
                 analysis_summary[entry][0] = analysis_summary[entry][0] + value[0] * item.quantity
         
             
-        n_lable_trans = {u'Protein' : 'valueProteins',
-                         u'Total lipid (fat)' : 'valueTotalFat',
-                         u'Carbohydrate, by difference' : 'valueTotalCarb',
-                         u'Energy' : 'valueCalories',
-                         u'Sugars, total' : 'valueSugars',
-                         u'Fiber, total dietary' : 'valueFibers',
-                         u'Calcium, Ca' : 'valueCalcium',
-                         u'Iron, Fe' : 'valueIron',
-                         u'Magnesium, Mg' : 'valueMagnesium',
-                         u'Phosphorus, P' : 'valuePhosphorus',
-                         u'Potassium, K' : 'valuePotassium',
-                         u'Sodium, Na' : 'valueSodium',
-                         u'Zinc, Zn' : 'valueZinc',
-                         u'Vitamin A, IU' : 'valueVitaminA',
-                         u'Vitamin E (alpha-tocopherol)' : 'valueVitaminE',
-                         u'Vitamin D' : 'valueVitaminD',
-                         u'Thiamin' : 'valueThiamin',
-                         u'Riboflavin' : 'valueRiboflavin',
-                         u'Niacin' : 'valueNiacin',
-                         u'Pantothenic acid' : 'valuePantothenicAcid',
-                         u'Vitamin B-6' : 'valueVitaminB6',
-                         u'Vitamin B-12' : 'valueVitaminB12',
-                         u'Vitamin K (phylloquinone)' : 'valueVitaminK',
-                         u'Folate, DFE' : 'valueFolate'
+        n_lable_trans = {'Protein' : 'valueProteins',
+                         'Total lipid (fat)' : 'valueTotalFat',
+                         'Carbohydrate, by difference' : 'valueTotalCarb',
+                         'Energy' : 'valueCalories',
+                         'Sugars, total' : 'valueSugars',
+                         'Fiber, total dietary' : 'valueFibers',
+                         'Calcium, Ca' : 'valueCalcium',
+                         'Iron, Fe' : 'valueIron',
+                         'Magnesium, Mg' : 'valueMagnesium',
+                         'Phosphorus, P' : 'valuePhosphorus',
+                         'Potassium, K' : 'valuePotassium',
+                         'Sodium, Na' : 'valueSodium',
+                         'Zinc, Zn' : 'valueZinc',
+                         'Vitamin A, IU' : 'valueVitaminA',
+                         'Vitamin E (alpha-tocopherol)' : 'valueVitaminE',
+                         'Vitamin D' : 'valueVitaminD',
+                         'Thiamin' : 'valueThiamin',
+                         'Riboflavin' : 'valueRiboflavin',
+                         'Niacin' : 'valueNiacin',
+                         'Pantothenic acid' : 'valuePantothenicAcid',
+                         'Vitamin B-6' : 'valueVitaminB6',
+                         'Vitamin B-12' : 'valueVitaminB12',
+                         'Vitamin K (phylloquinone)' : 'valueVitaminK',
+                         'Folate, DFE' : 'valueFolate'
                          }
         
-        new_analysis_summary = {n_lable_trans[key] : value[0] for (key, value) in analysis_summary.iteritems()}
+        new_analysis_summary = {n_lable_trans[key] : value[0] for (key, value) in analysis_summary.items()}
         
         return new_analysis_summary

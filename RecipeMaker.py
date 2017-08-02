@@ -38,7 +38,7 @@ class Recipe(object):
         in the ingredient list, and concatenates the results with the non-ingredient
         json.  Returns a single json documtent representing the entire Recipe.'''
         
-        recipe_dict = {property : value for property, value in vars(self).iteritems() if property != "ingredients"}        
+        recipe_dict = {property : value for property, value in vars(self).items() if property != "ingredients"}        
         ingredient_list = []
         
         for item in self.ingredients:
@@ -78,7 +78,7 @@ class Ingredient(object):
     def make_json(self):
         '''make json out of the Ingredient object passed in'''
         
-        ingredient_json =  json.dumps({property : value for property, value in vars(self).iteritems()})          
+        ingredient_json =  json.dumps({property : value for property, value in vars(self).items()})          
         
         return ingredient_json
    
@@ -90,11 +90,9 @@ class Ingredient(object):
         return "%s" % (self.__dict__)
     
         
-class RecipeMaker(object):
+class RecipeMaker(object, metaclass=abc.ABCMeta):
     
     #metaclass assignment to ABCMeta(abstract class)
-    __metaclass__ = abc.ABCMeta    
-
     '''decides which child class to call based on the hostname of the url passed in.       
        TO DO:  add case where url isn't recognized, or user hand-enters recipe.'''    
         
@@ -103,7 +101,8 @@ class RecipeMaker(object):
         maker_dict = {'www.manjulaskitchen.com':ManjulasMaker,
                       'www.101cookbooks.com':OneCookMaker,
                       'www.gourmet.com':GourmetMaker}    
-        target_maker = urlparse.urlsplit(url)[1]
+        target_maker = urlparse(url)[1]
+        print(target_maker)
         current_maker = maker_dict[target_maker]
         
         #create child and call child's process_url method        
@@ -134,7 +133,7 @@ class OneCookMaker(RecipeMaker):
         html = urlopen(self.url) 
         bsObj = BeautifulSoup(html, 'html5lib')
         recipe = bsObj.find("div", {"id":"recipe"})
-        filter_list = [u'\n\n', u'\n\n\n', u'\n', ' === end recipe div === ']
+        filter_list = ['\n\n', '\n\n\n', '\n', ' === end recipe div === ']
         
         #set Recipe object's sourceurl and title
         self.maker_recipe.sourceurl = self.url
@@ -153,7 +152,7 @@ class OneCookMaker(RecipeMaker):
         #find and parse ingredients
         recipe_ingreds = [item.getText().strip() for item in recipe.blockquote.findAll('p') if item not in filter_list]
         recipe_ingreds = "\n".join(recipe_ingreds)
-        recipe_ingreds = filter(None, recipe_ingreds)
+        recipe_ingreds = [_f for _f in recipe_ingreds if _f]
         recipe_ingreds = recipe_ingreds.split('\n')
         
         
@@ -164,7 +163,7 @@ class OneCookMaker(RecipeMaker):
 
         #find and parse directions (soooo. much. parsing.)
         recipe_directions = [item.string for item in recipe.blockquote.next_siblings if item not in filter_list]
-        recipe_directions = filter(None, recipe_directions)
+        recipe_directions = [_f for _f in recipe_directions if _f]
         
         for item in recipe_directions:
             if "Serves" in item:
