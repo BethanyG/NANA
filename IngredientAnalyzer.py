@@ -33,7 +33,10 @@ class IngredientAnalyzer(object):
     
     @staticmethod
     def set_ingredient_tokens(current_recipe):
+        """Sets the quantity, unit and ingredient name for the recipe.
+        """
         for item in current_recipe.ingredients:
+            # Find the quantity
             quantity_conversion = {'quarter' : 0.25,'eighth' : 0.125,
                                     'half' : 0.5,'1/4' : 0.25,
                                     '1/8' : 0.125,'1/3' : 0.333,
