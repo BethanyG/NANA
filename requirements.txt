@@ -31,7 +31,7 @@ MarkupSafe
 nltk
 paramiko
 patsy
-Pattern3
+Pint
 psutil
 psycopg2
 Pygments
@@ -42,6 +42,7 @@ speaklater
 Sphinx
 sqlacodegen
 SQLAlchemy
+sklearn-crfsuite
 Werkzeug
 Whoosh
 WTForms

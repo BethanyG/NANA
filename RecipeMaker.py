@@ -11,7 +11,23 @@ from bs4 import BeautifulSoup, NavigableString, Tag, Comment
 import nltk
 import abc
 import json
+import pint
 
+class Quantity_JSONEncoder(json.JSONEncoder):
+    """JSON encoder for pint.Quantity.
+    """
+    def default(self, obj):
+        """Override the default JSONEncoder behaviour.
+
+        Transforms pint.Quantity into dict objects for serializing. 
+
+        Args:
+            obj (any): the object to encode to JSON.
+        """
+        if isinstance(obj, pint.quantity._Quantity):
+            return (obj.magnitude, str(obj.units))
+        # Let the base class default method raise the TypeError
+        return json.JSONEncoder.default(self, obj)
 
 class Recipe(object):
     '''Represents an entire recipe after it's seperated and parsed from the 
@@ -44,7 +60,7 @@ class Recipe(object):
         for item in self.ingredients:
             ingredient_list.append(Ingredient.make_json(item))
             
-        recipe_json = json.dumps(recipe_dict).rstrip("}") + ',"ingredients" : [ '
+        recipe_json = json.dumps(recipe_dict, cls=Quantity_JSONEncoder).rstrip("}") + ',"ingredients" : [ '
         ingredient_json = ",".join(ingredient_list)        
         new_recipe_json = recipe_json + ingredient_json.lstrip("'").rstrip("'") + "]}"
         
@@ -67,6 +83,7 @@ class Ingredient(object):
         self.ndb_alternates = {}        #{ndb_no (key) : [sring for human in ui, weights.measurement_desc]}
         self.quantity = None
         self.measure = None             #once query 1 in analyzer is run, it's weights.measurement is placed here
+        self.gr_weight = 100            # The gram weight. Converting factor between the measure and 100 grams.
         self.search_term = None         #if search term changes significantly as a reult of query, this will be updated
         
         '''result of the nutrient anaylizer class calling queries against the 

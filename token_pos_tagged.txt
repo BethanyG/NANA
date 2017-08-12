@@ -80,7 +80,7 @@ chopped	VBD	COM
 
 1	CD	QTY
 garlic	JJ	NAME
-clove	NN	NAME
+clove	NN	UNIT
 ,	,	OTHER
 crushed	VBD	COM
 
@@ -395,7 +395,7 @@ thinly	RB	COM
 sliced	VBD	COM
 
 2	CD	QTY
-cloves	NNS	NAME
+cloves	NNS	UNIT
 garlic	JJ	NAME
 ,	,	OTHER
 minced	VBD	COM
@@ -485,7 +485,7 @@ cinnamon	NN	NAME
 1	CD	QTY
 teaspoon	NN	UNIT
 ground	NN	COM
-cloves	NNS	NAME
+cloves	NNS	UNIT
 
 1	CD	QTY
 teaspoon	NN	UNIT
@@ -513,7 +513,7 @@ total	JJ	OTHER
 2	CD	QTY
 large	JJ	COM
 garlic	JJ	NAME
-cloves	NNS	NAME
+cloves	NNS	UNIT
 
 30	CD	QTY
 g	NN	UNIT
@@ -615,7 +615,7 @@ onions	NNS	NAME
 chopped	VBD	COM
 
 6	CD	QTY
-cloves	NNS	NAME
+cloves	NNS	UNIT
 garlic	JJ	NAME
 ,	,	OTHER
 crushed	VBD	COM
@@ -732,7 +732,7 @@ chopped	VBD	COM
 
 4	CD	QTY
 garlic	JJ	NAME
-cloves	NNS	NAME
+cloves	NNS	UNIT
 ,	,	OTHER
 finely	RB	COM
 chopped	VBD	COM
@@ -875,7 +875,7 @@ onion	NN	NAME
 chopped	VBD	COM
 
 2	CD	QTY
-cloves	NNS	NAME
+cloves	NNS	UNIT
 garlic	JJ	NAME
 ,	,	OTHER
 minced	VBD	COM
@@ -953,7 +953,7 @@ oil	NN	NAME
 
 1	CD	QTY
 garlic	JJ	NAME
-clove	NN	NAME
+clove	NN	UNIT
 ,	,	OTHER
 finely	RB	COM
 chopped	VBD	COM
@@ -1218,7 +1218,7 @@ dhania	NN	NAME
 leaves	NNS	NAME
 
 4	CD	QTY
-cloves	NNS	NAME
+cloves	NNS	UNIT
 garlic	JJ	NAME
 ,	,	OTHER
 minced	VBD	COM
@@ -1281,7 +1281,7 @@ and	CC	OTHER
 chopped	VBD	COM
 
 4	CD	QTY
-cloves	NNS	NAME
+cloves	NNS	UNIT
 garlic	JJ	NAME
 ,	,	OTHER
 minced	VBD	COM
@@ -2026,7 +2026,7 @@ chopped	VBD	COM
 
 2-3	JJ	QTY
 garlic	JJ	NAME
-cloves	NNS	NAME
+cloves	NNS	UNIT
 ,	,	OTHER
 peeled	VBD	COM
 and	CC	OTHER
@@ -2135,7 +2135,7 @@ piece	NN	UNIT
 3	CD	QTY
 to	TO	OTHER
 4	CD	QTY
-cloves	NNS	NAME
+cloves	NNS	UNIT
 
 •Yoghurt	SYM	NAME
 -	:	OTHER
@@ -3949,7 +3949,7 @@ tablespoon	NN	UNIT
 honey	NN	NAME
 
 8	CD	QTY
-cloves	NNS	NAME
+cloves	NNS	UNIT
 of	IN	OTHER
 fresh	JJ	COM
 garlic	NN	NAME
@@ -4141,7 +4141,7 @@ boneless	NN	COM
 chicken	NN	NAME
 breasts,6	NN	QTY
 garlic	JJ	NAME
-cloves	NNS	NAME
+cloves	NNS	UNIT
 ,	,	OTHER
 grated	VBD	COM
 finely,4	JJ	QTY
@@ -4753,7 +4753,7 @@ anise	SYM	NAME
 -	:	OTHER
 1	CD	QTY
 
-cloves	NNS	NAME
+cloves	NNS	UNIT
 -	:	OTHER
 2	CD	QTY
 
@@ -5279,7 +5279,7 @@ barley	NN	NAME
 2	CD	QTY
 to	TO	OTHER
 3	CD	QTY
-cloves	NNS	NAME
+cloves	NNS	UNIT
 garlic	JJ	NAME
 ,	,	OTHER
 finely	RB	COM
@@ -6654,7 +6654,7 @@ barley	NN	NAME
 •	RB	OTHER
 2	CD	QTY
 minced	VBD	COM
-cloves	NNS	NAME
+cloves	NNS	UNIT
 garlic	JJ	NAME
 
 •	RB	OTHER
@@ -6983,7 +6983,7 @@ mushrooms	NNS	NAME
 8	CD	QTY
 sliced	VBD	COM
 garlic	JJ	NAME
-cloves	NNS	NAME
+cloves	NNS	UNIT
 
 2	CD	QTY
 teaspoons	NNS	UNIT
@@ -7194,7 +7194,7 @@ vegetable	JJ	NAME
 oil	NN	NAME
 
 4	CD	QTY
-cloves	NNS	NAME
+cloves	NNS	UNIT
 garlic	JJ	NAME
 chopped	VBD	COM
 
@@ -7435,7 +7435,7 @@ oil	NN	NAME
 divided	VBD	COM
 
 2	CD	QTY
-cloves	NNS	NAME
+cloves	NNS	UNIT
 of	IN	OTHER
 minced	JJ	COM
 garlic	NN	NAME
@@ -7736,7 +7736,7 @@ olives	NNS	NAME
 1tsp	CD	QTY
 .	.	OTHER
 minced	VBN	COM
-clove	IN	NAME
+clove	IN	UNIT
 garlic	NN	NAME
 
 Now	RB	OTHER
@@ -7763,7 +7763,7 @@ oil	NN	NAME
 
 3	CD	QTY
 minced	JJ	COM
-cloves	NNS	NAME
+cloves	NNS	UNIT
 garlic	JJ	NAME
 ,	,	OTHER
 minced	VBD	COM
@@ -7926,7 +7926,7 @@ lb	NN	UNIT
 4	CD	QTY
 large	JJ	COM
 garlic	JJ	NAME
-cloves	NNS	NAME
+cloves	NNS	UNIT
 that	WDT	OTHER
 are	VBP	OTHER
 quartered	VBN	COM
@@ -7954,7 +7954,7 @@ matchsticks	NNS	NAME
 ¼	NN	OTHER
 tsp.of	JJ	OTHER
 whole	JJ	NAME
-cloves	NNS	NAME
+cloves	NNS	UNIT
 
 2	CD	QTY
 tsp	NN	UNIT
@@ -8500,7 +8500,7 @@ colour	NN	COM
 2	CD	QTY
 minced	VBD	COM
 garlic	JJ	NAME
-cloves	NNS	NAME
+cloves	NNS	UNIT
 
 2teaspoons	NNS	QTY
 of	IN	OTHER
@@ -9017,7 +9017,7 @@ in	IN	OTHER
 halves	NNS	OTHER
 
 4	CD	QTY
-cloves	NNS	NAME
+cloves	NNS	UNIT
 garlic	JJ	NAME
 ,	,	OTHER
 moderately	RB	COM
@@ -9451,7 +9451,7 @@ sugar	NN	NAME
 .	.	OTHER
 2	CD	QTY
 garlic	JJ	NAME
-cloves	NNS	NAME
+cloves	NNS	UNIT
 ,	,	OTHER
 minced	VBD	COM
 
@@ -10032,7 +10032,7 @@ fresh	JJ	COM
 mushrooms	NNS	NAME
 
 3	CD	QTY
-cloves	NNS	NAME
+cloves	NNS	UNIT
 minced	VBD	COM
 garlic	JJ	NAME
 
@@ -10736,7 +10736,7 @@ unsalted	JJ	COM
 butter	NN	NAME
 
 3	CD	QTY
-cloves	NNS	NAME
+cloves	NNS	UNIT
 of	IN	OTHER
 garlic	NN	NAME
 ,	,	OTHER
@@ -11011,7 +11011,7 @@ chilies	NNS	NAME
 
 4-5	JJ	QTY
 garlic	NN	NAME
-cloves	NNS	NAME
+cloves	NNS	UNIT
 
 1	CD	QTY
 cup	NN	UNIT
@@ -11182,7 +11182,7 @@ seeds	NNS	NAME
 and	CC	OTHER
 1/2	CD	QTY
 tsp	NN	UNIT
-cloves	NNS	NAME
+cloves	NNS	UNIT
 
 1/2	CD	QTY
 cup	NN	UNIT
@@ -11220,7 +11220,7 @@ julienne	NN	COM
 4-5	JJ	QTY
 large	JJ	COM
 garlic	JJ	NAME
-cloves	NNS	NAME
+cloves	NNS	UNIT
 ,	,	OTHER
 sliced	VBD	COM
 thinly	RB	COM
@@ -11423,7 +11423,7 @@ roasted	VBD	COM
 peanuts	NNS	NAME
 
 3	CD	QTY
-cloves	NNS	NAME
+cloves	NNS	UNIT
 of	IN	OTHER
 garlic	NN	NAME
 
@@ -12373,7 +12373,7 @@ mushrooms	NNS	NAME
 ,	,	OTHER
 sliced	VBD	COM
 2	CD	QTY
-cloves	NNS	NAME
+cloves	NNS	UNIT
 of	IN	OTHER
 garlic	NN	NAME
 ,	,	OTHER
@@ -12825,7 +12825,7 @@ BIRYANI	NNP	NAME
 MASALA	NNP	NAME
 8	CD	QTY
 nos	JJ	UNIT
-cloves	NNS	NAME
+cloves	NNS	UNIT
 1	CD	QTY
 no	DT	UNIT
 cinnamon	NN	NAME
@@ -12851,7 +12851,7 @@ rice	NN	NAME
 )	)	OTHER
 6	CD	QTY
 nos	JJ	UNIT
-cloves	NNS	NAME
+cloves	NNS	UNIT
 3	CD	QTY
 nos	NNS	UNIT
 cardamoms	VBP	NAME
@@ -13893,7 +13893,7 @@ filets	NNS	NAME
 minced	VBN	COM
 )	)	OTHER
 4	CD	QTY
-cloves	NNS	NAME
+cloves	NNS	UNIT
 garlic	JJ	NAME
 (	(	OTHER
 minced	VBN	COM
@@ -15083,7 +15083,7 @@ cups	NNS	UNIT
 
 Minced	NNP	COM
 garlic	JJ	NAME
-cloves	NNS	NAME
+cloves	NNS	UNIT
 –	VBP	OTHER
 4	CD	QTY
 
@@ -15557,7 +15557,7 @@ tikki	NN	COM
 )	)	OTHER
 ;	:	OTHER
 2-3	JJ	QTY
-cloves	NNS	NAME
+cloves	NNS	UNIT
 (	(	OTHER
 lavang	NN	NAME
 )	)	OTHER
@@ -15828,7 +15828,7 @@ Garlic	NNP	NAME
 Around	IN	OTHER
 8-10	CD	QTY
 large	JJ	COM
-cloves	NNS	NAME
+cloves	NNS	UNIT
 )	)	OTHER
 finely	RB	COM
 chopped	VBD	COM
@@ -16234,7 +16234,7 @@ hour	NN	OTHER
 )	)	OTHER
 
 4	CD	QTY
-cloves	NNS	NAME
+cloves	NNS	UNIT
 of	IN	OTHER
 garlic	JJ	NAME
 (	(	OTHER
@@ -16397,7 +16397,7 @@ spn	NN	UNIT
 Honey	NNP	NAME
 
 2	CD	QTY
-cloves	NNS	NAME
+cloves	NNS	UNIT
 of	IN	OTHER
 Garlic	NNP	NAME
 
@@ -16655,7 +16655,7 @@ removed	VBN	COM
 slices	NNS	UNIT
 
 Garlic	NNP	NAME
-cloves	NNS	NAME
+cloves	NNS	UNIT
 ,	,	OTHER
 skin	FW	NAME
 removed	VBD	COM
@@ -17211,7 +17211,7 @@ Garlic	NNP	NAME
 ...	:	OTHER
 ...	:	OTHER
 ..4-5	JJ	QTY
-cloves	NNS	NAME
+cloves	NNS	UNIT
 
 Red	JJ	COM
 chilli	NN	NAME
@@ -18380,7 +18380,7 @@ chopped	VBD	COM
 
 2	CD	QTY
 garlic	JJ	NAME
-cloves	NNS	NAME
+cloves	NNS	UNIT
 ,	,	OTHER
 bruised	VBN	COM
 and	CC	OTHER
@@ -18653,7 +18653,7 @@ Salt	NNP	NAME
 ,	,	OTHER
 Garlic	NNP	NAME
 4-5	CD	QTY
-cloves	NNS	NAME
+cloves	NNS	UNIT
 paste	NN	NAME
 ,	,	OTHER
 a	DT	OTHER
@@ -19102,7 +19102,7 @@ left	VBN	COM
 whole	JJ	NAME
 plump	NN	NAME
 garlic	NN	NAME
-cloves	NNS	NAME
+cloves	NNS	UNIT
 
 50g	CD	QTY
 unsalted	JJ	COM
@@ -19276,7 +19276,7 @@ pepper	NN	NAME
 about	IN	OTHER
 10	CD	QTY
 whole	JJ	NAME
-cloves	NNS	NAME
+cloves	NNS	UNIT
 
 about	RB	OTHER
 8	CD	QTY
@@ -20025,7 +20025,7 @@ Ginger-1	NNP	QTY
 small	JJ	COM
 piece	NN	UNIT
 Garlic-6	NNP	QTY
-cloves	VBZ	NAME
+cloves	VBZ	UNIT
 Onion-2	NNP	QTY
 Tomato-3	NNP	QTY
 Green	NNP	COM
@@ -20275,7 +20275,7 @@ skin	NN	NAME
 
 6-8	JJ	QTY
 garlic	NN	NAME
-cloves	NNS	NAME
+cloves	NNS	UNIT
 
 salt	NN	NAME
 &	CC	OTHER
@@ -20465,7 +20465,7 @@ room	NN	OTHER
 temperature	NN	OTHER
 
 2	CD	QTY
-cloves	NNS	NAME
+cloves	NNS	UNIT
 ,	,	OTHER
 crushed	VBD	COM
 or	CC	OTHER
@@ -20568,7 +20568,7 @@ creamy	NN	COM
 
 Garlic	JJ	NAME
 crushed-1-2	JJ	QTY
-cloves	NNS	NAME
+cloves	NNS	UNIT
 
 Pepper	NNP	NAME
 powder-1	NN	QTY
@@ -21272,7 +21272,7 @@ dried	VBN	COM
 red	JJ	COM
 chillies	NNS	NAME
 
-cloves	NNS	NAME
+cloves	NNS	UNIT
 2no	CD	QTY
 
 cinnamon	NN	NAME
@@ -22872,7 +22872,7 @@ slices	NNS	UNIT
 7-8	JJ	QTY
 big	JJ	COM
 garlic	NN	NAME
-cloves	NNS	NAME
+cloves	NNS	UNIT
 
 6-7	JJ	QTY
 green	JJ	COM
@@ -23051,7 +23051,7 @@ oil	NN	NAME
 1	CD	QTY
 cup	NN	UNIT
 garlic	JJ	NAME
-cloves	NNS	NAME
+cloves	NNS	UNIT
 
 1	CD	QTY
 cup	JJ	UNIT
@@ -27479,7 +27479,7 @@ ghee	NN	NAME
 3	CD	QTY
 to	TO	OTHER
 4	CD	QTY
-cloves	NNS	NAME
+cloves	NNS	UNIT
 
 1	CD	QTY
 cup	NN	UNIT
@@ -27613,7 +27613,7 @@ seeds	NNS	NAME
 
 1	CD	QTY
 teaspoon	NN	UNIT
-cloves	NNS	NAME
+cloves	NNS	UNIT
 
 2	CD	QTY
 tablespoons	NNS	UNIT
@@ -29850,7 +29850,7 @@ carrots	NNS	NAME
 
 ½	JJ	OTHER
 teaspoon	NN	UNIT
-cloves	NNS	NAME
+cloves	NNS	UNIT
 
 2	CD	QTY
 cups	NNS	UNIT
@@ -32696,7 +32696,7 @@ chopped	VBD	COM
 ,	,	OTHER
 Garlic	NNP	NAME
 5-6	JJ	QTY
-cloves	NNS	NAME
+cloves	NNS	UNIT
 ,	,	OTHER
 Ginger	NNP	NAME
 1/2	CD	QTY
@@ -32982,7 +32982,7 @@ coconut	NN	NAME
 to	TO	OTHER
 5	CD	QTY
 garlic	JJ	NAME
-cloves	NNS	NAME
+cloves	NNS	UNIT
 
 2	CD	QTY
 tablespoons	NNS	UNIT
@@ -33661,7 +33661,7 @@ ginger	NN	NAME
 to	TO	OTHER
 8	CD	QTY
 garlic	JJ	NAME
-cloves	NNS	NAME
+cloves	NNS	UNIT
 
 2	CD	QTY
 tablespoons	NNS	UNIT
@@ -34008,7 +34008,7 @@ jeera	NN	NAME
 )	)	OTHER
 
 1-3	JJ	QTY
-cloves	NNS	NAME
+cloves	NNS	UNIT
 
 1	CD	QTY
 cinnamon	NN	NAME
@@ -34338,7 +34338,7 @@ onions	NNS	NAME
 6	CD	QTY
 –	JJ	OTHER
 8	CD	QTY
-cloves	NNS	NAME
+cloves	NNS	UNIT
 garlic	JJ	NAME
 (	(	OTHER
 crushed	VBN	COM
@@ -34621,7 +34621,7 @@ ginger	NN	NAME
 to	TO	OTHER
 8	CD	QTY
 garlic	JJ	NAME
-cloves	NNS	NAME
+cloves	NNS	UNIT
 
 2	CD	QTY
 tablespoons	NNS	UNIT
@@ -34951,7 +34951,7 @@ mushrooms	NNS	NAME
 onion	NN	NAME
 
 4-5	JJ	QTY
-cloves	NNS	NAME
+cloves	NNS	UNIT
 of	IN	OTHER
 garlic	NN	NAME
 
@@ -36509,7 +36509,7 @@ ghee	NN	NAME
 2	CD	QTY
 to	TO	OTHER
 3	CD	QTY
-cloves	NNS	NAME
+cloves	NNS	UNIT
 
 1	CD	QTY
 cup	NN	UNIT
@@ -38803,7 +38803,7 @@ Pyaj	NNP	NAME
 ,	,	OTHER
 chopped	VBD	COM
 4	CD	QTY
-cloves	NNS	NAME
+cloves	NNS	UNIT
 garlic	JJ	NAME
 (	(	OTHER
 lasan	JJ	NAME
@@ -38911,7 +38911,7 @@ Onions	NNS	NAME
 ''	''	OTHER
 Ginger	NNP	NAME
 12	CD	QTY
-cloves	NNS	NAME
+cloves	NNS	UNIT
 Garlic	NNP	NAME
 10	CD	QTY
 Green	NNP	COM
@@ -38997,7 +38997,7 @@ seeds	NNS	NAME
 nos	NNS	UNIT
 .	.	OTHER
 Garlic	NNP	NAME
-cloves	VBZ	NAME
+cloves	VBZ	UNIT
 1/4	CD	QTY
 tsp	NN	UNIT
 Mustard	NNP	NAME
@@ -39465,7 +39465,7 @@ Garlic	NNP	NAME
 10	CD	QTY
 to	TO	OTHER
 12	CD	QTY
-cloves	NNS	NAME
+cloves	NNS	UNIT
 Shallots/Chinna	NNP	UNIT
 Vengayam	NNP	NAME
 -	:	OTHER
@@ -39587,7 +39587,7 @@ Garlic	NNP	NAME
 3	CD	QTY
 to	TO	OTHER
 4	CD	QTY
-cloves	NNS	NAME
+cloves	NNS	UNIT
 Red	NNP	COM
 Chillies	NNPS	NAME
 -	:	OTHER
@@ -39644,7 +39644,7 @@ Minced	NNP	COM
 Garlic	NNP	NAME
 –	VBD	OTHER
 3	CD	QTY
-cloves	NNS	NAME
+cloves	NNS	UNIT
 Curry	NNP	NAME
 Leaves	NNP	NAME
 (	(	OTHER
@@ -40039,7 +40039,7 @@ Cardamom	NNP	NAME
 -	:	OTHER
 1/2	CD	QTY
 Garlic	NNP	NAME
-cloves	NNS	NAME
+cloves	NNS	UNIT
 -	:	OTHER
 4	CD	QTY
 finely	RB	COM
@@ -42669,7 +42669,7 @@ sticks	NNS	NAME
 cinnamon	NN	NAME
 
 few	JJ	OTHER
-cloves	NNS	NAME
+cloves	NNS	UNIT
 (	(	OTHER
 lavang	NN	NAME
 )	)	OTHER
@@ -44007,14 +44007,14 @@ ginger	NN	NAME
 grated	VBN	COM
 
 5-6	JJ	QTY
-cloves	NNS	NAME
+cloves	NNS	UNIT
 of	IN	OTHER
 garlic	JJ	NAME
 finely	RB	COM
 chopped	VBD	COM
 
 2-3	JJ	QTY
-cloves	NNS	NAME
+cloves	NNS	UNIT
 (	(	OTHER
 lavaga	NN	NAME
 )	)	OTHER
@@ -44403,7 +44403,7 @@ cinnamon	NN	NAME
 teaspoon	NN	UNIT
 of	IN	OTHER
 ground	NN	COM
-cloves	NNS	NAME
+cloves	NNS	UNIT
 
 1	CD	QTY
 tablespoon	NN	UNIT
@@ -45838,7 +45838,7 @@ sticks	NNS	NAME
 cardamoms	NNS	NAME
 
 4-5	JJ	QTY
-cloves	NNS	NAME
+cloves	NNS	UNIT
 
 2	CD	QTY
 tablespoons	NNS	UNIT
@@ -46205,7 +46205,7 @@ sticks	NNS	NAME
 ,	,	OTHER
 cardamoms	NNS	NAME
 and	CC	OTHER
-cloves	NNS	NAME
+cloves	NNS	UNIT
 each	DT	OTHER
 ,	,	OTHER
 ground	NN	COM
@@ -46457,7 +46457,7 @@ cinnamon	NN	NAME
 sticks	NNS	NAME
 
 4-5	JJ	QTY
-cloves	NNS	NAME
+cloves	NNS	UNIT
 
 4-5	JJ	QTY
 cardamoms	NNS	NAME
@@ -47725,7 +47725,7 @@ cinnamon	NN	NAME
 sticks	NNS	NAME
 
 3-4	JJ	QTY
-cloves	NNS	NAME
+cloves	NNS	UNIT
 
 3-4	JJ	QTY
 cardamoms	NNS	NAME
@@ -47930,7 +47930,7 @@ sticks	NNS	NAME
 cardamoms	NNS	NAME
 
 4-5	JJ	QTY
-cloves	NNS	NAME
+cloves	NNS	UNIT
 
 1/2	CD	QTY
 teaspoon	NN	UNIT
@@ -47942,7 +47942,7 @@ powder	NN	NAME
 cardamoms	NNS	NAME
 
 4-5	JJ	QTY
-cloves	NNS	NAME
+cloves	NNS	UNIT
 
 1/2	CD	QTY
 teaspoon	NN	UNIT
@@ -48228,7 +48228,7 @@ sticks	NNS	NAME
 cardamoms	NNS	NAME
 
 4-5	JJ	QTY
-cloves	NNS	NAME
+cloves	NNS	UNIT
 
 1/2	CD	QTY
 cup	NN	UNIT
@@ -48374,7 +48374,7 @@ onion	NN	NAME
 slices	NNS	UNIT
 
 2	CD	QTY
-cloves	NNS	NAME
+cloves	NNS	UNIT
 
 2	CD	QTY
 cardamoms	NNS	NAME
@@ -48590,7 +48590,7 @@ cardamoms	NNS	NAME
 powdered	VBD	COM
 
 4-5	JJ	QTY
-cloves	NNS	NAME
+cloves	NNS	UNIT
 ,	,	OTHER
 powdered	VBD	COM
 
@@ -49210,7 +49210,7 @@ cinnamon	NN	NAME
 cardamoms	NNS	NAME
 ,	,	OTHER
 3-4	JJ	QTY
-cloves	NNS	NAME
+cloves	NNS	UNIT
 ,	,	OTHER
 1/4	CD	QTY
 of	IN	OTHER
@@ -49376,7 +49376,7 @@ cinnamon	NN	NAME
 cardamoms	NNS	NAME
 ,	,	OTHER
 3-4	JJ	QTY
-cloves	NNS	NAME
+cloves	NNS	UNIT
 ,	,	OTHER
 1/4	CD	QTY
 of	IN	OTHER
@@ -49496,7 +49496,7 @@ cinnamon	NN	NAME
 cardamoms	NNS	NAME
 ,	,	OTHER
 3-4	JJ	QTY
-cloves	NNS	NAME
+cloves	NNS	UNIT
 ,	,	OTHER
 1/4	CD	QTY
 of	IN	OTHER
@@ -49999,7 +49999,7 @@ cinnamon	NN	NAME
 sticks	NNS	NAME
 
 4-5	JJ	QTY
-cloves	NNS	NAME
+cloves	NNS	UNIT
 
 4-7	JJ	QTY
 bay	NN	NAME
@@ -50343,7 +50343,7 @@ cinnamon	NN	NAME
 sticks	NNS	NAME
 
 4	CD	QTY
-cloves	NNS	NAME
+cloves	NNS	UNIT
 
 3-4	JJ	QTY
 bay	NN	NAME
@@ -50397,7 +50397,7 @@ Seeds	NNP	NAME
 
 10	CD	QTY
 -15	JJ	QTY
-cloves	NNS	NAME
+cloves	NNS	UNIT
 (	(	OTHER
 1	CD	QTY
 pod	NN	NAME
@@ -50693,7 +50693,7 @@ cinnamon	NN	NAME
 sticks	NNS	NAME
 
 4	CD	QTY
-cloves	NNS	NAME
+cloves	NNS	UNIT
 
 4	CD	QTY
 bay	NN	NAME
@@ -50790,7 +50790,7 @@ chili	NN	NAME
 pods	NNS	NAME
 (	(	OTHER
 18-20	JJ	QTY
-cloves	NNS	NAME
+cloves	NNS	UNIT
 )	)	OTHER
 Garlic	VBP	NAME
 
@@ -51155,7 +51155,7 @@ cinnamons	NNS	NAME
 ,	,	OTHER
 cardamoms	NNS	NAME
 and	CC	OTHER
-cloves	NNS	NAME
+cloves	NNS	UNIT
 
 1/2	CD	QTY
 teaspoon	NN	UNIT
@@ -51205,7 +51205,7 @@ sliced	VBN	COM
 
 2	CD	QTY
 garlic	JJ	NAME
-cloves	NNS	NAME
+cloves	NNS	UNIT
 ,	,	OTHER
 peeled	VBD	COM
 and	CC	OTHER
@@ -51371,7 +51371,7 @@ cinnamon	NN	NAME
 sticks	NNS	NAME
 
 4-5	JJ	QTY
-cloves	NNS	NAME
+cloves	NNS	UNIT
 
 water	NN	NAME
 as	IN	OTHER
@@ -52041,7 +52041,7 @@ black	JJ	COM
 pepper	NN	NAME
 balls	NNS	NAME
 and	CC	OTHER
-cloves	NNS	NAME
+cloves	NNS	UNIT
 
 water	NN	NAME
 as	IN	OTHER
@@ -52102,7 +52102,7 @@ cinnamon	NN	NAME
 sticks	NNS	NAME
 
 4-5	JJ	QTY
-cloves	NNS	NAME
+cloves	NNS	UNIT
 
 4-5	JJ	QTY
 bay	NN	NAME
@@ -52387,7 +52387,7 @@ pealed	VBN	COM
 2-3	JJ	QTY
 cardamoms	NNS	NAME
 ,	,	OTHER
-cloves	NNS	NAME
+cloves	NNS	UNIT
 and	CC	OTHER
 cinnamon	NN	NAME
 sticks	NNS	NAME
@@ -52530,7 +52530,7 @@ paste	NN	NAME
 cardamoms	NNS	NAME
 
 2	CD	QTY
-cloves	NNS	NAME
+cloves	NNS	UNIT
 
 2	CD	QTY
 bay	NN	NAME
@@ -52756,7 +52756,7 @@ onion	NN	NAME
 sliced	VBD	COM
 
 2-3	JJ	QTY
-cloves	NNS	NAME
+cloves	NNS	UNIT
 of	IN	OTHER
 garlic	NN	NAME
 ,	,	OTHER
@@ -52877,7 +52877,7 @@ needed	VBN	OTHER
 4-5	JJ	QTY
 pieces	NNS	UNIT
 of	IN	OTHER
-cloves	NNS	NAME
+cloves	NNS	UNIT
 
 4	CD	QTY
 chicken	NN	NAME
@@ -52963,7 +52963,7 @@ cardamoms	NNS	NAME
 cinnamon	NN	NAME
 sticks	NNS	NAME
 and	CC	OTHER
-cloves	NNS	NAME
+cloves	NNS	UNIT
 
 1	CD	QTY
 kg	NN	UNIT
@@ -53061,7 +53061,7 @@ cinnamon	NN	NAME
 sticks	NNS	NAME
 
 4-5	JJ	QTY
-cloves	NNS	NAME
+cloves	NNS	UNIT
 
 4-5	JJ	QTY
 black	JJ	COM
@@ -53741,7 +53741,7 @@ cinnamon	NN	NAME
 sticks	NNS	NAME
 
 4-5	JJ	QTY
-cloves	NNS	NAME
+cloves	NNS	UNIT
 
 2-3	JJ	QTY
 bay	NN	NAME
@@ -53841,7 +53841,7 @@ cinnamon	NN	NAME
 sticks	NNS	NAME
 
 4	CD	QTY
-cloves	NNS	NAME
+cloves	NNS	UNIT
 
 3	CD	QTY
 bay	NN	NAME
@@ -53932,7 +53932,7 @@ cinnamon	NN	NAME
 sticks	NNS	NAME
 
 4-5	JJ	QTY
-cloves	NNS	NAME
+cloves	NNS	UNIT
 
 4-5	JJ	QTY
 black	JJ	COM
@@ -54445,7 +54445,7 @@ cinnamon	NN	NAME
 sticks	NNS	NAME
 
 4-5	JJ	QTY
-cloves	NNS	NAME
+cloves	NNS	UNIT
 
 4-5	JJ	QTY
 black	JJ	COM
@@ -54878,7 +54878,7 @@ cinnamons	NNS	NAME
 bay	NN	NAME
 leaves	NNS	NAME
 and	CC	OTHER
-cloves	NNS	NAME
+cloves	NNS	UNIT
 )	)	OTHER
 
 2	CD	QTY
@@ -55291,7 +55291,7 @@ cinnamon	NN	NAME
 sticks	NNS	NAME
 
 4-5	JJ	QTY
-cloves	NNS	NAME
+cloves	NNS	UNIT
 
 salt	NN	NAME
 as	IN	OTHER
@@ -55666,7 +55666,7 @@ leaves	NNS	NAME
 
 2-3	JJ	QTY
 garlic	NN	NAME
-cloves	NNS	NAME
+cloves	NNS	UNIT
 
 2	CD	QTY
 green	JJ	COM
@@ -55822,7 +55822,7 @@ cinnamon	NN	NAME
 sticks	NNS	NAME
 
 2-3	JJ	QTY
-cloves	NNS	NAME
+cloves	NNS	UNIT
 
 1	CD	QTY
 tablespoon	NN	UNIT
@@ -56247,7 +56247,7 @@ cinnamon	NN	NAME
 sticks	NNS	NAME
 
 4-5	JJ	QTY
-cloves	NNS	NAME
+cloves	NNS	UNIT
 
 water	NN	NAME
 as	IN	OTHER
@@ -56405,7 +56405,7 @@ cinnamon	NN	NAME
 sticks	NNS	NAME
 
 4-5	JJ	QTY
-cloves	NNS	NAME
+cloves	NNS	UNIT
 
 water	NN	NAME
 as	IN	OTHER
@@ -56463,7 +56463,7 @@ needed	VBN	OTHER
 
 3	CD	QTY
 garlic	JJ	NAME
-cloves	NNS	NAME
+cloves	NNS	UNIT
 
 4	CD	QTY
 tablespoons	NNS	UNIT
@@ -56759,7 +56759,7 @@ pepper	NN	NAME
 
 6-8	JJ	QTY
 garlic	NN	NAME
-cloves	NNS	NAME
+cloves	NNS	UNIT
 
 2	CD	QTY
 tablespoons	NNS	UNIT
@@ -57241,7 +57241,7 @@ leaves	NNS	NAME
 4-5	JJ	QTY
 pieces	NNS	UNIT
 of	IN	OTHER
-cloves	NNS	NAME
+cloves	NNS	UNIT
 
 4-5	JJ	QTY
 pieces	NNS	UNIT
@@ -58265,7 +58265,7 @@ big	JJ	COM
 cardamoms	NNS	NAME
 
 8	CD	QTY
-cloves	NNS	NAME
+cloves	NNS	UNIT
 
 4	CD	QTY
 bay	NN	NAME
@@ -59151,7 +59151,7 @@ cardamoms	NNS	NAME
 3-4	JJ	QTY
 long	RB	COM
 (	(	OTHER
-cloves	NNS	NAME
+cloves	NNS	UNIT
 )	)	OTHER
 
 3-4	JJ	QTY
@@ -61234,7 +61234,7 @@ cinnamon	NN	NAME
 sticks	NNS	NAME
 
 4-5	JJ	QTY
-cloves	NNS	NAME
+cloves	NNS	UNIT
 
 2	CD	QTY
 bay	NN	NAME
@@ -61920,7 +61920,7 @@ onions	NNS	NAME
 garlic	JJ	NAME
 or	CC	OTHER
 4-5	JJ	QTY
-cloves	NNS	NAME
+cloves	NNS	UNIT
 
 1	CD	QTY
 bunch	NN	UNIT
@@ -62571,7 +62571,7 @@ cardamoms	NNS	NAME
 cinnamon	NN	NAME
 sticks	NNS	NAME
 and	CC	OTHER
-cloves	NNS	NAME
+cloves	NNS	UNIT
 
 2	CD	QTY
 bay	NN	NAME
@@ -62813,7 +62813,7 @@ bay	NN	NAME
 leaves	NNS	NAME
 
 4	CD	QTY
-cloves	NNS	NAME
+cloves	NNS	UNIT
 ,	,	OTHER
 3	CD	QTY
 cinnamon	NN	NAME
@@ -64094,7 +64094,7 @@ bay	NN	NAME
 leaves	NNS	NAME
 
 2	CD	QTY
-cloves	NNS	NAME
+cloves	NNS	UNIT
 
 Salt	NNP	NAME
 as	IN	OTHER
@@ -64455,7 +64455,7 @@ cinnamon	NN	NAME
 sticks	NNS	NAME
 
 2-3	JJ	QTY
-cloves	NNS	NAME
+cloves	NNS	UNIT
 
 1/2	CD	QTY
 teaspoon	NN	UNIT
@@ -64645,7 +64645,7 @@ Garlic	NNP	NAME
 ,	,	OTHER
 chopped-	JJ	COM
 2	CD	QTY
-cloves	NNS	NAME
+cloves	NNS	UNIT
 
 Pinch	NN	UNIT
 of	IN	OTHER
@@ -65561,7 +65561,7 @@ black	JJ	COM
 pepper	NN	NAME
 
 4-5	JJ	QTY
-clove	NN	NAME
+clove	NN	UNIT
 of	IN	OTHER
 garlic	JJ	NAME
 ,	,	OTHER
@@ -66260,7 +66260,7 @@ til	NN	NAME
 
 9-10	CD	QTY
 garlic	JJ	NAME
-cloves	NNS	NAME
+cloves	NNS	UNIT
 
 1	CD	QTY
 teaspoon	NN	UNIT
@@ -66832,7 +66832,7 @@ cumin	NN	NAME
 paste	NN	NAME
 
 5-6	JJ	QTY
-cloves	NNS	NAME
+cloves	NNS	UNIT
 of	IN	OTHER
 garlic	NN	NAME
 
@@ -66908,7 +66908,7 @@ sticks	NNS	NAME
 cardamoms	NNS	NAME
 
 2-3	JJ	QTY
-cloves	NNS	NAME
+cloves	NNS	UNIT
 
 1	CD	QTY
 bay	NN	NAME
@@ -67137,7 +67137,7 @@ onion	NN	NAME
 sliced	VBD	COM
 
 3-4	JJ	QTY
-cloves	NNS	NAME
+cloves	NNS	UNIT
 of	IN	OTHER
 garlic	NN	NAME
 ,	,	OTHER
@@ -67182,7 +67182,7 @@ onion	NN	NAME
 sliced	VBD	COM
 
 3-4	JJ	QTY
-cloves	NNS	NAME
+cloves	NNS	UNIT
 of	IN	OTHER
 garlic	NN	NAME
 ,	,	OTHER
@@ -67836,7 +67836,7 @@ tomatoes	NNS	NAME
 chopped	VBD	COM
 
 2	CD	QTY
-cloves	NNS	NAME
+cloves	NNS	UNIT
 garlic	JJ	NAME
 
 1	CD	QTY
@@ -68319,7 +68319,7 @@ cinnamon	NN	NAME
 sticks	NNS	NAME
 
 2	CD	QTY
-cloves	NNS	NAME
+cloves	NNS	UNIT
 
 1	CD	QTY
 handful	NN	UNIT
@@ -68672,7 +68672,7 @@ cinnamon	NN	NAME
 sticks	NNS	NAME
 
 4	CD	QTY
-cloves	NNS	NAME
+cloves	NNS	UNIT
 
 water	NN	NAME
 as	IN	OTHER
@@ -69407,7 +69407,7 @@ sliced	VBD	COM
 thinly	RB	COM
 
 4-5	JJ	QTY
-cloves	NNS	NAME
+cloves	NNS	UNIT
 of	IN	OTHER
 garlic	NN	NAME
 ,	,	OTHER
@@ -69685,7 +69685,7 @@ cinnamon	NN	NAME
 sticks	NNS	NAME
 
 4	CD	QTY
-cloves	NNS	NAME
+cloves	NNS	UNIT
 
 Salt	NNP	NAME
 as	IN	OTHER
@@ -70859,7 +70859,7 @@ green	JJ	COM
 chillies	NNS	NAME
 
 4-5	JJ	QTY
-cloves	NNS	NAME
+cloves	NNS	UNIT
 of	IN	OTHER
 garlic	NN	NAME
 
@@ -70883,7 +70883,7 @@ bay	NN	NAME
 leaf	NN	NAME
 
 2	CD	QTY
-cloves	NNS	NAME
+cloves	NNS	UNIT
 
 1.5	CD	QTY
 cups	NNS	UNIT
@@ -71236,7 +71236,7 @@ teaspoon	NN	UNIT
 vinegar	NN	NAME
 
 2	CD	QTY
-cloves	NNS	NAME
+cloves	NNS	UNIT
 garlic	JJ	NAME
 ,	,	OTHER
 chopped	VBD	COM
@@ -71696,7 +71696,7 @@ finely	RB	COM
 chopped	VBD	COM
 
 4-5	JJ	QTY
-cloves	NNS	NAME
+cloves	NNS	UNIT
 garlic	JJ	NAME
 crushed/	VBP	COM
 finely	RB	COM
@@ -71882,7 +71882,7 @@ as	IN	OTHER
 needed	VBN	OTHER
 
 2	CD	QTY
-cloves	NNS	NAME
+cloves	NNS	UNIT
 
 2	CD	QTY
 bay	NN	NAME
@@ -72526,7 +72526,7 @@ paste	NN	NAME
 
 4-5	JJ	QTY
 garlic	NN	NAME
-cloves	NNS	NAME
+cloves	NNS	UNIT
 
 10-12	JJ	QTY
 dry	JJ	COM
@@ -72966,7 +72966,7 @@ onions	NNS	NAME
 sliced	VBD	COM
 
 3	CD	QTY
-cloves	NNS	NAME
+cloves	NNS	UNIT
 of	IN	OTHER
 garlic	NN	NAME
 ,	,	OTHER
@@ -74086,7 +74086,7 @@ needed	VBN	OTHER
 
 2	CD	QTY
 garlic	JJ	NAME
-cloves	NNS	NAME
+cloves	NNS	UNIT
 ,	,	OTHER
 grinded	VBD	COM
 into	IN	OTHER
@@ -74251,7 +74251,7 @@ chilli	NN	NAME
 powder	NN	NAME
 
 2-3	JJ	QTY
-cloves	NNS	NAME
+cloves	NNS	UNIT
 of	IN	OTHER
 garlic	NN	NAME
 ,	,	OTHER
@@ -74368,7 +74368,7 @@ onions	NNS	NAME
 sliced	VBD	COM
 
 3	CD	QTY
-cloves	NNS	NAME
+cloves	NNS	UNIT
 of	IN	OTHER
 garlic	NN	NAME
 ,	,	OTHER
@@ -75934,7 +75934,7 @@ needed	VBN	OTHER
 medium	NN	COM
 sized	VBN	COM
 garlic	JJ	NAME
-cloves	NNS	NAME
+cloves	NNS	UNIT
 ,	,	OTHER
 chopped	VBD	COM
 
@@ -76137,7 +76137,7 @@ leaves	NNS	NAME
 3	CD	QTY
 to	TO	OTHER
 4	CD	QTY
-cloves	NNS	NAME
+cloves	NNS	UNIT
 
 small	JJ	COM
 stick	NN	NAME
@@ -76977,7 +76977,7 @@ bay	NN	NAME
 leaves	NNS	NAME
 and	CC	OTHER
 4	CD	QTY
-cloves	NNS	NAME
+cloves	NNS	UNIT
 grinded	VBD	COM
 together	RB	OTHER
 in	IN	OTHER
@@ -77098,7 +77098,7 @@ oil	NN	NAME
 onions	NNS	NAME
 
 5	CD	QTY
-cloves	NNS	NAME
+cloves	NNS	UNIT
 of	IN	OTHER
 garlic	NN	NAME
 
@@ -77166,7 +77166,7 @@ cinnamon	NN	NAME
 sticks	NNS	NAME
 
 4-5	JJ	QTY
-cloves	NNS	NAME
+cloves	NNS	UNIT
 
 1	CD	QTY
 teaspoon	NN	UNIT
@@ -77474,7 +77474,7 @@ cinnamon	NN	NAME
 sticks	NNS	NAME
 
 2-3	JJ	QTY
-cloves	NNS	NAME
+cloves	NNS	UNIT
 
 3-4	JJ	QTY
 green	JJ	COM
@@ -77745,7 +77745,7 @@ pieces	NNS	UNIT
 
 2	CD	QTY
 garlic	JJ	NAME
-cloves	NNS	NAME
+cloves	NNS	UNIT
 ,	,	OTHER
 chopped	VBD	COM
 
@@ -77824,7 +77824,7 @@ shutki	NN	NAME
 
 3	CD	QTY
 garlic	JJ	NAME
-cloves	NNS	NAME
+cloves	NNS	UNIT
 
 Salt	NNP	NAME
 as	IN	OTHER
@@ -78161,7 +78161,7 @@ bay	NN	NAME
 leaves	NNS	NAME
 
 4	CD	QTY
-cloves	NNS	NAME
+cloves	NNS	UNIT
 
 1	CD	QTY
 liter	NN	UNIT
@@ -79096,7 +79096,7 @@ slices	NNS	UNIT
 
 2	CD	QTY
 garlic	JJ	NAME
-cloves	NNS	NAME
+cloves	NNS	UNIT
 chopped	VBD	COM
 into	IN	OTHER
 thin	JJ	COM
@@ -79268,7 +79268,7 @@ cardamom	NN	NAME
 ,	,	OTHER
 cinnamon	NN	NAME
 ,	,	OTHER
-clove	VB	NAME
+clove	VB	UNIT
 
 2	CD	QTY
 medium	NN	COM
@@ -79451,7 +79451,7 @@ peeled	VBD	COM
 diced	VBD	COM
 
 4-5	JJ	QTY
-cloves	NNS	NAME
+cloves	NNS	UNIT
 garlic	JJ	NAME
 ,	,	OTHER
 peeled	VBD	COM
@@ -79552,7 +79552,7 @@ piece	NN	UNIT
 ginger	NN	NAME
 
 5	CD	QTY
-cloves	NNS	NAME
+cloves	NNS	UNIT
 garlic	JJ	NAME
 
 6	CD	QTY
@@ -80848,7 +80848,7 @@ lamb	JJ	NAME
 chops	NNS	NAME
 
 2	CD	QTY
-cloves	NNS	NAME
+cloves	NNS	UNIT
 
 2	CD	QTY
 cinnamom	NN	NAME
@@ -81203,7 +81203,7 @@ potato	NN	NAME
 4	CD	QTY
 to	TO	OTHER
 5	CD	QTY
-cloves	NNS	NAME
+cloves	NNS	UNIT
 of	IN	OTHER
 garlic	NN	NAME
 
@@ -81433,7 +81433,7 @@ paste	NN	NAME
 1tbspr	CD	QTY
 
 8	CD	QTY
-cloves	NNS	NAME
+cloves	NNS	UNIT
 -	:	OTHER
 8	CD	QTY
 
@@ -82332,7 +82332,7 @@ seed	NN	NAME
 to	TO	OTHER
 6	CD	QTY
 whole	JJ	NAME
-cloves	NNS	NAME
+cloves	NNS	UNIT
 
 4	CD	QTY
 T	NNP	OTHER
@@ -83369,7 +83369,7 @@ chopped	VBD	COM
 3	CD	QTY
 to	TO	OTHER
 4	CD	QTY
-cloves	NNS	NAME
+cloves	NNS	UNIT
 garlic	JJ	NAME
 ,	,	OTHER
 peeled	JJ	COM
@@ -83518,7 +83518,7 @@ finely	RB	COM
 chopped	VBD	COM
 
 5-6	JJ	QTY
-cloves	NNS	NAME
+cloves	NNS	UNIT
 Paste	NNP	COM
 of	IN	OTHER
 Garlic	NNP	NAME
@@ -83618,7 +83618,7 @@ veggie	NN	NAME
 stock	NN	NAME
 
 1	CD	QTY
-clove	NN	NAME
+clove	NN	UNIT
 garlic	NN	NAME
 ,	,	OTHER
 mashed	VBN	COM
@@ -83654,7 +83654,7 @@ finally	RB	COM
 diced	VBD	COM
 
 2	CD	QTY
-cloves	NNS	NAME
+cloves	NNS	UNIT
 garlic	JJ	NAME
 ,	,	OTHER
 minced	VBD	COM
@@ -84770,7 +84770,7 @@ fresh	JJ	COM
 spinach	NN	NAME
 
 2	CD	QTY
-cloves	NNS	NAME
+cloves	NNS	UNIT
 garlic	JJ	NAME
 ,	,	OTHER
 chopped	VBD	COM
@@ -84805,7 +84805,7 @@ garlic	JJ	NAME
 or	CC	OTHER
 6	CD	QTY
 fresh	JJ	COM
-cloves	NNS	NAME
+cloves	NNS	UNIT
 diced	VBD	COM
 )	)	OTHER
 
@@ -86126,7 +86126,7 @@ Golconda	NNP	NAME
 )	)	OTHER
 
 7-8	JJ	QTY
-cloves	NNS	NAME
+cloves	NNS	UNIT
 Garlic	NNP	NAME
 -	:	OTHER
 peeled	VBN	COM
@@ -86581,7 +86581,7 @@ Beef	NNP	NAME
 
 8	CD	QTY
 Garlic	NNP	NAME
-cloves	NNS	NAME
+cloves	NNS	UNIT
 
 Small	JJ	COM
 piece	NN	UNIT
@@ -86753,7 +86753,7 @@ Salt	NNP	NAME
 Rice	NN	NAME
 
 5	CD	QTY
-cloves	NNS	NAME
+cloves	NNS	UNIT
 ,	,	OTHER
 1	CD	QTY
 ''	''	OTHER
@@ -86879,7 +86879,7 @@ onion	NN	NAME
 medium	NN	COM
 
 4-5	JJ	QTY
-cloves	NNS	NAME
+cloves	NNS	UNIT
 Garlic	NNP	NAME
 
 50-100	JJ	QTY
@@ -87204,7 +87204,7 @@ chickpea	NNS	NAME
 flour	VBP	NAME
 
 4	CD	QTY
-cloves	NNS	NAME
+cloves	NNS	UNIT
 garlic	JJ	NAME
 finely	RB	COM
 chopped	VBD	COM
@@ -87637,7 +87637,7 @@ juice	NN	NAME
 8	CD	QTY
 large	JJ	COM
 garlic	JJ	NAME
-cloves	NNS	NAME
+cloves	NNS	UNIT
 ,	,	OTHER
 crushed	VBD	COM
 
@@ -88456,7 +88456,7 @@ Red	NNP	COM
 Chillies	NNS	NAME
 
 6	CD	QTY
-cloves	NNS	NAME
+cloves	NNS	UNIT
 Garlic	NNP	NAME
 peeled	VBD	COM
 and	CC	OTHER
@@ -89172,7 +89172,7 @@ Sugar	NN	NAME
 
 3	CD	QTY
 large	JJ	COM
-cloves	NNS	NAME
+cloves	NNS	UNIT
 Garlic	NNP	NAME
 
 1/4	CD	QTY
@@ -89198,7 +89198,7 @@ lemon	NN	NAME
 juiced	VBD	COM
 
 2	CD	QTY
-cloves	NNS	NAME
+cloves	NNS	UNIT
 garlic	JJ	NAME
 ,	,	OTHER
 crushed	VBD	COM
@@ -89312,7 +89312,7 @@ skin	NN	NAME
 8	CD	QTY
 Nos	NNP	UNIT
 Garlic	NNP	NAME
-cloves	NNS	NAME
+cloves	NNS	UNIT
 (	(	OTHER
 peeled	VBN	COM
 &	CC	OTHER
@@ -89403,7 +89403,7 @@ large	JJ	COM
 chunks	NNS	NAME
 
 4	CD	QTY
-cloves	NNS	NAME
+cloves	NNS	UNIT
 garlic	JJ	NAME
 ,	,	OTHER
 finely	RB	COM
@@ -90097,7 +90097,7 @@ soy	NN	NAME
 sauce	NN	NAME
 
 2	CD	QTY
-cloves	NNS	NAME
+cloves	NNS	UNIT
 garlic	JJ	NAME
 ,	,	OTHER
 crushed	VBD	COM
@@ -90131,7 +90131,7 @@ thinly	RB	COM
 sliced	VBD	COM
 
 4	CD	QTY
-cloves	NNS	NAME
+cloves	NNS	UNIT
 garlic	JJ	NAME
 ,	,	OTHER
 minced	VBD	COM
@@ -90677,7 +90677,7 @@ chopped	VBD	COM
 
 12	CD	QTY
 garlic	JJ	NAME
-cloves	NNS	NAME
+cloves	NNS	UNIT
 ,	,	OTHER
 unpeeled	VBD	COM
 
@@ -90811,7 +90811,7 @@ paprika	NN	NAME
 
 1	CD	QTY
 garlic	JJ	NAME
-clove	NN	NAME
+clove	NN	UNIT
 ,	,	OTHER
 crushed	VBD	COM
 
@@ -91079,7 +91079,7 @@ diced	VBD	COM
 
 2	CD	QTY
 garlic	JJ	NAME
-cloves	NNS	NAME
+cloves	NNS	UNIT
 ,	,	OTHER
 crushed	VBD	COM
 
@@ -91118,7 +91118,7 @@ diced	VBD	COM
 
 3	CD	QTY
 garlic	JJ	NAME
-cloves	NNS	NAME
+cloves	NNS	UNIT
 ,	,	OTHER
 crushed	VBD	COM
 
@@ -91425,7 +91425,7 @@ to	TO	OTHER
 taste	VB	OTHER
 
 6	CD	QTY
-cloves	NNS	NAME
+cloves	NNS	UNIT
 of	IN	OTHER
 garlic	NN	NAME
 ,	,	OTHER
@@ -91887,7 +91887,7 @@ oil	NN	NAME
 
 1	CD	QTY
 garlic	JJ	NAME
-clove	NN	NAME
+clove	NN	UNIT
 ,	,	OTHER
 crushed	VBD	COM
 
@@ -92434,7 +92434,7 @@ mustard	RB	NAME
 powder	VBP	NAME
 
 whole	JJ	NAME
-cloves	NNS	NAME
+cloves	NNS	UNIT
 for	IN	OTHER
 studding	VBG	COM
 ham	NN	NAME
@@ -92592,7 +92592,7 @@ egg	NN	NAME
 yolks	NNS	NAME
 
 1	CD	QTY
-clove	NN	NAME
+clove	NN	UNIT
 garlic	NN	NAME
 ,	,	OTHER
 crushed	VBD	COM
@@ -92739,7 +92739,7 @@ onion	NN	NAME
 chopped	VBD	COM
 
 1	CD	QTY
-clove	NN	NAME
+clove	NN	UNIT
 garlic	NN	NAME
 ,	,	OTHER
 crushed	VBD	COM
@@ -92821,7 +92821,7 @@ taste	VB	OTHER
 
 4	CD	QTY
 large	JJ	COM
-cloves	NNS	NAME
+cloves	NNS	UNIT
 of	IN	OTHER
 garlic	NN	NAME
 
@@ -93071,7 +93071,7 @@ plum	NN	NAME
 tomatoes	NNS	NAME
 
 2	CD	QTY
-cloves	NNS	NAME
+cloves	NNS	UNIT
 garlic	JJ	NAME
 ,	,	OTHER
 crushed	VBD	COM
@@ -93442,7 +93442,7 @@ bacon	RB	NAME
 chopped	VBD	COM
 
 2	CD	QTY
-cloves	NNS	NAME
+cloves	NNS	UNIT
 garlic	JJ	NAME
 chopped	VBD	COM
 
@@ -93675,7 +93675,7 @@ sliced	VBD	COM
 
 4	CD	QTY
 garlic	JJ	NAME
-cloves	NNS	NAME
+cloves	NNS	UNIT
 ,	,	OTHER
 minced	VBD	COM
 
@@ -94469,7 +94469,7 @@ onion	NN	NAME
 chopped	VBD	COM
 
 2	CD	QTY
-cloves	NNS	NAME
+cloves	NNS	UNIT
 garlic	JJ	NAME
 ,	,	OTHER
 chopped	VBD	COM
@@ -94929,7 +94929,7 @@ taste	VB	OTHER
 butter	NN	NAME
 
 1	CD	QTY
-clove	NN	NAME
+clove	NN	UNIT
 garlic	NN	NAME
 ,	,	OTHER
 chopped	VBD	COM
@@ -95082,7 +95082,7 @@ mustard	NN	NAME
 
 2	CD	QTY
 garlic	JJ	NAME
-cloves	NNS	NAME
+cloves	NNS	UNIT
 ,	,	OTHER
 chopped	VBD	COM
 
@@ -95192,7 +95192,7 @@ chillies	NNS	NAME
 chopped	VBD	COM
 
 3	CD	QTY
-cloves	NNS	NAME
+cloves	NNS	UNIT
 garlic	JJ	NAME
 
 2	CD	QTY
@@ -95389,7 +95389,7 @@ onion	NN	NAME
 chopped	VBD	COM
 
 2	CD	QTY
-cloves	NNS	NAME
+cloves	NNS	UNIT
 garlic	JJ	NAME
 ,	,	OTHER
 chopped	VBD	COM
@@ -95621,7 +95621,7 @@ chopped	VBD	COM
 tomatoes	NNS	NAME
 
 4	CD	QTY
-cloves	NNS	NAME
+cloves	NNS	UNIT
 garlic	JJ	NAME
 ,	,	OTHER
 chopped	VBD	COM
@@ -95698,7 +95698,7 @@ finely	RB	COM
 chopped	VBD	COM
 
 1	CD	QTY
-clove	NN	NAME
+clove	NN	UNIT
 garlic	NN	NAME
 ,	,	OTHER
 finely	RB	COM
@@ -95768,7 +95768,7 @@ onions	NNS	NAME
 chopped	VBD	COM
 
 1	CD	QTY
-clove	NN	NAME
+clove	NN	UNIT
 garlic	NN	NAME
 ,	,	OTHER
 crushed	VBD	COM
@@ -95859,7 +95859,7 @@ aniseed	JJ	NAME
 pepper	NN	NAME
 
 25g	CD	QTY
-cloves	NNS	NAME
+cloves	NNS	UNIT
 
 50g	CD	QTY
 coriander	NN	NAME
@@ -95970,7 +95970,7 @@ onion	NN	NAME
 minced	VBD	COM
 
 2	CD	QTY
-cloves	NNS	NAME
+cloves	NNS	UNIT
 garlic	JJ	NAME
 ,	,	OTHER
 finely	RB	COM
@@ -96158,7 +96158,7 @@ boiling	JJ	COM
 water	NN	NAME
 
 1	CD	QTY
-clove	NN	NAME
+clove	NN	UNIT
 garlic	NN	NAME
 ,	,	OTHER
 crushed	VBD	COM
@@ -96234,7 +96234,7 @@ juice	NN	NAME
 
 2	CD	QTY
 large	JJ	COM
-cloves	NNS	NAME
+cloves	NNS	UNIT
 garlic	JJ	NAME
 ,	,	OTHER
 divided	VBD	COM
@@ -96331,7 +96331,7 @@ and	CC	OTHER
 diced	VBD	COM
 
 2	CD	QTY
-cloves	NNS	NAME
+cloves	NNS	UNIT
 of	IN	OTHER
 garlic	NN	NAME
 ,	,	OTHER
@@ -96603,7 +96603,7 @@ grated	JJ	COM
 nutmeg	NN	NAME
 
 2	CD	QTY
-cloves	NNS	NAME
+cloves	NNS	UNIT
 of	IN	OTHER
 garlic	JJ	NAME
 ,	,	OTHER
@@ -96678,7 +96678,7 @@ thinly	RB	COM
 sliced	VBD	COM
 
 2	CD	QTY
-cloves	NNS	NAME
+cloves	NNS	UNIT
 garlic	JJ	NAME
 ,	,	OTHER
 minced	VBD	COM
@@ -96722,7 +96722,7 @@ and	CC	OTHER
 boiled	VBD	COM
 
 1	CD	QTY
-clove	NN	NAME
+clove	NN	UNIT
 of	IN	OTHER
 garlic	NN	NAME
 ,	,	OTHER
@@ -97038,7 +97038,7 @@ olive	JJ	NAME
 oil	NN	NAME
 
 3	CD	QTY
-cloves	NNS	NAME
+cloves	NNS	UNIT
 garlic	JJ	NAME
 ,	,	OTHER
 minced	VBD	COM
@@ -97632,7 +97632,7 @@ sliced	VBD	COM
 
 2	CD	QTY
 crushed	JJ	COM
-cloves	NNS	NAME
+cloves	NNS	UNIT
 of	IN	OTHER
 garlic	NN	NAME
 
@@ -97709,7 +97709,7 @@ black	JJ	COM
 cardamoms	NNS	NAME
 
 4-5	JJ	QTY
-cloves	NNS	NAME
+cloves	NNS	UNIT
 
 2-3	JJ	QTY
 black	JJ	COM
@@ -98120,7 +98120,7 @@ pine	NN	NAME
 nuts	NNS	NAME
 
 1	CD	QTY
-clove	NN	NAME
+clove	NN	UNIT
 garlic	NN	NAME
 
 black	JJ	COM
@@ -98529,7 +98529,7 @@ cm	NN	UNIT
 cubes	NNS	UNIT
 
 1	CD	QTY
-clove	NN	NAME
+clove	NN	UNIT
 garlic	NN	NAME
 ,	,	OTHER
 finely	RB	COM
@@ -99107,7 +99107,7 @@ onions	NNS	NAME
 diced	VBD	COM
 
 1	CD	QTY
-clove	NN	NAME
+clove	NN	UNIT
 of	IN	OTHER
 garlic	NN	NAME
 
@@ -99312,7 +99312,7 @@ finely	RB	COM
 chopped	VBD	COM
 
 2	CD	QTY
-cloves	NNS	NAME
+cloves	NNS	UNIT
 garlic	JJ	NAME
 ,	,	OTHER
 crushed	VBD	COM
@@ -99794,7 +99794,7 @@ sliced	VBD	COM
 mushrooms	NNS	NAME
 
 1	CD	QTY
-clove	NN	NAME
+clove	NN	UNIT
 garlic	NN	NAME
 ,	,	OTHER
 crushed	VBD	COM
@@ -99910,7 +99910,7 @@ sauce	NN	NAME
 seasoning	VBG	COM
 
 8	CD	QTY
-cloves	NNS	NAME
+cloves	NNS	UNIT
 garlic	JJ	NAME
 
 Knob	NNP	OTHER
@@ -100005,7 +100005,7 @@ English	JJ	COM
 mustard	NN	NAME
 
 5	CD	QTY
-cloves	NNS	NAME
+cloves	NNS	UNIT
 
 5	CD	QTY
 cardamom	NN	NAME
@@ -100187,7 +100187,7 @@ and	CC	OTHER
 pepper	NN	NAME
 
 4	CD	QTY
-cloves	NNS	NAME
+cloves	NNS	UNIT
 of	IN	OTHER
 garlic	NN	NAME
 
@@ -100288,7 +100288,7 @@ chopped	VBD	COM
 
 3	CD	QTY
 garlic	JJ	NAME
-cloves	NNS	NAME
+cloves	NNS	UNIT
 chopped	VBD	COM
 
 225ml	CD	QTY
@@ -100459,7 +100459,7 @@ chopped	VBD	COM
 
 1	CD	QTY
 garlic	JJ	NAME
-clove	NN	NAME
+clove	NN	UNIT
 ,	,	OTHER
 crushed	VBD	COM
 
@@ -100939,7 +100939,7 @@ onions	NNS	NAME
 sliced	VBD	COM
 
 3	CD	QTY
-cloves	NNS	NAME
+cloves	NNS	UNIT
 garlic	JJ	NAME
 ,	,	OTHER
 minced	VBD	COM
@@ -101228,7 +101228,7 @@ tomatoes	NNS	NAME
 chopped	VBD	COM
 
 2	CD	QTY
-cloves	NNS	NAME
+cloves	NNS	UNIT
 of	IN	OTHER
 garlic	NN	NAME
 
@@ -101311,7 +101311,7 @@ onion	NN	NAME
 chopped	VBD	COM
 
 2	CD	QTY
-cloves	NNS	NAME
+cloves	NNS	UNIT
 garlic	JJ	NAME
 ,	,	OTHER
 crushed	VBD	COM
@@ -101478,7 +101478,7 @@ leaves	NNS	NAME
 ripped	VBD	COM
 
 2	CD	QTY
-cloves	NNS	NAME
+cloves	NNS	UNIT
 garlic	JJ	NAME
 ,	,	OTHER
 crushed	VBD	COM
@@ -101525,7 +101525,7 @@ basil	NN	NAME
 chopped	VBD	COM
 
 2	CD	QTY
-cloves	NNS	NAME
+cloves	NNS	UNIT
 garlic	JJ	NAME
 ,	,	OTHER
 minced	VBD	COM
@@ -101585,7 +101585,7 @@ cardamoms	NNS	NAME
 peeled	VBD	COM
 
 5-6	JJ	QTY
-cloves	NNS	NAME
+cloves	NNS	UNIT
 
 1/4	CD	QTY
 tsp	JJ	UNIT
@@ -102396,7 +102396,7 @@ finely	RB	COM
 chopped	VBD	COM
 
 2	CD	QTY
-cloves	NNS	NAME
+cloves	NNS	UNIT
 garlic	JJ	NAME
 ,	,	OTHER
 minced	VBD	COM
@@ -102652,7 +102652,7 @@ pepper	NN	NAME
 1/4	CD	QTY
 tsp	NN	UNIT
 ground	NN	COM
-cloves	NNS	NAME
+cloves	NNS	UNIT
 
 1	CD	QTY
 tablespoon	NN	UNIT
@@ -103146,7 +103146,7 @@ chopped	VBD	COM
 
 1	CD	QTY
 garlic	JJ	NAME
-clove	NN	NAME
+clove	NN	UNIT
 ,	,	OTHER
 minced	VBD	COM
 
@@ -103208,7 +103208,7 @@ and	CC	OTHER
 chopped	VBD	COM
 
 2	CD	QTY
-cloves	NNS	NAME
+cloves	NNS	UNIT
 garlic	JJ	NAME
 ,	,	OTHER
 minced	VBD	COM
@@ -103330,7 +103330,7 @@ sliced	VBN	COM
 
 2	CD	QTY
 garlic	JJ	NAME
-cloves	NNS	NAME
+cloves	NNS	UNIT
 ,	,	OTHER
 crushed	VBD	COM
 
@@ -103386,7 +103386,7 @@ olive	JJ	NAME
 oil	NN	NAME
 
 1	CD	QTY
-clove	NN	NAME
+clove	NN	UNIT
 garlic	NN	NAME
 ,	,	OTHER
 minced	VBD	COM
@@ -104194,7 +104194,7 @@ onions	NNS	NAME
 chopped	VBD	COM
 
 2	CD	QTY
-cloves	NNS	NAME
+cloves	NNS	UNIT
 garlic	JJ	NAME
 ,	,	OTHER
 crushed	VBD	COM
@@ -105661,7 +105661,7 @@ and	CC	OTHER
 chopped	VBD	COM
 
 1	CD	QTY
-clove	NN	NAME
+clove	NN	UNIT
 garlic	NN	NAME
 ,	,	OTHER
 chopped	VBD	COM
@@ -106477,7 +106477,7 @@ chopped	VBD	COM
 
 3	CD	QTY
 garlic	JJ	NAME
-cloves	NNS	NAME
+cloves	NNS	UNIT
 ,	,	OTHER
 chopped	VBD	COM
 
@@ -106923,7 +106923,7 @@ and	CC	OTHER
 halved	VBD	COM
 
 3	CD	QTY
-cloves	NNS	NAME
+cloves	NNS	UNIT
 of	IN	OTHER
 garlic	NN	NAME
 
@@ -106963,7 +106963,7 @@ toasted	VBD	COM
 breadcrumbs	NNS	NAME
 
 5	CD	QTY
-cloves	NNS	NAME
+cloves	NNS	UNIT
 garlic	JJ	NAME
 
 sea	NN	NAME
@@ -107442,7 +107442,7 @@ and	CC	OTHER
 drained	VBN	COM
 
 2-3	JJ	QTY
-cloves	NNS	NAME
+cloves	NNS	UNIT
 
 1	CD	QTY
 pod	JJ	NAME
@@ -107509,13 +107509,13 @@ onion	NN	NAME
 onion	NN	NAME
 
 1	CD	QTY
-clove	NN	NAME
+clove	NN	UNIT
 garlic	NN	NAME
 ,	,	OTHER
 peeled	VBD	COM
 
 1	CD	QTY
-clove	NN	NAME
+clove	NN	UNIT
 garlic	NN	NAME
 ,	,	OTHER
 peeled	VBD	COM
@@ -107627,7 +107627,7 @@ soft	JJ	COM
 sugar	NN	NAME
 
 3	CD	QTY
-cloves	NNS	NAME
+cloves	NNS	UNIT
 garlic	JJ	NAME
 ,	,	OTHER
 crushed	VBD	COM
@@ -107714,13 +107714,13 @@ leek	NN	NAME
 chopped	VBD	COM
 
 2	CD	QTY
-cloves	NNS	NAME
+cloves	NNS	UNIT
 garlic	JJ	NAME
 ,	,	OTHER
 crushed	VBD	COM
 
 2	CD	QTY
-cloves	NNS	NAME
+cloves	NNS	UNIT
 garlic	JJ	NAME
 ,	,	OTHER
 crushed	VBD	COM
@@ -108460,7 +108460,7 @@ fresh	JJ	COM
 thyme	NN	NAME
 
 1	CD	QTY
-clove	NN	NAME
+clove	NN	UNIT
 garlic	NN	NAME
 ,	,	OTHER
 minced	VBD	COM
@@ -108671,7 +108671,7 @@ turai	NN	NAME
 diced	VBD	COM
 
 1	CD	QTY
-clove	NN	NAME
+clove	NN	UNIT
 garlic	NN	NAME
 ,	,	OTHER
 minced	VBD	COM
@@ -109388,7 +109388,7 @@ to	TO	OTHER
 taste	VB	OTHER
 
 2	CD	QTY
-cloves	NNS	NAME
+cloves	NNS	UNIT
 garlic	JJ	NAME
 ,	,	OTHER
 peeled	VBD	COM
@@ -109951,7 +109951,7 @@ pieces	NNS	UNIT
 
 8	CD	QTY
 whole	JJ	NAME
-cloves	NNS	NAME
+cloves	NNS	UNIT
 
 2	CD	QTY
 tablespoons	NNS	UNIT
@@ -110857,7 +110857,7 @@ onion	NN	NAME
 diced	VBD	COM
 
 3	CD	QTY
-cloves	NNS	NAME
+cloves	NNS	UNIT
 garlic	JJ	NAME
 ,	,	OTHER
 minced	VBD	COM
@@ -110979,7 +110979,7 @@ vinegar	NN	NAME
 
 1	CD	QTY
 garlic	JJ	NAME
-clove	NN	NAME
+clove	NN	UNIT
 ,	,	OTHER
 crushed	VBN	COM
 (	(	OTHER
@@ -111059,7 +111059,7 @@ fresh	JJ	COM
 ginger	NN	NAME
 
 1	CD	QTY
-clove	NN	NAME
+clove	NN	UNIT
 garlic	NN	NAME
 ,	,	OTHER
 minced	VBD	COM
@@ -111186,7 +111186,7 @@ oil	NN	NAME
 
 1	CD	QTY
 garlic	JJ	NAME
-clove	NN	NAME
+clove	NN	UNIT
 ,	,	OTHER
 crushed	VBD	COM
 

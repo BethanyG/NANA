@@ -118,7 +118,7 @@ def parse_ingredient(ingredient):
     pos = nltk.pos_tag(tok)
     labels = crf.predict_single(sent2features(pos))
     grammar = r"""
-    AMOUNT: {<QTY>+<UNIT>}
+    AMOUNT: {<QTY>+<UNIT>?}
     INGREDIENT: {<NAME>+}
     """
     cp = nltk.RegexpParser(grammar)
@@ -154,5 +154,5 @@ def train_model():
 if __name__ == '__main__':
     
     # train_model()
-    tree = parse_ingredient("1 1/2 cup freshly shredded Parmesan cheese")
+    tree = parse_ingredient("1 1/2 lb of asparagus stalks, trimmed roughly the length of your bread")
     tree.draw()
