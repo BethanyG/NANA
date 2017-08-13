@@ -62,7 +62,7 @@ class Recipe(object):
             
         recipe_json = json.dumps(recipe_dict, cls=Quantity_JSONEncoder).rstrip("}") + ',"ingredients" : [ '
         ingredient_json = ",".join(ingredient_list)        
-        new_recipe_json = recipe_json + ingredient_json.lstrip("'").rstrip("'") + "]}"
+        new_recipe_json = recipe_json + ingredient_json.lstrip("'").rstrip("'") + "]}}"
         
         return new_recipe_json
  
