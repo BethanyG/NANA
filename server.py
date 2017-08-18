@@ -12,9 +12,9 @@ is-not-callable-flask.html
 from jinja2 import StrictUndefined
 from flask import Flask, render_template, redirect, request, flash, session, url_for, jsonify
 from flask_debugtoolbar import DebugToolbarExtension
-from model import *
-from RecipeMaker import *
-from IngredientAnalyzer import *
+from model import connect_to_db 
+from RecipeMaker import RecipeMaker, Recipe
+from IngredientAnalyzer import IngredientAnalyzer
 
 app = Flask(__name__)
 

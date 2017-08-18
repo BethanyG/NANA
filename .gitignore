@@ -20,3 +20,8 @@ alchemyapi_python/
 *API*
 *api*
 
+# Sublime text
+*.sublime*
+
+# Virtual environment
+virtualenv/
