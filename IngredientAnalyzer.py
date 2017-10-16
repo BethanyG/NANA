@@ -169,22 +169,26 @@ class IngredientAnalyzer(object):
     @staticmethod
     def query_for_ingredient(ingredient):
         
-        QUERY = '''SELECT
-                        food_descriptions.ndb_no, food_descriptions.long_desc,
-                        similarity(food_descriptions.long_desc, %s) AS sim_score 
-                   FROM
-                        food_descriptions
-                   WHERE
-                        long_desc @@ plainto_tsquery('english', %s)
-                   ORDER BY 
-                        similarity(food_descriptions.long_desc, %s) DESC;'''
-        
+        QUERY = '''
+                SELECT 
+                    food_descriptions.ndb_no, food_descriptions.long_desc,
+                    similarity(food_descriptions.long_desc, %s) AS sim_score  
+                FROM 
+                    food_descriptions
+                WHERE 
+                    long_desc %% %s
+                AND 
+                    long_desc @@ plainto_tsquery('english', %s)   
+                ORDER BY 
+                    food_descriptions.long_desc <-> %s;
+                '''        
+                
         if ingredient.search_term == None:
             return ingredient
         
-        else:    
+        else:
             term = ingredient.search_term
-            ingred_query_result = db.engine.execute(QUERY, (term, term, term))
+            ingred_query_result = db.engine.execute(QUERY, (term, term, term, term))
             first_row = ingred_query_result.fetchone()     #fetches the first row and processes it differently
             
             if first_row != None:    
